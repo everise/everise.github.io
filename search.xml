@@ -1,6 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[General Notes of Golang]]></title>
+    <url>%2F2018%2F09%2F28%2FGeneral-Notes-of-Golang%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 375: Guess Number Higher or Lower II]]></title>
+    <url>%2F2018%2F09%2F28%2FLeetCode-375-Guess-Number-Higher-or-Lower-II%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 304: Range Sum Query 2D - Immutable]]></title>
+    <url>%2F2018%2F09%2F28%2FLeetCode-304-Range-Sum-Query-2D-Immutable%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 221: Maximal Square]]></title>
+    <url>%2F2018%2F09%2F28%2FLeetCode-221-Maximal-Square%2F</url>
+    <content type="text"><![CDATA[123func maximalSquare(matrix [][]byte) int &#123;&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 198: House Robber]]></title>
+    <url>%2F2018%2F09%2F28%2FLeetCode-198-House-Robber%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324func rob(nums []int) int &#123; var even, odd, res int for i, v := range nums &#123; if i % 2 == 0 &#123; if even + v &gt; odd &#123; even = even + v &#125;else &#123; even = odd &#125; &#125;else &#123; if odd + v &gt; even &#123; odd = odd + v &#125;else &#123; odd = even &#125; &#125; &#125; if even &gt; odd &#123; res = even &#125;else &#123; res = odd &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 188: Best Time to Buy and Sell Stock IV]]></title>
+    <url>%2F2018%2F09%2F28%2FLeetCode-188-Best-Time-to-Buy-and-Sell-Stock-IV%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122func maxProfit(k int, prices []int) int &#123; if k &gt; len(prices) &#123; k = len(prices) &#125; var bp, sp []int for i := 0; i &lt; k; i++ &#123; bp = append(bp, -0x80000000) sp = append(sp, 0) &#125; sp = append(sp, 0) for _, v := range prices &#123; for j := 0; j &lt; k; j++ &#123; if bp[i] &lt; sp[i] - v &#123; bp[i] = sp[i] - v &#125; if sp[i+1] &lt; v + bp[i] &#123; sp[i+1] = v + bp[i] &#125; &#125; &#125; return sp[k]&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 139: Word Break]]></title>
+    <url>%2F2018%2F09%2F28%2FLeetCode-139-Word-Break%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526func wordBreak(s string, wordDict []string) bool &#123; if len(wordDict) == 0 &#123; return false &#125; dict := make(map[string]bool) length := []int for _, v := range wordDict &#123; if _, exist := dict[v]; !exist &#123; dict[v] = true length = append(length,len(v)) &#125; &#125; dp := make([]bool, len(s)+1) dp[0] = true for i := 0; i &lt; len(s); i++ &#123; if !dp[i] &#123; continue &#125; for _, size := range length &#123; dp[i+size] = dp[i+size] || dict[s[i:i+size]] &#125; &#125; return dp[len(s)]&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 10: Regular Expression Matching]]></title>
+    <url>%2F2018%2F09%2F28%2FLeetCode-10-Regular-Expression-Matching%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819func isMatch(s string, p string) bool &#123; dp := make([][]bool, len(s)+1) for i := range dp &#123; dp[i] = make([]bool, len(p)+1) &#125; dp[len(s)][len(p)] = true for i := len(s); i &gt;= 0; i-- &#123; for j := len(p) - 1; j &gt;= 0; j-- &#123; firstMatch := i &lt; len(s) &amp;&amp; (p[j] == s[i] || p[j] == '.') if j+1 &lt; len(p) &amp;&amp; p[j + 1] == '*' &#123; dp[i][j] = dp[i][j + 2] || firstMatch &amp;&amp; dp[i + 1][j] &#125;else &#123; dp[i][j] = firstMatch &amp;&amp; dp[i + 1][j + 1] &#125; &#125; &#125; return dp[0][0]&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+        <tag>String</tag>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 8: String to Integer (atoi)]]></title>
     <url>%2F2018%2F09%2F28%2FLeetCode-8-String-to-Integer-atoi%2F</url>
     <content type="text"><![CDATA[This is following: 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748func myAtoi(str string) int &#123; s := strings.TrimSpace(str) if len(s) == 0 &#123; return 0 &#125; symbol := ‘+’ if s[0] == ‘-’ &#123; symbol = ‘-’ s = s[1:] &#125;else s[0] == ‘+’ &#123; s = s[1:] &#125; if len(s) == 0 &#123; return 0 &#125; if s[0] &lt; ‘0’ || s[0] &gt; ‘9’ &#123; return 0 &#125; for i := range s &#123; if s[i] &lt; ‘0’ || s[i] &gt; ‘9’ &#123; s = s[:i] break &#125; &#125; res := 0 for _, ch := range []byte(s) &#123; ch -= ‘0’ if ch &gt; 9 &#123; return 0 &#125; res = res*10 + int(ch) if res &gt; 0x7FFFFFFF &#123; if symbol == ‘-’ &#123; return -0x80000000 &#125; return 0x7FFFFFFF &#125; &#125; if symbol == ‘-’ &#123; res = -res &#125; return res&#125;]]></content>
@@ -9,8 +85,8 @@
       </categories>
       <tags>
         <tag>Golang</tag>
-        <tag>Math</tag>
         <tag>String</tag>
+        <tag>Math</tag>
       </tags>
   </entry>
   <entry>
@@ -77,10 +153,5 @@
         <tag>Hash Table</tag>
         <tag>Golang</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F09%2F27%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
