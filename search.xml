@@ -4,26 +4,44 @@
     <title><![CDATA[General Notes of Golang]]></title>
     <url>%2F2018%2F09%2F28%2FGeneral-Notes-of-Golang%2F</url>
     <content type="text"></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 375: Guess Number Higher or Lower II]]></title>
     <url>%2F2018%2F09%2F28%2FLeetCode-375-Guess-Number-Higher-or-Lower-II%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[LeetCode 304: Range Sum Query 2D - Immutable]]></title>
-    <url>%2F2018%2F09%2F28%2FLeetCode-304-Range-Sum-Query-2D-Immutable%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[LeetCode 221: Maximal Square]]></title>
-    <url>%2F2018%2F09%2F28%2FLeetCode-221-Maximal-Square%2F</url>
-    <content type="text"><![CDATA[123func maximalSquare(matrix [][]byte) int &#123;&#125;]]></content>
+    <content type="text"><![CDATA[123func getMoneyAmount(n int) int &#123;&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
+        <tag>Dynamic Programming</tag>
+        <tag>Minimax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 304: Range Sum Query 2D - Immutable]]></title>
+    <url>%2F2018%2F09%2F28%2FLeetCode-304-Range-Sum-Query-2D-Immutable%2F</url>
+    <content type="text"><![CDATA[123type NumMatrix struct &#123;&#125; 1234567func Constructor(matrix [][]int) NumMatrix &#123; &#125;func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int &#123;&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 221: Maximal Square]]></title>
+    <url>%2F2018%2F09%2F28%2FLeetCode-221-Maximal-Square%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435func maximalSquare(matrix [][]byte) int &#123; if len(matrix) == 0 || len(matrix[0]) == 0 &#123; return 0 &#125; res := 0 dp := make([][]int, len(matrix)) for t := range dp &#123; dp[t] = make([]int, len(matrix[0])) &#125; for i := range matrix &#123; for j := range matrix[i] &#123; if i == 0 || j == 0 &#123; dp[i][j] = int(matrix[i][j]) - '0' &#125;else if int(matrix[i][j]) == '1' &#123; if dp[i-1][j] &lt; dp[i][j-1] &#123; if dp[i-1][j] &lt; dp[i-1][j-1] &#123; dp [i][j] = dp[i-1][j] + 1 &#125;else &#123; dp[i][j] = dp[i-1][j-1] + 1 &#125; &#125;else &#123; if dp[i][j-1] &lt; dp[i-1][j-1] &#123; dp [i][j] = dp[i][j-1] + 1 &#125;else &#123; dp[i][j] = dp[i-1][j-1] + 1 &#125; &#125; &#125; if res &lt; dp[i][j] &#123; res = dp[i][j] &#125; &#125; &#125; return res * res &#125; 1234567891011121314151617181920212223242526272829303132333435func maximalSquare(matrix [][]byte) int &#123; if len(matrix) == 0 || len(matrix[0]) == 0 &#123; return 0 &#125; dp := [2][]int&#123;make([]int, len(matrix[0])+1), make([]int, len(matrix[0])+1)&#125; res, curr := 0, 0 for i := range matrix &#123; prev := curr curr = 1 - curr for j := range matrix[i] &#123; if matrix[i][j] == '0' &#123; dp[curr][j+1] = 0 continue &#125; if dp[curr][j] &lt; dp[prev][j] &#123; if dp[curr][j] &lt; dp[prev][j+1] &#123; dp[curr][j+1] = dp[curr][j] + 1 &#125;else &#123; dp[curr][j+1] = dp[prev][j+1] + 1 &#125; &#125;else &#123; if dp[prev][j] &lt; dp[prev][j+1] &#123; dp[curr][j+1] = dp[prev][j] + 1 &#125;else &#123; dp[curr][j+1] = dp[prev][j+1] + 1 &#125; &#125; if res &lt; dp[curr][j+1] &#123; res = dp[curr][j+1] &#125; &#125; &#125; return res * res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
         <tag>Dynamic Programming</tag>
       </tags>
   </entry>
@@ -35,7 +53,6 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
         <tag>Dynamic Programming</tag>
       </tags>
   </entry>
@@ -47,7 +64,6 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
         <tag>Dynamic Programming</tag>
       </tags>
   </entry>
@@ -59,7 +75,6 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
         <tag>Dynamic Programming</tag>
       </tags>
   </entry>
@@ -71,7 +86,6 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
         <tag>Dynamic Programming</tag>
         <tag>String</tag>
       </tags>
@@ -84,7 +98,6 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
         <tag>String</tag>
         <tag>Math</tag>
       </tags>
@@ -97,7 +110,6 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
         <tag>Math</tag>
       </tags>
   </entry>
@@ -109,7 +121,6 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
         <tag>Dynamic Programming</tag>
         <tag>String</tag>
       </tags>
@@ -123,7 +134,6 @@
       </categories>
       <tags>
         <tag>Hash Table</tag>
-        <tag>Golang</tag>
         <tag>String</tag>
         <tag>Two Pointers</tag>
       </tags>
@@ -136,7 +146,6 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Golang</tag>
         <tag>Linked List</tag>
         <tag>Math</tag>
       </tags>
@@ -151,7 +160,6 @@
       <tags>
         <tag>Array</tag>
         <tag>Hash Table</tag>
-        <tag>Golang</tag>
       </tags>
   </entry>
 </search>
