@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 418: Sentence Screen Fitting]]></title>
+    <url>%2F2018%2F10%2F02%2FLeetcode-418-Sentence-Screen-Fitting%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 416: Partition Equal Subset Sum]]></title>
+    <url>%2F2018%2F10%2F02%2FLeetcode-416-Partition-Equal-Subset-Sum%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[General Notes of Golang]]></title>
     <url>%2F2018%2F09%2F28%2FGeneral-Notes-of-Golang%2F</url>
     <content type="text"></content>
@@ -26,7 +36,7 @@
   <entry>
     <title><![CDATA[LeetCode 304: Range Sum Query 2D - Immutable]]></title>
     <url>%2F2018%2F09%2F28%2FLeetCode-304-Range-Sum-Query-2D-Immutable%2F</url>
-    <content type="text"><![CDATA[123type NumMatrix struct &#123;&#125; 1234567func Constructor(matrix [][]int) NumMatrix &#123; &#125;func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int &#123;&#125;]]></content>
+    <content type="text"><![CDATA[123type NumMatrix struct &#123; dp [][]int&#125; 12345678910111213141516171819202122func Constructor(matrix [][]int) NumMatrix &#123; var m, n int if len(matrix) == 0 || len(matrix[0]) == 0 &#123; m, n = 0, 0 &#125;else &#123; m, n = len(matrix), len(matrix[0]) &#125; dp := make([][]int, m + 1) for v := range dp &#123; dp[v] = make([]int, n + 1) &#125; for i := 1; i &lt;= m; i++ &#123; for j := 1; j &lt;=n; j++ &#123; dp[i][j] = matrix[i-1][j-1] + dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1] &#125; &#125; return NumMatrix&#123;dp: dp&#125;&#125;func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int &#123; return this.dp[row2+1][col2+1] - this.dp[row2+1][col1] - this.dp[row1][col2+1] + this.dp[row1][col1]&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -86,8 +96,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Dynamic Programming</tag>
         <tag>String</tag>
+        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -121,8 +131,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Dynamic Programming</tag>
         <tag>String</tag>
+        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -133,8 +143,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Hash Table</tag>
         <tag>String</tag>
+        <tag>Hash Table</tag>
         <tag>Two Pointers</tag>
       </tags>
   </entry>

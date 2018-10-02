@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://everise.github.io/"/>
-  <updated>2018-09-29T22:18:31.863Z</updated>
+  <updated>2018-10-02T18:46:57.721Z</updated>
   <id>https://everise.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode 418: Sentence Screen Fitting</title>
+    <link href="https://everise.github.io/2018/10/02/Leetcode-418-Sentence-Screen-Fitting/"/>
+    <id>https://everise.github.io/2018/10/02/Leetcode-418-Sentence-Screen-Fitting/</id>
+    <published>2018-10-02T18:46:57.000Z</published>
+    <updated>2018-10-02T18:46:57.721Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 416: Partition Equal Subset Sum</title>
+    <link href="https://everise.github.io/2018/10/02/Leetcode-416-Partition-Equal-Subset-Sum/"/>
+    <id>https://everise.github.io/2018/10/02/Leetcode-416-Partition-Equal-Subset-Sum/</id>
+    <published>2018-10-02T18:46:33.000Z</published>
+    <updated>2018-10-02T18:46:33.173Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>General Notes of Golang</title>
@@ -63,13 +91,13 @@
     <link href="https://everise.github.io/2018/09/28/LeetCode-304-Range-Sum-Query-2D-Immutable/"/>
     <id>https://everise.github.io/2018/09/28/LeetCode-304-Range-Sum-Query-2D-Immutable/</id>
     <published>2018-09-28T14:49:41.000Z</published>
-    <updated>2018-09-30T20:35:44.698Z</updated>
+    <updated>2018-10-02T18:41:24.675Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> NumMatrix <span class="keyword">struct</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Constructor</span><span class="params">(matrix [][]<span class="keyword">int</span>)</span> <span class="title">NumMatrix</span></span> &#123;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *NumMatrix)</span> <span class="title">SumRegion</span><span class="params">(row1 <span class="keyword">int</span>, col1 <span class="keyword">int</span>, row2 <span class="keyword">int</span>, col2 <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> NumMatrix <span class="keyword">struct</span> &#123;</span><br><span class="line">    dp [][]<span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Constructor</span><span class="params">(matrix [][]<span class="keyword">int</span>)</span> <span class="title">NumMatrix</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> m, n <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(matrix) == <span class="number">0</span> || <span class="built_in">len</span>(matrix[<span class="number">0</span>]) == <span class="number">0</span> &#123;</span><br><span class="line">        m, n = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        m, n = <span class="built_in">len</span>(matrix), <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">    &#125;</span><br><span class="line">    dp := <span class="built_in">make</span>([][]<span class="keyword">int</span>, m + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> v := <span class="keyword">range</span> dp &#123;</span><br><span class="line">        dp[v] = <span class="built_in">make</span>([]<span class="keyword">int</span>, n + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= m; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;=n; j++ &#123;</span><br><span class="line">            dp[i][j] = matrix[i<span class="number">-1</span>][j<span class="number">-1</span>] + dp[i<span class="number">-1</span>][j] + dp[i][j<span class="number">-1</span>] - dp[i<span class="number">-1</span>][j<span class="number">-1</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> NumMatrix&#123;dp: dp&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *NumMatrix)</span> <span class="title">SumRegion</span><span class="params">(row1 <span class="keyword">int</span>, col1 <span class="keyword">int</span>, row2 <span class="keyword">int</span>, col2 <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> this.dp[row2+<span class="number">1</span>][col2+<span class="number">1</span>] - this.dp[row2+<span class="number">1</span>][col1] - this.dp[row1][col2+<span class="number">1</span>] + this.dp[row1][col1]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; NumMatrix &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; NumMatrix &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dp [][]&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -186,55 +214,9 @@
       <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
     
     
+      <category term="String" scheme="https://everise.github.io/tags/String/"/>
+    
       <category term="Dynamic Programming" scheme="https://everise.github.io/tags/Dynamic-Programming/"/>
-    
-      <category term="String" scheme="https://everise.github.io/tags/String/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 8: String to Integer (atoi)</title>
-    <link href="https://everise.github.io/2018/09/28/LeetCode-8-String-to-Integer-atoi/"/>
-    <id>https://everise.github.io/2018/09/28/LeetCode-8-String-to-Integer-atoi/</id>
-    <published>2018-09-28T04:26:14.000Z</published>
-    <updated>2018-09-29T22:19:02.523Z</updated>
-    
-    <content type="html"><![CDATA[<p>This is following:<br><a id="more"></a></p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">myAtoi</span><span class="params">(str <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    s := strings.TrimSpace(str)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(s) == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    symbol := ‘+’</span><br><span class="line">    <span class="keyword">if</span> s[<span class="number">0</span>] == ‘-’ &#123;</span><br><span class="line">        symbol = ‘-’</span><br><span class="line">        s = s[<span class="number">1</span>:]</span><br><span class="line">    &#125;<span class="keyword">else</span> s[<span class="number">0</span>] == ‘+’ &#123;</span><br><span class="line">        s = s[<span class="number">1</span>:]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(s) == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> s[<span class="number">0</span>] &lt; ‘<span class="number">0</span>’ || s[<span class="number">0</span>] &gt; ‘<span class="number">9</span>’ &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> s &#123;</span><br><span class="line">        <span class="keyword">if</span> s[i] &lt; ‘<span class="number">0</span>’ || s[i] &gt; ‘<span class="number">9</span>’ &#123;</span><br><span class="line">            s = s[:i]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _, ch := <span class="keyword">range</span> []<span class="keyword">byte</span>(s) &#123;</span><br><span class="line">        ch -= ‘<span class="number">0</span>’</span><br><span class="line">        <span class="keyword">if</span> ch &gt; <span class="number">9</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">        res = res*<span class="number">10</span> + <span class="keyword">int</span>(ch)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> res &gt; <span class="number">0x7FFFFFFF</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> symbol == ‘-’ &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-0x80000000</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0x7FFFFFFF</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> symbol == ‘-’ &#123;</span><br><span class="line">        res = -res</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This is following:&lt;br&gt;
-    
-    </summary>
-    
-      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="String" scheme="https://everise.github.io/tags/String/"/>
-    
-      <category term="Math" scheme="https://everise.github.io/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 7: Reverse Integer</title>
-    <link href="https://everise.github.io/2018/09/28/LeetCode-7-Reverse-Integer/"/>
-    <id>https://everise.github.io/2018/09/28/LeetCode-7-Reverse-Integer/</id>
-    <published>2018-09-28T04:26:00.000Z</published>
-    <updated>2018-09-29T22:18:59.847Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverse</span><span class="params">(x <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        res = res * <span class="number">10</span> + x % <span class="number">10</span></span><br><span class="line">        <span class="keyword">if</span> x / <span class="number">10</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        x = x / <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">-0x80000000</span> || x &gt; <span class="number">0x7FFFFFFF</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(x &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;)&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;int&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    res := &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        res = res * &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; + x % &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; x / &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        x = x / &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; x &amp;lt; &lt;span class=&quot;number&quot;&gt;-0x80000000&lt;/span&gt; || x &amp;gt; &lt;span class=&quot;number&quot;&gt;0x7FFFFFFF&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; res&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="Math" scheme="https://everise.github.io/tags/Math/"/>
     
   </entry>
   
