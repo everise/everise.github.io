@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Dynamic Programming," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -125,18 +125,16 @@
 
 
 
-<meta name="description" content="123456789101112131415161718192021222324func rob(nums []int) int &amp;#123;    var even, odd, res int    for i, v := range nums &amp;#123;        if i % 2 == 0 &amp;#123;            if even + v &amp;gt; odd &amp;#123;">
-<meta name="keywords" content="Dynamic Programming">
-<meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 198: House Robber">
-<meta property="og:url" content="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/index.html">
+<meta name="description" content="Stay Hungry Stay Foolish">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Everise&#39;s Notes">
+<meta property="og:url" content="https://everise.github.io/page/5/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="123456789101112131415161718192021222324func rob(nums []int) int &amp;#123;    var even, odd, res int    for i, v := range nums &amp;#123;        if i % 2 == 0 &amp;#123;            if even + v &amp;gt; odd &amp;#123;">
+<meta property="og:description" content="Stay Hungry Stay Foolish">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-29T22:19:34.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 198: House Robber">
-<meta name="twitter:description" content="123456789101112131415161718192021222324func rob(nums []int) int &amp;#123;    var even, odd, res int    for i, v := range nums &amp;#123;        if i % 2 == 0 &amp;#123;            if even + v &amp;gt; odd &amp;#123;">
+<meta name="twitter:title" content="Everise&#39;s Notes">
+<meta name="twitter:description" content="Stay Hungry Stay Foolish">
 
 
 
@@ -166,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/"/>
+  <link rel="canonical" href="https://everise.github.io/page/5/"/>
 
 
 
 
 
-  <title>LeetCode 198: House Robber | Everise's Notes</title>
+  <title>Everise's Notes</title>
   
 
 
@@ -191,7 +189,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -308,9 +307,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -323,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/27/LeetCode-1-Two-Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -340,7 +339,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 198: House Robber</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/27/LeetCode-1-Two-Sum/" itemprop="url">LeetCode 1: Two Sum</a></h1>
         
 
         <div class="post-meta">
@@ -352,8 +353,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T10:49:05-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-27T17:58:40-04:00">
+                2018-09-27
               </time>
             
 
@@ -412,9 +413,16 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rob</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> even, odd, res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> even + v &gt; odd &#123;</span><br><span class="line">                even = even + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                even = odd</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> odd + v &gt; even &#123;</span><br><span class="line">                odd = odd + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                odd = even</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> even &gt; odd &#123;</span><br><span class="line">        res = even</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        res = odd</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-
+        
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">twoSum</span><span class="params">(nums []<span class="keyword">int</span>, target <span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> res []<span class="keyword">int</span></span><br><span class="line">    m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">int</span>)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(nums); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> v,exist := m[target-nums[i]];exist &#123;</span><br><span class="line">            <span class="keyword">if</span> v &lt; i &#123;</span><br><span class="line">                res = <span class="built_in">append</span>(res,v,i)</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                res = <span class="built_in">append</span>(res,i,v)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            m[nums[i]] = i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/27/LeetCode-1-Two-Sum/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -426,61 +434,17 @@
     
 
     
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:</strong>
-    everise
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link:</strong>
-    <a href="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/" title="LeetCode 198: House Robber">https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice: </strong>
-    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
-  </li>
-</ul>
-
-      </div>
-    
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/09/28/LeetCode-188-Best-Time-to-Buy-and-Sell-Stock-IV/" rel="next" title="LeetCode 188: Best Time to Buy and Sell Stock IV">
-                <i class="fa fa-chevron-left"></i> LeetCode 188: Best Time to Buy and Sell Stock IV
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/28/LeetCode-221-Maximal-Square/" rel="prev" title="LeetCode 221: Maximal Square">
-                LeetCode 221: Maximal Square <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -490,11 +454,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
+
 
 
           </div>
@@ -502,10 +469,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -768,10 +731,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

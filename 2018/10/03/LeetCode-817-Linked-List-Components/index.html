@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Dynamic Programming," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -125,18 +125,17 @@
 
 
 
-<meta name="description" content="123456789101112131415161718192021222324func rob(nums []int) int &amp;#123;    var even, odd, res int    for i, v := range nums &amp;#123;        if i % 2 == 0 &amp;#123;            if even + v &amp;gt; odd &amp;#123;">
-<meta name="keywords" content="Dynamic Programming">
+<meta name="description" content="Stay Hungry Stay Foolish">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 198: House Robber">
-<meta property="og:url" content="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/index.html">
+<meta property="og:title" content="LeetCode 817: Linked List Components">
+<meta property="og:url" content="https://everise.github.io/2018/10/03/LeetCode-817-Linked-List-Components/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="123456789101112131415161718192021222324func rob(nums []int) int &amp;#123;    var even, odd, res int    for i, v := range nums &amp;#123;        if i % 2 == 0 &amp;#123;            if even + v &amp;gt; odd &amp;#123;">
+<meta property="og:description" content="Stay Hungry Stay Foolish">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-29T22:19:34.166Z">
+<meta property="og:updated_time" content="2018-10-03T20:18:09.941Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 198: House Robber">
-<meta name="twitter:description" content="123456789101112131415161718192021222324func rob(nums []int) int &amp;#123;    var even, odd, res int    for i, v := range nums &amp;#123;        if i % 2 == 0 &amp;#123;            if even + v &amp;gt; odd &amp;#123;">
+<meta name="twitter:title" content="LeetCode 817: Linked List Components">
+<meta name="twitter:description" content="Stay Hungry Stay Foolish">
 
 
 
@@ -166,13 +165,13 @@
 
 
 
-  <link rel="canonical" href="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/"/>
+  <link rel="canonical" href="https://everise.github.io/2018/10/03/LeetCode-817-Linked-List-Components/"/>
 
 
 
 
 
-  <title>LeetCode 198: House Robber | Everise's Notes</title>
+  <title>LeetCode 817: Linked List Components | Everise's Notes</title>
   
 
 
@@ -323,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/03/LeetCode-817-Linked-List-Components/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -340,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 198: House Robber</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode 817: Linked List Components</h1>
         
 
         <div class="post-meta">
@@ -352,8 +351,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T10:49:05-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-03T16:18:09-04:00">
+                2018-10-03
               </time>
             
 
@@ -362,28 +361,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -412,9 +389,7 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rob</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> even, odd, res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> even + v &gt; odd &#123;</span><br><span class="line">                even = even + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                even = odd</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> odd + v &gt; even &#123;</span><br><span class="line">                odd = odd + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                odd = even</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> even &gt; odd &#123;</span><br><span class="line">        res = even</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        res = odd</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-
+        
       
     </div>
     
@@ -434,7 +409,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/" title="LeetCode 198: House Robber">https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/</a>
+    <a href="https://everise.github.io/2018/10/03/LeetCode-817-Linked-List-Components/" title="LeetCode 817: Linked List Components">https://everise.github.io/2018/10/03/LeetCode-817-Linked-List-Components/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -447,12 +422,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
-          
-        </div>
-      
 
       
       
@@ -462,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/28/LeetCode-188-Best-Time-to-Buy-and-Sell-Stock-IV/" rel="next" title="LeetCode 188: Best Time to Buy and Sell Stock IV">
-                <i class="fa fa-chevron-left"></i> LeetCode 188: Best Time to Buy and Sell Stock IV
+              <a href="/2018/10/03/LeetCode-369-Plus-One-Linked-List/" rel="next" title="LeetCode 369: Plus One Linked List">
+                <i class="fa fa-chevron-left"></i> LeetCode 369: Plus One Linked List
               </a>
             
           </div>
@@ -471,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/28/LeetCode-221-Maximal-Square/" rel="prev" title="LeetCode 221: Maximal Square">
-                LeetCode 221: Maximal Square <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

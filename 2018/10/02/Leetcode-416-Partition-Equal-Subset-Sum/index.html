@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Dynamic Programming," />
 
 
 
@@ -125,17 +125,18 @@
 
 
 
-<meta name="description" content="Stay Hungry Stay Foolish">
+<meta name="description" content="1234567891011121314151617181920func canPartition(nums []int) bool &amp;#123;    var sum, target int    for _, v := range nums &amp;#123;        sum += v    &amp;#125;    if sum % 2 == 1 &amp;#123;        return false">
+<meta name="keywords" content="Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 416: Partition Equal Subset Sum">
 <meta property="og:url" content="https://everise.github.io/2018/10/02/Leetcode-416-Partition-Equal-Subset-Sum/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Stay Hungry Stay Foolish">
+<meta property="og:description" content="1234567891011121314151617181920func canPartition(nums []int) bool &amp;#123;    var sum, target int    for _, v := range nums &amp;#123;        sum += v    &amp;#125;    if sum % 2 == 1 &amp;#123;        return false">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-02T18:46:33.173Z">
+<meta property="og:updated_time" content="2018-10-03T21:37:20.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode 416: Partition Equal Subset Sum">
-<meta name="twitter:description" content="Stay Hungry Stay Foolish">
+<meta name="twitter:description" content="1234567891011121314151617181920func canPartition(nums []int) bool &amp;#123;    var sum, target int    for _, v := range nums &amp;#123;        sum += v    &amp;#125;    if sum % 2 == 1 &amp;#123;        return false">
 
 
 
@@ -362,6 +363,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -389,7 +412,9 @@
       
 
       
-        
+        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">canPartition</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> sum, target <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        sum += v</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> sum % <span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        target = sum &gt;&gt; <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="keyword">bool</span>, target + <span class="number">1</span>)</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="literal">true</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> _, n := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="keyword">for</span> i := target; i &gt;= n; i-- &#123;</span><br><span class="line">            dp[i] = dp[i] || dp[i - n]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[target]   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
       
     </div>
     
@@ -421,6 +446,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
+          
+        </div>
       
 
       
@@ -515,7 +546,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
