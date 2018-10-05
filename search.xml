@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 725: Split Linked List in Parts]]></title>
+    <url>%2F2018%2F10%2F04%2FLeetCode-725-Split-Linked-List-in-Parts%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 445: Add Two Numbers II]]></title>
+    <url>%2F2018%2F10%2F04%2FLeetCode-445-Add-Two-Numbers-II%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 206: Reverse Linked List]]></title>
+    <url>%2F2018%2F10%2F04%2FLeetCode-206-Reverse-Linked-List%2F</url>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 123func reverseList(head *ListNode) *ListNode &#123;&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 19: Remove Nth Node From End of List]]></title>
+    <url>%2F2018%2F10%2F04%2FLeetCode-19-Remove-Nth-Node-From-End-of-List%2F</url>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 123456789101112131415161718192021func removeNthFromEnd(head *ListNode, n int) *ListNode &#123; ahead, res := head, head for i := 0; i &lt; n; i++ &#123; ahead = ahead.Next &#125; if ahead == nil &#123; return res.Next &#125; for ahead.Next != nil &#123; ahead = ahead.Next head = head.Next &#125; if head.Next != nil &#123; head.Next = head.Next.Next &#125;else &#123; head.Next = nil &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 817: Linked List Components]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-817-Linked-List-Components%2F</url>
     <content type="text"></content>
@@ -13,17 +45,29 @@
   <entry>
     <title><![CDATA[LeetCode 203: Remove Linked List Elements]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-203-Remove-Linked-List-Elements%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213func removeElements(head *ListNode, val int) *ListNode &#123; newHead := new(ListNode) newHead.Next = head tail := newHead for tail != nil &#123; if tail.Next.Val == val &#123; tail.Next = tail.Next.Next &#125;else &#123; tail = tail.Next &#125; &#125; return newHead.Next&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 21: Merge Two Sorted Lists]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-21-Merge-Two-Sorted-Lists%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 123456789101112131415161718192021func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode &#123; head := new(ListNode) tail := head for l1 != nil &amp;&amp; l2 != nil &#123; if l1.Val &lt;= l2.Val &#123; tail.Next = l1 tail = l1 l1 = l1.Next &#125;else &#123; tail.Next = l2 tail = l2 l2 = l2.Next &#125; &#125; if l1 == nil &#123; tail.Next = l2 &#125;else &#123; tail.Next = l1 &#125; return head.Next&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 750: Number Of Corner Rectangles]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-750-Number-Of-Corner-Rectangles%2F</url>
-    <content type="text"><![CDATA[12345678910111213141516func countCornerRectangles(grid [][]int) int &#123; var res int for i := 0; i &lt; len(grid); i++ &#123; for j := i + 1; j &lt; len(grid); j++ &#123; cnt := 0 for k := 0; k &lt; len(grid[0]); k++ &#123; if grid[i][k] == 1 &amp;&amp; grid[j][k] == 1 &#123; cnt++ &#125; &#125; res += cnt * (cnt - 1) / 2 &#125; &#125; return res &#125;]]></content>
+    <content type="text"><![CDATA[123456789101112131415func countCornerRectangles(grid [][]int) int &#123; var res int for i := 0; i &lt; len(grid); i++ &#123; for j := i + 1; j &lt; len(grid); j++ &#123; count := 0 for k := 0; k &lt; len(grid[0]); k++ &#123; if grid[i][k] == 1 &amp;&amp; grid[j][k] == 1 &#123; count++ &#125; &#125; res += count * (count - 1) / 2 &#125; &#125; return res &#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>

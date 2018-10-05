@@ -125,18 +125,18 @@
 
 
 
-<meta name="description" content="12345678910111213141516func countCornerRectangles(grid [][]int) int &amp;#123;    var res int    for i := 0; i &amp;lt; len(grid); i++ &amp;#123;        for j := i + 1; j &amp;lt; len(grid); j++ &amp;#123;            cnt">
+<meta name="description" content="123456789101112131415func countCornerRectangles(grid [][]int) int &amp;#123;    var res int    for i := 0; i &amp;lt; len(grid); i++ &amp;#123;        for j := i + 1; j &amp;lt; len(grid); j++ &amp;#123;            count">
 <meta name="keywords" content="Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 750: Number Of Corner Rectangles">
 <meta property="og:url" content="https://everise.github.io/2018/10/03/LeetCode-750-Number-Of-Corner-Rectangles/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345678910111213141516func countCornerRectangles(grid [][]int) int &amp;#123;    var res int    for i := 0; i &amp;lt; len(grid); i++ &amp;#123;        for j := i + 1; j &amp;lt; len(grid); j++ &amp;#123;            cnt">
+<meta property="og:description" content="123456789101112131415func countCornerRectangles(grid [][]int) int &amp;#123;    var res int    for i := 0; i &amp;lt; len(grid); i++ &amp;#123;        for j := i + 1; j &amp;lt; len(grid); j++ &amp;#123;            count">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-04T15:33:26.235Z">
+<meta property="og:updated_time" content="2018-10-04T20:11:42.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 750: Number Of Corner Rectangles">
-<meta name="twitter:description" content="12345678910111213141516func countCornerRectangles(grid [][]int) int &amp;#123;    var res int    for i := 0; i &amp;lt; len(grid); i++ &amp;#123;        for j := i + 1; j &amp;lt; len(grid); j++ &amp;#123;            cnt">
+<meta name="twitter:description" content="123456789101112131415func countCornerRectangles(grid [][]int) int &amp;#123;    var res int    for i := 0; i &amp;lt; len(grid); i++ &amp;#123;        for j := i + 1; j &amp;lt; len(grid); j++ &amp;#123;            count">
 
 
 
@@ -412,7 +412,7 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countCornerRectangles</span><span class="params">(grid [][]<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(grid); i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := i + <span class="number">1</span>; j &lt; <span class="built_in">len</span>(grid); j++ &#123;</span><br><span class="line">            cnt := <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> k := <span class="number">0</span>; k &lt; <span class="built_in">len</span>(grid[<span class="number">0</span>]); k++ &#123;</span><br><span class="line">                <span class="keyword">if</span> grid[i][k] == <span class="number">1</span> &amp;&amp; grid[j][k] == <span class="number">1</span> &#123;</span><br><span class="line">                    cnt++</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res += cnt * (cnt - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> res  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countCornerRectangles</span><span class="params">(grid [][]<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(grid); i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := i + <span class="number">1</span>; j &lt; <span class="built_in">len</span>(grid); j++ &#123;</span><br><span class="line">            count := <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> k := <span class="number">0</span>; k &lt; <span class="built_in">len</span>(grid[<span class="number">0</span>]); k++ &#123;</span><br><span class="line">                <span class="keyword">if</span> grid[i][k] == <span class="number">1</span> &amp;&amp; grid[j][k] == <span class="number">1</span> &#123;</span><br><span class="line">                    count++</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res += count * (count - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> res  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
       
@@ -546,7 +546,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
