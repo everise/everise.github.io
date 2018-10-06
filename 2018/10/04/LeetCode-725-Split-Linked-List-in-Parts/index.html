@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linked List," />
 
 
 
@@ -125,17 +125,18 @@
 
 
 
-<meta name="description" content="Stay Hungry Stay Foolish">
+<meta name="description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
+<meta name="keywords" content="Linked List">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 725: Split Linked List in Parts">
 <meta property="og:url" content="https://everise.github.io/2018/10/04/LeetCode-725-Split-Linked-List-in-Parts/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Stay Hungry Stay Foolish">
+<meta property="og:description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-04T22:38:18.283Z">
+<meta property="og:updated_time" content="2018-10-06T03:21:16.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 725: Split Linked List in Parts">
-<meta name="twitter:description" content="Stay Hungry Stay Foolish">
+<meta name="twitter:description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
 
 
 
@@ -362,6 +363,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -389,7 +412,10 @@
       
 
       
-        
+        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ListNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Next *ListNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">splitListToParts</span><span class="params">(root *ListNode, k <span class="keyword">int</span>)</span> []*<span class="title">ListNode</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> res []*ListNode</span><br><span class="line">    <span class="keyword">var</span> n <span class="keyword">int</span></span><br><span class="line">    tmp := root</span><br><span class="line">    <span class="keyword">for</span> tmp != <span class="literal">nil</span> &#123;</span><br><span class="line">        tmp = tmp.Next</span><br><span class="line">        n++</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> n &lt; k &#123;</span><br><span class="line">        <span class="keyword">for</span> t := <span class="number">0</span>; t &lt; n; t++ &#123;</span><br><span class="line">            shortTmp := root</span><br><span class="line">            root = root.Next</span><br><span class="line">            shortTmp.Next = <span class="literal">nil</span></span><br><span class="line">            res = <span class="built_in">append</span>(res, shortTmp)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> u := n; u &lt; k; u++ &#123;</span><br><span class="line">            shortTmp := <span class="built_in">new</span>(ListNode)</span><br><span class="line">            res = <span class="built_in">append</span>(res, shortTmp.Next)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    usual, more := n / k, n % k</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; more; i++ &#123;</span><br><span class="line">        listTmp := root</span><br><span class="line">        <span class="keyword">for</span> t := <span class="number">0</span>; t &lt; usual; t++ &#123;</span><br><span class="line">            root = root.Next</span><br><span class="line">        &#125;</span><br><span class="line">        now := root.Next</span><br><span class="line">        root.Next = <span class="literal">nil</span></span><br><span class="line">        res = <span class="built_in">append</span>(res, listTmp)</span><br><span class="line">        root = now</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> j := <span class="number">0</span>; j &lt; k - more; j++ &#123;</span><br><span class="line">        longTmp := root</span><br><span class="line">        <span class="keyword">for</span> n := <span class="number">0</span>; n &lt; usual - <span class="number">1</span>; n++ &#123;</span><br><span class="line">            root = root.Next</span><br><span class="line">        &#125;</span><br><span class="line">        now := root.Next</span><br><span class="line">        root.Next = <span class="literal">nil</span></span><br><span class="line">        res = <span class="built_in">append</span>(res, longTmp)</span><br><span class="line">        root = now</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -421,6 +447,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linked-List/" rel="tag"># Linked List</a>
+          
+        </div>
       
 
       

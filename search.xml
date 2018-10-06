@@ -3,17 +3,29 @@
   <entry>
     <title><![CDATA[LeetCode 725: Split Linked List in Parts]]></title>
     <url>%2F2018%2F10%2F04%2FLeetCode-725-Split-Linked-List-in-Parts%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819202122232425262728293031323334353637383940414243444546func splitListToParts(root *ListNode, k int) []*ListNode &#123; var res []*ListNode var n int tmp := root for tmp != nil &#123; tmp = tmp.Next n++ &#125; if n &lt; k &#123; for t := 0; t &lt; n; t++ &#123; shortTmp := root root = root.Next shortTmp.Next = nil res = append(res, shortTmp) &#125; for u := n; u &lt; k; u++ &#123; shortTmp := new(ListNode) res = append(res, shortTmp.Next) &#125; return res &#125; usual, more := n / k, n % k for i := 0; i &lt; more; i++ &#123; listTmp := root for t := 0; t &lt; usual; t++ &#123; root = root.Next &#125; now := root.Next root.Next = nil res = append(res, listTmp) root = now &#125; for j := 0; j &lt; k - more; j++ &#123; longTmp := root for n := 0; n &lt; usual - 1; n++ &#123; root = root.Next &#125; now := root.Next root.Next = nil res = append(res, longTmp) root = now &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 445: Add Two Numbers II]]></title>
     <url>%2F2018%2F10%2F04%2FLeetCode-445-Add-Two-Numbers-II%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819202122232425262728293031func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode &#123; var s1, s2 []int for l1 != nil &#123; s1 = append(s1, l1.Val) l1 = l1.Next &#125; for l2 != nil &#123; s2 = append(s2, l2.Val) l2 = l2.Next &#125; var sum int res := new(ListNode) for len(s1) != 0 || len(s2) != 0 &#123; if len(s1) != 0 &#123; sum += s1[len(s1)-1] s1 = s1[:len(s1)-1] &#125; if len(s2) != 0 &#123; sum += s2[len(s2)-1] s2 = s2[:len(s2)-1] &#125; res.Val = sum % 10 head := &amp;ListNode&#123;sum / 10, res&#125; res = head sum = sum / 10 &#125; if res.Val == 0 &#123; return res.Next &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 206: Reverse Linked List]]></title>
     <url>%2F2018%2F10%2F04%2FLeetCode-206-Reverse-Linked-List%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 123func reverseList(head *ListNode) *ListNode &#123;&#125;]]></content>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910func reverseList(head *ListNode) *ListNode &#123; var res *ListNode for head != nil &#123; temp := head.Next head.Next = res res = head head = temp &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -35,12 +47,24 @@
   <entry>
     <title><![CDATA[LeetCode 817: Linked List Components]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-817-Linked-List-Components%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 123func numComponents(head *ListNode, G []int) int &#123; &#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 369: Plus One Linked List]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-369-Plus-One-Linked-List%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 1234567891011121314func everyOne(head *ListNode) (*ListNode, int) &#123; if head.Next == nil &#123; carry := (head.Val + 1) / 10 head.Val = (head.Val + 1) % 10 return head, carry &#125; res, carry := everyOne(head.Next) if carry == 1 &#123; carry = (head.Val + 1) / 10 head.Val = (head.Val + 1) % 10 &#125; head.Next = res return head, carry&#125; 12345678func plusOne(head *ListNode) *ListNode &#123; res, carry := everyOne(head) if carry == 1 &#123; newHead := &amp;ListNode&#123;1, res&#125; return newHead &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 203: Remove Linked List Elements]]></title>

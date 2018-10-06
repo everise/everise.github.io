@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="Everise&#39;s Notes">
 <meta property="og:description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-05T02:34:54.815Z">
+<meta property="og:updated_time" content="2018-10-05T02:45:06.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 206: Reverse Linked List">
 <meta name="twitter:description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
@@ -414,7 +414,7 @@
       
         <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ListNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Next *ListNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverseList</span><span class="params">(head *ListNode)</span> *<span class="title">ListNode</span></span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverseList</span><span class="params">(head *ListNode)</span> *<span class="title">ListNode</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> res *ListNode</span><br><span class="line">    <span class="keyword">for</span> head != <span class="literal">nil</span> &#123;</span><br><span class="line">        temp := head.Next</span><br><span class="line">        head.Next = res</span><br><span class="line">        res = head</span><br><span class="line">        head = temp</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
