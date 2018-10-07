@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 250: Count Univalue Subtrees]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-250-Count-Univalue-Subtrees%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 226: Invert Binary Tree]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-226-Invert-Binary-Tree%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 222: Count Complete Tree Nodes]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-222-Count-Complete-Tree-Nodes%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 124: Binary Tree Maximum Path Sum]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-124-Binary-Tree-Maximum-Path-Sum%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 110: Balanced Binary Tree]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-110-Balanced-Binary-Tree%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 108: Convert Sorted Array to Binary Search Tree]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-108-Convert-Sorted-Array-to-Binary-Search-Tree%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 104: Maximum Depth of Binary Tree]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-104-Maximum-Depth-of-Binary-Tree%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 103: Binary Tree Zigzag Level Order Traversal]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-103-Binary-Tree-Zigzag-Level-Order-Traversal%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 102: Binary Tree Level Order Traversal]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-102-Binary-Tree-Level-Order-Traversal%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 98: Validate Binary Search Tree]]></title>
+    <url>%2F2018%2F10%2F06%2FLeetCode-98-Validate-Binary-Search-Tree%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 725: Split Linked List in Parts]]></title>
     <url>%2F2018%2F10%2F04%2FLeetCode-725-Split-Linked-List-in-Parts%2F</url>
     <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819202122232425262728293031323334353637383940414243444546func splitListToParts(root *ListNode, k int) []*ListNode &#123; var res []*ListNode var n int tmp := root for tmp != nil &#123; tmp = tmp.Next n++ &#125; if n &lt; k &#123; for t := 0; t &lt; n; t++ &#123; shortTmp := root root = root.Next shortTmp.Next = nil res = append(res, shortTmp) &#125; for u := n; u &lt; k; u++ &#123; shortTmp := new(ListNode) res = append(res, shortTmp.Next) &#125; return res &#125; usual, more := n / k, n % k for i := 0; i &lt; more; i++ &#123; listTmp := root for t := 0; t &lt; usual; t++ &#123; root = root.Next &#125; now := root.Next root.Next = nil res = append(res, listTmp) root = now &#125; for j := 0; j &lt; k - more; j++ &#123; longTmp := root for n := 0; n &lt; usual - 1; n++ &#123; root = root.Next &#125; now := root.Next root.Next = nil res = append(res, longTmp) root = now &#125; return res&#125;]]></content>
@@ -47,7 +97,7 @@
   <entry>
     <title><![CDATA[LeetCode 817: Linked List Components]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-817-Linked-List-Components%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 123func numComponents(head *ListNode, G []int) int &#123; &#125;]]></content>
+    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819func numComponents(head *ListNode, G []int) int &#123; m := make(map[int]bool) for _, v := range G &#123; m[v] = true &#125; var res int for head.Next != nil &#123; _, exist1 := m[head.Val] _, exist2 := m[head.Next.Val] if exist1 &amp;&amp; (head.Next == nil || !exist2) &#123; res++ &#125; head = head.Next &#125; if _, exist := m[head.Val]; exist &#123; res++ &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>

@@ -133,7 +133,7 @@
 <meta property="og:site_name" content="Everise&#39;s Notes">
 <meta property="og:description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-05T20:40:44.243Z">
+<meta property="og:updated_time" content="2018-10-06T20:28:36.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 817: Linked List Components">
 <meta name="twitter:description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
@@ -414,7 +414,7 @@
       
         <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ListNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Next *ListNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numComponents</span><span class="params">(head *ListNode, G []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numComponents</span><span class="params">(head *ListNode, G []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">bool</span>)</span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> G &#123;</span><br><span class="line">        m[v] = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> head.Next != <span class="literal">nil</span> &#123;</span><br><span class="line">        _, exist1 := m[head.Val]</span><br><span class="line">        _, exist2 := m[head.Next.Val]</span><br><span class="line">        <span class="keyword">if</span> exist1 &amp;&amp; (head.Next == <span class="literal">nil</span> || !exist2) &#123;</span><br><span class="line">            res++</span><br><span class="line">        &#125;</span><br><span class="line">        head = head.Next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> _, exist := m[head.Val]; exist &#123;</span><br><span class="line">        res++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -547,7 +547,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
