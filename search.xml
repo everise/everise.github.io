@@ -8,7 +8,13 @@
   <entry>
     <title><![CDATA[LeetCode 226: Invert Binary Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-226-Invert-Binary-Tree%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415func invertTree(root *TreeNode) *TreeNode &#123; if root == nil &#123; return root &#125; var left, right *TreeNode if root.Left != nil &#123; right = invertTree(root.Left) &#125; if root.Right != nil &#123; left = invertTree(root.Right) &#125; root.Left = left root.Right = right return root&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 222: Count Complete Tree Nodes]]></title>
@@ -23,17 +29,35 @@
   <entry>
     <title><![CDATA[LeetCode 110: Balanced Binary Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-110-Balanced-Binary-Tree%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021func checkDepth(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; left := checkDepth(root.Left) if left == -1 &#123; return -1 &#125; right := checkDepth(root.Right) if right == -1 &#123; return -1 &#125; if right &gt; left &#123; left, right = right, left &#125; diff := left - right if diff &gt; 1 &#123; return -1 &#125; return 1 + left&#125; 123456func isBalanced(root *TreeNode) bool &#123; if checkDepth(root) == -1 &#123; return false &#125; return true&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 108: Convert Sorted Array to Binary Search Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-108-Convert-Sorted-Array-to-Binary-Search-Tree%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516171819func sortedArrayToBST(nums []int) *TreeNode &#123; if len(nums) == 0 &#123; return nil &#125;else if len(nums) == 1 &#123; res1 := &amp;TreeNode&#123;Val: nums[0],Left: nil,Right: nil&#125; return res1 &#125;else if len(nums) == 2 &#123; resNode := &amp;TreeNode&#123;Val: nums[0],Left: nil,Right: nil&#125; res2 := &amp;TreeNode&#123;Val: nums[1],Left: resNode,Right: nil&#125; return res2 &#125; key := len(nums) / 2 left := nums[:key] right := nums[key+1:] res := &amp;TreeNode&#123;Val: nums[key], Left: sortedArrayToBST(left),Right: sortedArrayToBST(right)&#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 104: Maximum Depth of Binary Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-104-Maximum-Depth-of-Binary-Tree%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021func maxDepth(root *TreeNode) int &#123; res := 0 if root == nil &#123; return res &#125; var queue []*TreeNode queue = append(queue, root) for len(queue) != 0 &#123; for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; res++ &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 103: Binary Tree Zigzag Level Order Traversal]]></title>
@@ -43,12 +67,24 @@
   <entry>
     <title><![CDATA[LeetCode 102: Binary Tree Level Order Traversal]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-102-Binary-Tree-Level-Order-Traversal%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920212223func levelOrder(root *TreeNode) [][]int &#123; var res [][]int if root == nil &#123; return res &#125; var queue []*TreeNode queue = append(queue, root) for len(queue) != 0 &#123; var oneLevel []int for _, v := range queue &#123; oneLevel = append(oneLevel, v.Val) if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; res = append(res,oneLevel) &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 98: Validate Binary Search Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-98-Validate-Binary-Search-Tree%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910func isBST(root *TreeNode, min, max int) bool &#123; if root == nil &#123; return true &#125; if root.Val &lt;= min || root.Val &gt;= max &#123; return false &#125; return isBST(root.Left,min,root.Val) &amp;&amp; isBST(root.Right,root.Val,max)&#125; 123func isValidBST(root *TreeNode) bool &#123; return isBST(root, -int(^uint(0) &gt;&gt; 1)-1, int(^uint(0) &gt;&gt; 1))&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 725: Split Linked List in Parts]]></title>
