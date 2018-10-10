@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Binary Tree," />
 
 
 
@@ -125,17 +125,18 @@
 
 
 
-<meta name="description" content="Stay Hungry Stay Foolish">
+<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="keywords" content="Binary Tree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 103: Binary Tree Zigzag Level Order Traversal">
 <meta property="og:url" content="https://everise.github.io/2018/10/06/LeetCode-103-Binary-Tree-Zigzag-Level-Order-Traversal/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Stay Hungry Stay Foolish">
+<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-06T21:41:10.625Z">
+<meta property="og:updated_time" content="2018-10-10T02:17:38.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 103: Binary Tree Zigzag Level Order Traversal">
-<meta name="twitter:description" content="Stay Hungry Stay Foolish">
+<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
 
 
 
@@ -362,6 +363,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -389,7 +412,10 @@
       
 
       
-        
+        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">zigzagLevelOrder</span><span class="params">(root *TreeNode)</span> [][]<span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> res [][]<span class="keyword">int</span></span><br><span class="line">	<span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> res</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> s1, s2 []*TreeNode</span><br><span class="line">	s1 = <span class="built_in">append</span>(s1, root)</span><br><span class="line">	<span class="keyword">for</span> <span class="built_in">len</span>(s1) != <span class="number">0</span> || <span class="built_in">len</span>(s2) != <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">var</span> level1 []<span class="keyword">int</span></span><br><span class="line">		<span class="keyword">for</span> _, v1 := <span class="keyword">range</span> s1 &#123;</span><br><span class="line">			level1 = <span class="built_in">append</span>(level1, v1.Val)</span><br><span class="line">			<span class="keyword">if</span> v1.Right != <span class="literal">nil</span> &#123;</span><br><span class="line">				s2 = <span class="built_in">append</span>(s2, v1.Right)</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> v1.Left != <span class="literal">nil</span> &#123;</span><br><span class="line">				s2 = <span class="built_in">append</span>(s2, v1.Left)</span><br><span class="line">			&#125;</span><br><span class="line">			s1 = s1[<span class="number">1</span>:]</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(level1) != <span class="number">0</span> &#123;</span><br><span class="line">            res = <span class="built_in">append</span>(res, level1)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">var</span> level2 []<span class="keyword">int</span></span><br><span class="line">		<span class="keyword">for</span> _, v2 := <span class="keyword">range</span> s2 &#123;</span><br><span class="line">			level2 = <span class="built_in">append</span>(level2, v2.Val)</span><br><span class="line">			<span class="keyword">if</span> v2.Left != <span class="literal">nil</span> &#123;</span><br><span class="line">				s1 = <span class="built_in">append</span>(s1, v2.Left)</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> v2.Right != <span class="literal">nil</span> &#123;</span><br><span class="line">				s1 = <span class="built_in">append</span>(s1, v2.Right)</span><br><span class="line">			&#125;</span><br><span class="line">			s2 = s2[<span class="number">1</span>:]</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(level2) != <span class="number">0</span> &#123;</span><br><span class="line">            res = <span class="built_in">append</span>(res, level2)</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -421,6 +447,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+          
+        </div>
       
 
       

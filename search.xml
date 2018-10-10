@@ -62,7 +62,13 @@
   <entry>
     <title><![CDATA[LeetCode 103: Binary Tree Zigzag Level Order Traversal]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-103-Binary-Tree-Zigzag-Level-Order-Traversal%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516171819202122232425262728293031323334353637383940func zigzagLevelOrder(root *TreeNode) [][]int &#123; var res [][]int if root == nil &#123; return res &#125; var s1, s2 []*TreeNode s1 = append(s1, root) for len(s1) != 0 || len(s2) != 0 &#123; var level1 []int for _, v1 := range s1 &#123; level1 = append(level1, v1.Val) if v1.Right != nil &#123; s2 = append(s2, v1.Right) &#125; if v1.Left != nil &#123; s2 = append(s2, v1.Left) &#125; s1 = s1[1:] &#125; if len(level1) != 0 &#123; res = append(res, level1) &#125; var level2 []int for _, v2 := range s2 &#123; level2 = append(level2, v2.Val) if v2.Left != nil &#123; s1 = append(s1, v2.Left) &#125; if v2.Right != nil &#123; s1 = append(s1, v2.Right) &#125; s2 = s2[1:] &#125; if len(level2) != 0 &#123; res = append(res, level2) &#125; &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 102: Binary Tree Level Order Traversal]]></title>
