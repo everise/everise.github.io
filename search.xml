@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 662: Maximum Width of Binary Tree]]></title>
+    <url>%2F2018%2F10%2F09%2FLeetCode-662-Maximum-Width-of-Binary-Tree%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 872: Leaf-Similar Trees]]></title>
+    <url>%2F2018%2F10%2F09%2FLeetCode-872-Leaf-Similar-Trees%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 742: Closest Leaf in a Binary Tree]]></title>
+    <url>%2F2018%2F10%2F09%2FLeetCode-742-Closest-Leaf-in-a-Binary-Tree%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 687: Longest Univalue Path]]></title>
+    <url>%2F2018%2F10%2F09%2FLeetCode-687-Longest-Univalue-Path%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 653: Two Sum IV - Input is a BST]]></title>
+    <url>%2F2018%2F10%2F09%2FLeetCode-653-Two-Sum-IV-Input-is-a-BST%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 652: Find Duplicate Subtrees]]></title>
+    <url>%2F2018%2F10%2F09%2FLeetCode-652-Find-Duplicate-Subtrees%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 572: Subtree of Another Tree]]></title>
+    <url>%2F2018%2F10%2F09%2FLeetCode-572-Subtree-of-Another-Tree%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 549: Binary Tree Longest Consecutive Sequence II]]></title>
+    <url>%2F2018%2F10%2F09%2FLeetCode-549-Binary-Tree-Longest-Consecutive-Sequence-II%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 543: Diameter of Binary Tree]]></title>
+    <url>%2F2018%2F10%2F09%2FLeetCode-543-Diameter-of-Binary-Tree%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 250: Count Univalue Subtrees]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-250-Count-Univalue-Subtrees%2F</url>
     <content type="text"></content>
