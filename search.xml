@@ -64,7 +64,13 @@
   <entry>
     <title><![CDATA[LeetCode 222: Count Complete Tree Nodes]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-222-Count-Complete-Tree-Nodes%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920func countNodes(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := 0 queue := []*TreeNode&#123;root&#125; for len(queue) != 0 &#123; res = res + len(queue) for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 124: Binary Tree Maximum Path Sum]]></title>
@@ -113,6 +119,7 @@
       </categories>
       <tags>
         <tag>Binary Tree</tag>
+        <tag>Not solved</tag>
       </tags>
   </entry>
   <entry>
