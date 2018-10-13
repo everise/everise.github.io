@@ -33,22 +33,46 @@
   <entry>
     <title><![CDATA[LeetCode 572: Subtree of Another Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-572-Subtree-of-Another-Tree%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516func currentLongest(root *TreeNode, diff int) int &#123; if root == nil &#123; return 0 &#125; left, right := 0, 0 if root.Left != nil &amp;&amp; root.Val - root.Left.Val == diff &#123; left = 1 + currentLongest(root.Left, diff) &#125; if root.Right != nil &amp;&amp; root.Val - root.Right.Val == diff &#123; right = 1 + currentLongest(root.Right, diff) &#125; if left &lt; right &#123; left = right &#125; return left&#125; 123456789101112131415161718func longestConsecutive(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := currentLongest(root, 1) + currentLongest(root, -1) + 1 left := longestConsecutive(root.Left) right := longestConsecutive(root.Right) if left &gt; right &#123; if left &gt; res &#123; res = left &#125; &#125;else &#123; if right &gt; res &#123; res = right &#125; &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 549: Binary Tree Longest Consecutive Sequence II]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-549-Binary-Tree-Longest-Consecutive-Sequence-II%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516func currentLongest(root *TreeNode, diff int) int &#123; if root == nil &#123; return 0 &#125; left, right := 0, 0 if root.Left != nil &amp;&amp; root.Val - root.Left.Val == diff &#123; left = 1 + currentLongest(root.Left, diff) &#125; if root.Right != nil &amp;&amp; root.Val - root.Right.Val == diff &#123; right = 1 + currentLongest(root.Right, diff) &#125; if left &lt; right &#123; left = right &#125; return left&#125; 123456789101112131415161718func longestConsecutive(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := currentLongest(root, 1) + currentLongest(root, -1) + 1 left := longestConsecutive(root.Left) right := longestConsecutive(root.Right) if left &gt; right &#123; if left &gt; res &#123; res = left &#125; &#125;else &#123; if right &gt; res &#123; res = right &#125; &#125; return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 543: Diameter of Binary Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-543-Diameter-of-Binary-Tree%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516func maxDepth(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxDepth(root.Left, res) right := maxDepth(root.Right, res) if left + right &gt; *res &#123; *res = left + right &#125; if left &lt; right &#123; left = right &#125; return left + 1&#125; 12345func diameterOfBinaryTree(root *TreeNode) int &#123; res := 0 maxDepth(root, &amp;res) return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 250: Count Univalue Subtrees]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-250-Count-Univalue-Subtrees%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011func dfs(root *TreeNode, val int, res *int) bool &#123; if root == nil &#123; return true &#125; left := dfs(root.Left,root.Val,res) right := dfs(root.Right,root.Val,res) if left &amp;&amp; right &#123; *res++ &#125; return (root.Val == val) &amp;&amp; left &amp;&amp; right&#125; 12345678func countUnivalSubtrees(root *TreeNode) int &#123; res := 0 if root == nil &#123; return res &#125; dfs(root, root.Val, &amp;res) return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 226: Invert Binary Tree]]></title>
