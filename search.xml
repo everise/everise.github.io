@@ -1,6 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 91: Decode Ways]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-91-Decode-Ways%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 80: Remove Duplicates from Sorted Array II]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-80-Remove-Duplicates-from-Sorted-Array-II%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 76: Minimum Window Substring]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-76-Minimum-Window-Substring%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 75: Sort Colors]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-75-Sort-Colors%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 72: Edit Distance]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-72-Edit-Distance%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 70: Climbing Stairs]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-70-Climbing-Stairs%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 69: Sqrt(x)]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-69-Sqrt-x%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 66: Plus One]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-66-Plus-One%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 62: Unique Paths]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-62-Unique-Paths%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 60: Permutation Sequence]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-60-Permutation-Sequence%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 56: Merge Intervals]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-56-Merge-Intervals%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 54: Spiral Matrix]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-54-Spiral-Matrix%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 50: Pow(x, n)]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-50-Pow-x-n%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 49: Group Anagrams]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-49-Group-Anagrams%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 48: Rotate Image]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-48-Rotate-Image%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 43: Multiply Strings]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-43-Multiply-Strings%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 38: Count and Say]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-38-Count-and-Say%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 36: Valid Sudoku]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-36-Valid-Sudoku%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 35: Search Insert Position]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-35-Search-Insert-Position%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 34: Find First and Last Position of Element in Sorted Array]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-34-Find-First-and-Last-Position-of-Element-in-Sorted-Array%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 33: Search in Rotated Sorted Array]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-33-Search-in-Rotated-Sorted-Array%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 31: Next Permutation]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-31-Next-Permutation%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 26: Remove Duplicates from Sorted Array]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-26-Remove-Duplicates-from-Sorted-Array%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 20: Valid Parentheses]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-20-Valid-Parentheses%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 15: 3Sum]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-15-3Sum%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 14: Longest Common Prefix]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-14-Longest-Common-Prefix%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 13: Roman to Integer]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-13-Roman-to-Integer%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 11: Container With Most Water]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-11-Container-With-Most-Water%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 6: ZigZag Conversion]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-6-ZigZag-Conversion%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 78: Subsets]]></title>
     <url>%2F2018%2F10%2F14%2FLeetCode-78-Subsets%2F</url>
     <content type="text"></content>
@@ -360,17 +505,6 @@
       </categories>
       <tags>
         <tag>Dynamic Programming</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[General Notes of Golang]]></title>
-    <url>%2F2018%2F09%2F28%2FGeneral-Notes-of-Golang%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>Notes</category>
-      </categories>
-      <tags>
-        <tag>Golang</tag>
       </tags>
   </entry>
   <entry>

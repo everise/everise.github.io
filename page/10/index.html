@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/09/LeetCode-652-Find-Duplicate-Subtrees/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/LeetCode-198-House-Robber/" itemprop="url">LeetCode 198: House Robber</a></h1>
+                <a class="post-title-link" href="/2018/10/09/LeetCode-652-Find-Duplicate-Subtrees/" itemprop="url">LeetCode 652: Find Duplicate Subtrees</a></h1>
         
 
         <div class="post-meta">
@@ -353,8 +353,127 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T10:49:05-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-09T22:25:08-04:00">
+                2018-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/09/LeetCode-572-Subtree-of-Another-Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="everise">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Everise's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/09/LeetCode-572-Subtree-of-Another-Tree/" itemprop="url">LeetCode 572: Subtree of Another Tree</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-09T22:24:50-04:00">
+                2018-10-09
               </time>
             
 
@@ -414,10 +533,10 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rob</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> even, odd, res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> even + v &gt; odd &#123;</span><br><span class="line">                even = even + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                even = odd</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> odd + v &gt; even &#123;</span><br><span class="line">                odd = odd + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                odd = even</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> even &gt; odd &#123;</span><br><span class="line">        res = even</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        res = odd</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-198-House-Robber/#more" rel="contents">
+            <a class="btn" href="/2018/10/09/LeetCode-572-Subtree-of-Another-Tree/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -468,7 +587,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-188-Best-Time-to-Buy-and-Sell-Stock-IV/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/09/LeetCode-549-Binary-Tree-Longest-Consecutive-Sequence-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -487,7 +606,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/LeetCode-188-Best-Time-to-Buy-and-Sell-Stock-IV/" itemprop="url">LeetCode 188: Best Time to Buy and Sell Stock IV</a></h1>
+                <a class="post-title-link" href="/2018/10/09/LeetCode-549-Binary-Tree-Longest-Consecutive-Sequence-II/" itemprop="url">LeetCode 549: Binary Tree Longest Consecutive Sequence II</a></h1>
         
 
         <div class="post-meta">
@@ -499,8 +618,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T10:48:46-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-09T22:24:34-04:00">
+                2018-10-09
               </time>
             
 
@@ -560,10 +679,10 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxProfit</span><span class="params">(k <span class="keyword">int</span>, prices []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="built_in">len</span>(prices) &#123;</span><br><span class="line">        k = <span class="built_in">len</span>(prices)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> bp, sp []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; k; i++ &#123;</span><br><span class="line">        bp = <span class="built_in">append</span>(bp, <span class="number">-0x80000000</span>)</span><br><span class="line">        sp = <span class="built_in">append</span>(sp, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    sp = <span class="built_in">append</span>(sp, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> prices &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">0</span>; j &lt; k; j++ &#123;</span><br><span class="line">            <span class="keyword">if</span> bp[i] &lt; sp[i] - v &#123;</span><br><span class="line">                bp[i] = sp[i] - v</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> sp[i+<span class="number">1</span>] &lt; v + bp[i] &#123;</span><br><span class="line">                sp[i+<span class="number">1</span>] = v + bp[i]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sp[k]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-188-Best-Time-to-Buy-and-Sell-Stock-IV/#more" rel="contents">
+            <a class="btn" href="/2018/10/09/LeetCode-549-Binary-Tree-Longest-Consecutive-Sequence-II/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -614,7 +733,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-139-Word-Break/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/09/LeetCode-543-Diameter-of-Binary-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -633,7 +752,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/LeetCode-139-Word-Break/" itemprop="url">LeetCode 139: Word Break</a></h1>
+                <a class="post-title-link" href="/2018/10/09/LeetCode-543-Diameter-of-Binary-Tree/" itemprop="url">LeetCode 543: Diameter of Binary Tree</a></h1>
         
 
         <div class="post-meta">
@@ -645,8 +764,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T10:48:22-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-09T22:24:10-04:00">
+                2018-10-09
               </time>
             
 
@@ -706,10 +825,10 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordBreak</span><span class="params">(s <span class="keyword">string</span>, wordDict []<span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(wordDict) == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dict := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">bool</span>)</span><br><span class="line">    length := []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> wordDict &#123;</span><br><span class="line">        <span class="keyword">if</span> _, exist := dict[v]; !exist &#123;</span><br><span class="line">            dict[v] = <span class="literal">true</span></span><br><span class="line">            length = <span class="built_in">append</span>(length,<span class="built_in">len</span>(v))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="keyword">bool</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>)</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> !dp[i] &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> _, size := <span class="keyword">range</span> length &#123;</span><br><span class="line">            dp[i+size] = dp[i+size] || dict[s[i:i+size]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="built_in">len</span>(s)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-139-Word-Break/#more" rel="contents">
+            <a class="btn" href="/2018/10/09/LeetCode-543-Diameter-of-Binary-Tree/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -760,7 +879,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-10-Regular-Expression-Matching/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/06/LeetCode-250-Count-Univalue-Subtrees/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -779,7 +898,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/LeetCode-10-Regular-Expression-Matching/" itemprop="url">LeetCode 10: Regular Expression Matching</a></h1>
+                <a class="post-title-link" href="/2018/10/06/LeetCode-250-Count-Univalue-Subtrees/" itemprop="url">LeetCode 250: Count Univalue Subtrees</a></h1>
         
 
         <div class="post-meta">
@@ -791,8 +910,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T10:47:54-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-06T17:43:07-04:00">
+                2018-10-06
               </time>
             
 
@@ -852,156 +971,10 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isMatch</span><span class="params">(s <span class="keyword">string</span>, p <span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    dp := <span class="built_in">make</span>([][]<span class="keyword">bool</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> dp &#123;</span><br><span class="line">        dp[i] = <span class="built_in">make</span>([]<span class="keyword">bool</span>, <span class="built_in">len</span>(p)+<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="built_in">len</span>(s)][<span class="built_in">len</span>(p)] = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="built_in">len</span>(s); i &gt;= <span class="number">0</span>; i-- &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="built_in">len</span>(p) - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j-- &#123;</span><br><span class="line">            firstMatch := i &lt; <span class="built_in">len</span>(s) &amp;&amp; (p[j] == s[i] || p[j] == <span class="string">'.'</span>)</span><br><span class="line">            <span class="keyword">if</span> j+<span class="number">1</span> &lt; <span class="built_in">len</span>(p) &amp;&amp; p[j + <span class="number">1</span>] == <span class="string">'*'</span> &#123;</span><br><span class="line">                dp[i][j] = dp[i][j + <span class="number">2</span>] || firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j]</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                dp[i][j] = firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j + <span class="number">1</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-10-Regular-Expression-Matching/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-8-String-to-Integer-atoi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="everise">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Everise's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/28/LeetCode-8-String-to-Integer-atoi/" itemprop="url">LeetCode 8: String to Integer (atoi)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T00:26:14-04:00">
-                2018-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>This is following:<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-8-String-to-Integer-atoi/#more" rel="contents">
+            <a class="btn" href="/2018/10/06/LeetCode-250-Count-Univalue-Subtrees/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1043,7 +1016,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1093,7 +1066,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1104,7 +1077,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1115,7 +1088,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
