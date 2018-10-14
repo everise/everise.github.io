@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 78: Subsets]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-78-Subsets%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 46: Permutations]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-46-Permutations%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 22: Generate Parentheses]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-22-Generate-Parentheses%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 17: Letter Combinations of a Phone Number]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-17-Letter-Combinations-of-a-Phone-Number%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 785: Is Graph Bipartite?]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-785-Is-Graph-Bipartite%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 684: Redundant Connection]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-684-Redundant-Connection%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 444: Sequence Reconstruction]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-444-Sequence-Reconstruction%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 399: Evaluate Division]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-399-Evaluate-Division%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 310: Minimum Height Trees]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-310-Minimum-Height-Trees%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 210: Course Schedule II]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-210-Course-Schedule-II%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 207: Course Schedule]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-207-Course-Schedule%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 662: Maximum Width of Binary Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-662-Maximum-Width-of-Binary-Tree%2F</url>
     <content type="text"></content>

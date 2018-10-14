@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://everise.github.io/"/>
-  <updated>2018-10-10T02:26:35.875Z</updated>
+  <updated>2018-10-14T19:50:30.171Z</updated>
   <id>https://everise.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>LeetCode 662: Maximum Width of Binary Tree</title>
-    <link href="https://everise.github.io/2018/10/09/LeetCode-662-Maximum-Width-of-Binary-Tree/"/>
-    <id>https://everise.github.io/2018/10/09/LeetCode-662-Maximum-Width-of-Binary-Tree/</id>
-    <published>2018-10-10T02:26:35.000Z</published>
-    <updated>2018-10-10T02:26:35.875Z</updated>
+    <title>LeetCode 78: Subsets</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-78-Subsets/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-78-Subsets/</id>
+    <published>2018-10-14T19:50:30.000Z</published>
+    <updated>2018-10-14T19:50:30.171Z</updated>
     
     <summary type="html">
     
@@ -31,33 +31,11 @@
   </entry>
   
   <entry>
-    <title>LeetCode 872: Leaf-Similar Trees</title>
-    <link href="https://everise.github.io/2018/10/09/LeetCode-872-Leaf-Similar-Trees/"/>
-    <id>https://everise.github.io/2018/10/09/LeetCode-872-Leaf-Similar-Trees/</id>
-    <published>2018-10-10T02:26:14.000Z</published>
-    <updated>2018-10-14T03:24:12.146Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(s, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> || t == <span class="literal">nil</span> || s.Val != t.Val &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSubtree</span><span class="params">(s *TreeNode, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> equal(s, t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isSubtree(s.Left, t) || isSubtree(s.Right, t)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; TreeNode &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Val &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Left *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Right *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="Binary Tree" scheme="https://everise.github.io/tags/Binary-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 742: Closest Leaf in a Binary Tree</title>
-    <link href="https://everise.github.io/2018/10/09/LeetCode-742-Closest-Leaf-in-a-Binary-Tree/"/>
-    <id>https://everise.github.io/2018/10/09/LeetCode-742-Closest-Leaf-in-a-Binary-Tree/</id>
-    <published>2018-10-10T02:25:59.000Z</published>
-    <updated>2018-10-10T02:25:59.054Z</updated>
+    <title>LeetCode 46: Permutations</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-46-Permutations/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-46-Permutations/</id>
+    <published>2018-10-14T19:50:17.000Z</published>
+    <updated>2018-10-14T19:50:17.946Z</updated>
     
     <summary type="html">
     
@@ -67,55 +45,11 @@
   </entry>
   
   <entry>
-    <title>LeetCode 687: Longest Univalue Path</title>
-    <link href="https://everise.github.io/2018/10/09/LeetCode-687-Longest-Univalue-Path/"/>
-    <id>https://everise.github.io/2018/10/09/LeetCode-687-Longest-Univalue-Path/</id>
-    <published>2018-10-10T02:25:43.000Z</published>
-    <updated>2018-10-13T02:49:09.193Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(s, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> || t == <span class="literal">nil</span> || s.Val != t.Val &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSubtree</span><span class="params">(s *TreeNode, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> equal(s, t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isSubtree(s.Left, t) || isSubtree(s.Right, t)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; TreeNode &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Val &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Left *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Right *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="Binary Tree" scheme="https://everise.github.io/tags/Binary-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 653: Two Sum IV - Input is a BST</title>
-    <link href="https://everise.github.io/2018/10/09/LeetCode-653-Two-Sum-IV-Input-is-a-BST/"/>
-    <id>https://everise.github.io/2018/10/09/LeetCode-653-Two-Sum-IV-Input-is-a-BST/</id>
-    <published>2018-10-10T02:25:25.000Z</published>
-    <updated>2018-10-13T02:48:46.982Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findTarget</span><span class="params">(root *TreeNode, k <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> queue []*TreeNode</span><br><span class="line">    queue = <span class="built_in">append</span>(queue, root)</span><br><span class="line">    m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">int</span>)</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">len</span>(queue) != <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> _, v := <span class="keyword">range</span> queue &#123;</span><br><span class="line">            <span class="keyword">if</span> v.Left != <span class="literal">nil</span> &#123;</span><br><span class="line">                queue = <span class="built_in">append</span>(queue, v.Left)  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> v.Right != <span class="literal">nil</span> &#123;</span><br><span class="line">                queue = <span class="built_in">append</span>(queue, v.Right)  </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> _, exist := m[v.Val]; exist &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                m[k-v.Val] = v.Val</span><br><span class="line">            &#125;</span><br><span class="line">            queue = queue[<span class="number">1</span>:]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; TreeNode &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Val &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Left *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Right *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="Binary Tree" scheme="https://everise.github.io/tags/Binary-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 652: Find Duplicate Subtrees</title>
-    <link href="https://everise.github.io/2018/10/09/LeetCode-652-Find-Duplicate-Subtrees/"/>
-    <id>https://everise.github.io/2018/10/09/LeetCode-652-Find-Duplicate-Subtrees/</id>
-    <published>2018-10-10T02:25:08.000Z</published>
-    <updated>2018-10-10T02:25:08.609Z</updated>
+    <title>LeetCode 22: Generate Parentheses</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-22-Generate-Parentheses/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-22-Generate-Parentheses/</id>
+    <published>2018-10-14T19:50:04.000Z</published>
+    <updated>2018-10-14T19:50:04.441Z</updated>
     
     <summary type="html">
     
@@ -125,90 +59,100 @@
   </entry>
   
   <entry>
-    <title>LeetCode 572: Subtree of Another Tree</title>
-    <link href="https://everise.github.io/2018/10/09/LeetCode-572-Subtree-of-Another-Tree/"/>
-    <id>https://everise.github.io/2018/10/09/LeetCode-572-Subtree-of-Another-Tree/</id>
-    <published>2018-10-10T02:24:50.000Z</published>
-    <updated>2018-10-13T02:33:22.838Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(s, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> || t == <span class="literal">nil</span> || s.Val != t.Val &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSubtree</span><span class="params">(s *TreeNode, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> equal(s, t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isSubtree(s.Left, t) || isSubtree(s.Right, t)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>LeetCode 17: Letter Combinations of a Phone Number</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-17-Letter-Combinations-of-a-Phone-Number/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-17-Letter-Combinations-of-a-Phone-Number/</id>
+    <published>2018-10-14T19:49:42.000Z</published>
+    <updated>2018-10-14T19:49:42.770Z</updated>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; TreeNode &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Val &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Left *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Right *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
     </summary>
     
-      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="Binary Tree" scheme="https://everise.github.io/tags/Binary-Tree/"/>
     
   </entry>
   
   <entry>
-    <title>LeetCode 549: Binary Tree Longest Consecutive Sequence II</title>
-    <link href="https://everise.github.io/2018/10/09/LeetCode-549-Binary-Tree-Longest-Consecutive-Sequence-II/"/>
-    <id>https://everise.github.io/2018/10/09/LeetCode-549-Binary-Tree-Longest-Consecutive-Sequence-II/</id>
-    <published>2018-10-10T02:24:34.000Z</published>
-    <updated>2018-10-13T01:31:18.798Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">currentLongest</span><span class="params">(root *TreeNode, diff <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    left, right := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> root.Left != <span class="literal">nil</span> &amp;&amp; root.Val - root.Left.Val == diff &#123;</span><br><span class="line">        left = <span class="number">1</span> + currentLongest(root.Left, diff)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> root.Right != <span class="literal">nil</span> &amp;&amp; root.Val - root.Right.Val == diff &#123;</span><br><span class="line">        right = <span class="number">1</span> + currentLongest(root.Right, diff)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        left = right</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">longestConsecutive</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    res := currentLongest(root, <span class="number">1</span>) + currentLongest(root, <span class="number">-1</span>) + <span class="number">1</span></span><br><span class="line">    left := longestConsecutive(root.Left)</span><br><span class="line">    right := longestConsecutive(root.Right)</span><br><span class="line">    <span class="keyword">if</span> left &gt; right &#123;</span><br><span class="line">        <span class="keyword">if</span> left &gt; res &#123;</span><br><span class="line">            res = left</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> right &gt; res &#123;</span><br><span class="line">            res = right</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>LeetCode 785: Is Graph Bipartite?</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-785-Is-Graph-Bipartite/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-785-Is-Graph-Bipartite/</id>
+    <published>2018-10-14T19:49:28.000Z</published>
+    <updated>2018-10-14T19:49:28.267Z</updated>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; TreeNode &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Val &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Left *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Right *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
     </summary>
     
-      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="Binary Tree" scheme="https://everise.github.io/tags/Binary-Tree/"/>
     
   </entry>
   
   <entry>
-    <title>LeetCode 543: Diameter of Binary Tree</title>
-    <link href="https://everise.github.io/2018/10/09/LeetCode-543-Diameter-of-Binary-Tree/"/>
-    <id>https://everise.github.io/2018/10/09/LeetCode-543-Diameter-of-Binary-Tree/</id>
-    <published>2018-10-10T02:24:10.000Z</published>
-    <updated>2018-10-13T00:40:14.604Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxDepth</span><span class="params">(root *TreeNode, res *<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    left := maxDepth(root.Left, res)</span><br><span class="line">    right := maxDepth(root.Right, res)</span><br><span class="line">    <span class="keyword">if</span> left + right &gt; *res &#123;</span><br><span class="line">        *res = left + right</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        left = right</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">diameterOfBinaryTree</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    maxDepth(root, &amp;res)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>LeetCode 684: Redundant Connection</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-684-Redundant-Connection/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-684-Redundant-Connection/</id>
+    <published>2018-10-14T19:49:10.000Z</published>
+    <updated>2018-10-14T19:49:10.709Z</updated>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; TreeNode &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Val &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Left *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Right *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
     </summary>
     
-      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
-    
-    
-      <category term="Binary Tree" scheme="https://everise.github.io/tags/Binary-Tree/"/>
     
   </entry>
   
   <entry>
-    <title>LeetCode 250: Count Univalue Subtrees</title>
-    <link href="https://everise.github.io/2018/10/06/LeetCode-250-Count-Univalue-Subtrees/"/>
-    <id>https://everise.github.io/2018/10/06/LeetCode-250-Count-Univalue-Subtrees/</id>
-    <published>2018-10-06T21:43:07.000Z</published>
-    <updated>2018-10-13T00:28:51.463Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">dfs</span><span class="params">(root *TreeNode, val <span class="keyword">int</span>, res *<span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    left := dfs(root.Left,root.Val,res)</span><br><span class="line">    right := dfs(root.Right,root.Val,res)</span><br><span class="line">    <span class="keyword">if</span> left &amp;&amp; right &#123;</span><br><span class="line">        *res++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (root.Val == val) &amp;&amp; left &amp;&amp; right</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countUnivalSubtrees</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root, root.Val, &amp;res)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>LeetCode 444: Sequence Reconstruction</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-444-Sequence-Reconstruction/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-444-Sequence-Reconstruction/</id>
+    <published>2018-10-14T19:48:56.000Z</published>
+    <updated>2018-10-14T19:48:56.696Z</updated>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt; TreeNode &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Val &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Left *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Right *TreeNode&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 399: Evaluate Division</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-399-Evaluate-Division/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-399-Evaluate-Division/</id>
+    <published>2018-10-14T19:48:43.000Z</published>
+    <updated>2018-10-14T19:48:43.601Z</updated>
+    
+    <summary type="html">
     
     </summary>
     
-      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 310: Minimum Height Trees</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-310-Minimum-Height-Trees/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-310-Minimum-Height-Trees/</id>
+    <published>2018-10-14T19:48:29.000Z</published>
+    <updated>2018-10-14T19:48:29.750Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
     
     
-      <category term="Binary Tree" scheme="https://everise.github.io/tags/Binary-Tree/"/>
+  </entry>
+  
+  <entry>
+    <title>LeetCode 210: Course Schedule II</title>
+    <link href="https://everise.github.io/2018/10/14/LeetCode-210-Course-Schedule-II/"/>
+    <id>https://everise.github.io/2018/10/14/LeetCode-210-Course-Schedule-II/</id>
+    <published>2018-10-14T19:48:15.000Z</published>
+    <updated>2018-10-14T19:48:15.299Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
     
   </entry>
   
