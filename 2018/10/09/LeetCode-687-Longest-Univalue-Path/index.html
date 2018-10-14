@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Binary Tree," />
 
 
 
@@ -125,17 +125,18 @@
 
 
 
-<meta name="description" content="Stay Hungry Stay Foolish">
+<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="keywords" content="Binary Tree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 687: Longest Univalue Path">
 <meta property="og:url" content="https://everise.github.io/2018/10/09/LeetCode-687-Longest-Univalue-Path/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Stay Hungry Stay Foolish">
+<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-10T02:25:43.241Z">
+<meta property="og:updated_time" content="2018-10-13T02:49:09.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 687: Longest Univalue Path">
-<meta name="twitter:description" content="Stay Hungry Stay Foolish">
+<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
 
 
 
@@ -362,6 +363,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -389,7 +412,11 @@
       
 
       
-        
+        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(s, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> || t == <span class="literal">nil</span> || s.Val != t.Val &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSubtree</span><span class="params">(s *TreeNode, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> equal(s, t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isSubtree(s.Left, t) || isSubtree(s.Right, t)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -421,6 +448,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+          
+        </div>
       
 
       

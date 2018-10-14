@@ -8,7 +8,13 @@
   <entry>
     <title><![CDATA[LeetCode 872: Leaf-Similar Trees]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-872-Leaf-Similar-Trees%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789func equal(s, t *TreeNode) bool &#123; if s == nil &amp;&amp; t == nil &#123; return true &#125; if s == nil || t == nil || s.Val != t.Val &#123; return false &#125; return equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)&#125; 123456789101112func isSubtree(s *TreeNode, t *TreeNode) bool &#123; if t == nil &#123; return true &#125; if s == nil &amp;&amp; t != nil &#123; return false &#125; if equal(s, t) &#123; return true &#125; return isSubtree(s.Left, t) || isSubtree(s.Right, t)&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 742: Closest Leaf in a Binary Tree]]></title>
@@ -18,12 +24,24 @@
   <entry>
     <title><![CDATA[LeetCode 687: Longest Univalue Path]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-687-Longest-Univalue-Path%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789func equal(s, t *TreeNode) bool &#123; if s == nil &amp;&amp; t == nil &#123; return true &#125; if s == nil || t == nil || s.Val != t.Val &#123; return false &#125; return equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)&#125; 123456789101112func isSubtree(s *TreeNode, t *TreeNode) bool &#123; if t == nil &#123; return true &#125; if s == nil &amp;&amp; t != nil &#123; return false &#125; if equal(s, t) &#123; return true &#125; return isSubtree(s.Left, t) || isSubtree(s.Right, t)&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 653: Two Sum IV - Input is a BST]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-653-Two-Sum-IV-Input-is-a-BST%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516171819202122232425func findTarget(root *TreeNode, k int) bool &#123; if root == nil &#123; return false &#125; var queue []*TreeNode queue = append(queue, root) m := make(map[int]int) for len(queue) != 0 &#123; for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; if _, exist := m[v.Val]; exist &#123; return true &#125;else &#123; m[k-v.Val] = v.Val &#125; queue = queue[1:] &#125; &#125; return false&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 652: Find Duplicate Subtrees]]></title>
@@ -33,7 +51,7 @@
   <entry>
     <title><![CDATA[LeetCode 572: Subtree of Another Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-572-Subtree-of-Another-Tree%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516func currentLongest(root *TreeNode, diff int) int &#123; if root == nil &#123; return 0 &#125; left, right := 0, 0 if root.Left != nil &amp;&amp; root.Val - root.Left.Val == diff &#123; left = 1 + currentLongest(root.Left, diff) &#125; if root.Right != nil &amp;&amp; root.Val - root.Right.Val == diff &#123; right = 1 + currentLongest(root.Right, diff) &#125; if left &lt; right &#123; left = right &#125; return left&#125; 123456789101112131415161718func longestConsecutive(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := currentLongest(root, 1) + currentLongest(root, -1) + 1 left := longestConsecutive(root.Left) right := longestConsecutive(root.Right) if left &gt; right &#123; if left &gt; res &#123; res = left &#125; &#125;else &#123; if right &gt; res &#123; res = right &#125; &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789func equal(s, t *TreeNode) bool &#123; if s == nil &amp;&amp; t == nil &#123; return true &#125; if s == nil || t == nil || s.Val != t.Val &#123; return false &#125; return equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)&#125; 123456789101112func isSubtree(s *TreeNode, t *TreeNode) bool &#123; if t == nil &#123; return true &#125; if s == nil &amp;&amp; t != nil &#123; return false &#125; if equal(s, t) &#123; return true &#125; return isSubtree(s.Left, t) || isSubtree(s.Right, t)&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
