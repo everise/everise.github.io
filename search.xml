@@ -1,6 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 346: Moving Average from Data Stream]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-346-Moving-Average-from-Data-Stream%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 486: Predict the Winner]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-486-Predict-the-Winner%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 734: Sentence Similarity]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-734-Sentence-Similarity%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 307: Range Sum Query - Mutable]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-307-Range-Sum-Query-Mutable%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 447: Number of Boomerangs]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-447-Number-of-Boomerangs%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 776: Split BST]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-776-Split-BST%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 424: Longest Repeating Character Replacement]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-424-Longest-Repeating-Character-Replacement%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 457: Circular Array Loop]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-457-Circular-Array-Loop%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 766: Toeplitz Matrix]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-766-Toeplitz-Matrix%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 849: Maximize Distance to Closest Person]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-849-Maximize-Distance-to-Closest-Person%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 731: My Calendar II]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-731-My-Calendar-II%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 846: Hand of Straights]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-846-Hand-of-Straights%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 418: Sentence Screen Fitting]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-418-Sentence-Screen-Fitting-0%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 205: Isomorphic Strings]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-205-Isomorphic-Strings%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 833: Find And Replace in String]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-833-Find-And-Replace-in-String%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 562: Longest Line of Consecutive One in Matrix]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-562-Longest-Line-of-Consecutive-One-in-Matrix%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 299: Bulls and Cows]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-299-Bulls-and-Cows%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 686: Repeated String Match]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-686-Repeated-String-Match%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 904: Fruit Into Baskets]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-904-Fruit-Into-Baskets%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 844: Backspace String Compare]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-844-Backspace-String-Compare%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 482: License Key Formatting]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-482-License-Key-Formatting%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 681: Next Closest Time]]></title>
+    <url>%2F2018%2F10%2F14%2FLeetCode-681-Next-Closest-Time%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 91: Decode Ways]]></title>
     <url>%2F2018%2F10%2F14%2FLeetCode-91-Decode-Ways%2F</url>
     <content type="text"></content>
@@ -629,8 +739,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Hash Table</tag>
         <tag>String</tag>
+        <tag>Hash Table</tag>
         <tag>Two Pointers</tag>
       </tags>
   </entry>

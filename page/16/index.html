@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-139-Word-Break/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/06/LeetCode-110-Balanced-Binary-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -341,7 +341,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/LeetCode-139-Word-Break/" itemprop="url">LeetCode 139: Word Break</a></h1>
+                <a class="post-title-link" href="/2018/10/06/LeetCode-110-Balanced-Binary-Tree/" itemprop="url">LeetCode 110: Balanced Binary Tree</a></h1>
         
 
         <div class="post-meta">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T10:48:22-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-06T17:41:59-04:00">
+                2018-10-06
               </time>
             
 
@@ -414,10 +414,10 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordBreak</span><span class="params">(s <span class="keyword">string</span>, wordDict []<span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(wordDict) == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dict := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">bool</span>)</span><br><span class="line">    length := []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> wordDict &#123;</span><br><span class="line">        <span class="keyword">if</span> _, exist := dict[v]; !exist &#123;</span><br><span class="line">            dict[v] = <span class="literal">true</span></span><br><span class="line">            length = <span class="built_in">append</span>(length,<span class="built_in">len</span>(v))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="keyword">bool</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>)</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> !dp[i] &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> _, size := <span class="keyword">range</span> length &#123;</span><br><span class="line">            dp[i+size] = dp[i+size] || dict[s[i:i+size]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="built_in">len</span>(s)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-139-Word-Break/#more" rel="contents">
+            <a class="btn" href="/2018/10/06/LeetCode-110-Balanced-Binary-Tree/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -468,7 +468,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-10-Regular-Expression-Matching/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/06/LeetCode-108-Convert-Sorted-Array-to-Binary-Search-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -487,7 +487,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/LeetCode-10-Regular-Expression-Matching/" itemprop="url">LeetCode 10: Regular Expression Matching</a></h1>
+                <a class="post-title-link" href="/2018/10/06/LeetCode-108-Convert-Sorted-Array-to-Binary-Search-Tree/" itemprop="url">LeetCode 108: Convert Sorted Array to Binary Search Tree</a></h1>
         
 
         <div class="post-meta">
@@ -499,8 +499,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T10:47:54-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-06T17:41:43-04:00">
+                2018-10-06
               </time>
             
 
@@ -560,10 +560,10 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isMatch</span><span class="params">(s <span class="keyword">string</span>, p <span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    dp := <span class="built_in">make</span>([][]<span class="keyword">bool</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> dp &#123;</span><br><span class="line">        dp[i] = <span class="built_in">make</span>([]<span class="keyword">bool</span>, <span class="built_in">len</span>(p)+<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="built_in">len</span>(s)][<span class="built_in">len</span>(p)] = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="built_in">len</span>(s); i &gt;= <span class="number">0</span>; i-- &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="built_in">len</span>(p) - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j-- &#123;</span><br><span class="line">            firstMatch := i &lt; <span class="built_in">len</span>(s) &amp;&amp; (p[j] == s[i] || p[j] == <span class="string">'.'</span>)</span><br><span class="line">            <span class="keyword">if</span> j+<span class="number">1</span> &lt; <span class="built_in">len</span>(p) &amp;&amp; p[j + <span class="number">1</span>] == <span class="string">'*'</span> &#123;</span><br><span class="line">                dp[i][j] = dp[i][j + <span class="number">2</span>] || firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j]</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                dp[i][j] = firstMatch &amp;&amp; dp[i + <span class="number">1</span>][j + <span class="number">1</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-10-Regular-Expression-Matching/#more" rel="contents">
+            <a class="btn" href="/2018/10/06/LeetCode-108-Convert-Sorted-Array-to-Binary-Search-Tree/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -614,7 +614,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-8-String-to-Integer-atoi/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/06/LeetCode-104-Maximum-Depth-of-Binary-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -633,7 +633,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/LeetCode-8-String-to-Integer-atoi/" itemprop="url">LeetCode 8: String to Integer (atoi)</a></h1>
+                <a class="post-title-link" href="/2018/10/06/LeetCode-104-Maximum-Depth-of-Binary-Tree/" itemprop="url">LeetCode 104: Maximum Depth of Binary Tree</a></h1>
         
 
         <div class="post-meta">
@@ -645,8 +645,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T00:26:14-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-06T17:41:26-04:00">
+                2018-10-06
               </time>
             
 
@@ -706,10 +706,10 @@
 
       
         
-          <p>This is following:<br>
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-8-String-to-Integer-atoi/#more" rel="contents">
+            <a class="btn" href="/2018/10/06/LeetCode-104-Maximum-Depth-of-Binary-Tree/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -760,7 +760,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-7-Reverse-Integer/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/06/LeetCode-103-Binary-Tree-Zigzag-Level-Order-Traversal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -779,7 +779,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/LeetCode-7-Reverse-Integer/" itemprop="url">LeetCode 7: Reverse Integer</a></h1>
+                <a class="post-title-link" href="/2018/10/06/LeetCode-103-Binary-Tree-Zigzag-Level-Order-Traversal/" itemprop="url">LeetCode 103: Binary Tree Zigzag Level Order Traversal</a></h1>
         
 
         <div class="post-meta">
@@ -791,8 +791,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T00:26:00-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-06T17:41:10-04:00">
+                2018-10-06
               </time>
             
 
@@ -852,10 +852,10 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverse</span><span class="params">(x <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        res = res * <span class="number">10</span> + x % <span class="number">10</span></span><br><span class="line">        <span class="keyword">if</span> x / <span class="number">10</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        x = x / <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">-0x80000000</span> || x &gt; <span class="number">0x7FFFFFFF</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-7-Reverse-Integer/#more" rel="contents">
+            <a class="btn" href="/2018/10/06/LeetCode-103-Binary-Tree-Zigzag-Level-Order-Traversal/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -906,7 +906,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-5-Longest-Palindromic-Substring/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/06/LeetCode-102-Binary-Tree-Level-Order-Traversal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -925,7 +925,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/28/LeetCode-5-Longest-Palindromic-Substring/" itemprop="url">LeetCode 5: Longest Palindromic Substring</a></h1>
+                <a class="post-title-link" href="/2018/10/06/LeetCode-102-Binary-Tree-Level-Order-Traversal/" itemprop="url">LeetCode 102: Binary Tree Level Order Traversal</a></h1>
         
 
         <div class="post-meta">
@@ -937,8 +937,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T00:25:37-04:00">
-                2018-09-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-06T17:40:49-04:00">
+                2018-10-06
               </time>
             
 
@@ -998,10 +998,10 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">longestPalindrome</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(s) &lt; <span class="number">2</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> s</span><br><span class="line">    &#125;</span><br><span class="line">    index, max := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s) &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) - i &gt; max / <span class="number">2</span> &#123;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        begin, end := i, i</span><br><span class="line">        <span class="keyword">for</span> end &lt; <span class="built_in">len</span>(s) - <span class="number">1</span> &amp;&amp; s[i] == s[i+<span class="number">1</span>] &#123;</span><br><span class="line">            end++</span><br><span class="line">        &#125;</span><br><span class="line">        i = end + <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> end &lt; <span class="built_in">len</span>(s) - <span class="number">1</span> &amp;&amp; begin &gt; <span class="number">0</span> &amp;&amp; s[end+<span class="number">1</span>] == s[begin<span class="number">-1</span>] &#123;</span><br><span class="line">            end++</span><br><span class="line">            begin--</span><br><span class="line">        &#125;</span><br><span class="line">        length := end - begin + <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> max &lt; length &#123;</span><br><span class="line">            max = length</span><br><span class="line">            index = begin</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s[index: index + max]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/28/LeetCode-5-Longest-Palindromic-Substring/#more" rel="contents">
+            <a class="btn" href="/2018/10/06/LeetCode-102-Binary-Tree-Level-Order-Traversal/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1043,7 +1043,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1093,7 +1093,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
