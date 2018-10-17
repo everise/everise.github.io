@@ -313,7 +313,13 @@
   <entry>
     <title><![CDATA[LeetCode 662: Maximum Width of Binary Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-662-Maximum-Width-of-Binary-Tree%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789func equal(s, t *TreeNode) bool &#123; if s == nil &amp;&amp; t == nil &#123; return true &#125; if s == nil || t == nil || s.Val != t.Val &#123; return false &#125; return equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)&#125; 123456789101112func isSubtree(s *TreeNode, t *TreeNode) bool &#123; if t == nil &#123; return true &#125; if s == nil &amp;&amp; t != nil &#123; return false &#125; if equal(s, t) &#123; return true &#125; return isSubtree(s.Left, t) || isSubtree(s.Right, t)&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 872: Leaf-Similar Trees]]></title>
@@ -329,7 +335,13 @@
   <entry>
     <title><![CDATA[LeetCode 742: Closest Leaf in a Binary Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-742-Closest-Leaf-in-a-Binary-Tree%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789func equal(s, t *TreeNode) bool &#123; if s == nil &amp;&amp; t == nil &#123; return true &#125; if s == nil || t == nil || s.Val != t.Val &#123; return false &#125; return equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)&#125; 123456789101112func isSubtree(s *TreeNode, t *TreeNode) bool &#123; if t == nil &#123; return true &#125; if s == nil &amp;&amp; t != nil &#123; return false &#125; if equal(s, t) &#123; return true &#125; return isSubtree(s.Left, t) || isSubtree(s.Right, t)&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 687: Longest Univalue Path]]></title>
@@ -356,7 +368,13 @@
   <entry>
     <title><![CDATA[LeetCode 652: Find Duplicate Subtrees]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-652-Find-Duplicate-Subtrees%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234type Record struct &#123; m map[string]int&#125;var rec Record 12345678910111213141516func findDuplicate(root *TreeNode, res *[]*TreeNode) string &#123; if root == nil &#123; return "#" &#125; str := string(root.Val) + "," + findDuplicate(root.Left, res) + "," + findDuplicate(root.Right, res) if _, exist := rec.m[str]; exist &#123; if rec.m[str] == 1 &#123; *res = append(*res, root) &#125; rec.m[str]++ &#125;else &#123; rec.m[str] = 1 &#125; return str&#125; 123456func findDuplicateSubtrees(root *TreeNode) []*TreeNode &#123; var res []*TreeNode rec.m = make(map[string]int) findDuplicate(root, &amp;res) return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 572: Subtree of Another Tree]]></title>
@@ -427,7 +445,13 @@
   <entry>
     <title><![CDATA[LeetCode 124: Binary Tree Maximum Path Sum]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-124-Binary-Tree-Maximum-Path-Sum%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021222324func maxPath(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxPath(root.Left, res) if left &lt; 0 &#123; left = 0 &#125; right := maxPath(root.Right, res) if right &lt; 0 &#123; right = 0 &#125; if left + right + root.Val &gt; *res &#123; *res = left + right + root.Val &#125; if left &lt; right &#123; left = right &#125; return root.Val + left&#125; 12345func maxPathSum(root *TreeNode) int &#123; res := -0x7FFFFFFF maxPath(root, &amp;res) return res&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Binary Tree</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 110: Balanced Binary Tree]]></title>
