@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Breadth-first Search,Depth-first Search,Graph,Topological Sort," />
 
 
 
@@ -123,17 +123,18 @@
 
 
 
-<meta name="description" content="Stay Hungry Stay Foolish">
+<meta name="description" content="There are a total of n courses you have to take, labeled from 0 to n-1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair:">
+<meta name="keywords" content="Breadth-first Search,Depth-first Search,Graph,Topological Sort">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 207: Course Schedule">
 <meta property="og:url" content="https://everise.github.io/2018/10/14/LeetCode-207-Course-Schedule/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Stay Hungry Stay Foolish">
+<meta property="og:description" content="There are a total of n courses you have to take, labeled from 0 to n-1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T19:47:50.814Z">
+<meta property="og:updated_time" content="2018-10-18T22:49:28.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 207: Course Schedule">
-<meta name="twitter:description" content="Stay Hungry Stay Foolish">
+<meta name="twitter:description" content="There are a total of n courses you have to take, labeled from 0 to n-1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair:">
 
 
 
@@ -360,6 +361,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -387,7 +410,21 @@
       
 
       
-        
+        <p>There are a total of <em>n</em> courses you have to take, labeled from 0 to n-1.</p>
+<p>Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]</p>
+<p>Given the total number of courses and a list of prerequisite <strong>pairs</strong>, is it possible for you to finish all courses?<br><a id="more"></a><br><strong>Example 1:</strong><br>Input: 2, [[1,0]]<br>Output: true<br>Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So it is possible.</p>
+<p><strong>Example 2:</strong><br>Input: 2, [[1,0],[0,1]]<br>Output: false<br>Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>This problem is equivalent to finding if a cycle exists in a directed graph. If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses.</li>
+<li>The input prerequisites is a graph represented by a list of edges, not adjacency matrices. Read more about <a href="https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs" target="_blank" rel="noopener">how a graph is represented</a>.</li>
+<li><a href="https://www.coursera.org/specializations/algorithms" target="_blank" rel="noopener">Topological Sort via DFS</a> - A great video tutorial (21 minutes) on Coursera explaining the basic concepts of Topological Sort.</li>
+<li>Topological sort could also be done via <a href="https://en.wikipedia.org/wiki/Topological_sorting#Algorithms" target="_blank" rel="noopener">BFS</a>.</li>
+<li>You may assume that there are no duplicate edges in the input prerequisites.</li>
+</ul>
+<p><strong>BFS Solution:</strong><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">canFinish</span><span class="params">(numCourses <span class="keyword">int</span>, prerequisites [][]<span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    graph := <span class="built_in">make</span>([][]<span class="keyword">int</span>, numCourses)</span><br><span class="line">    pres := <span class="built_in">make</span>([]<span class="keyword">int</span>, numCourses)</span><br><span class="line">    <span class="keyword">var</span> queue []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> _, pair := <span class="keyword">range</span> prerequisites &#123;</span><br><span class="line">        graph[pair[<span class="number">1</span>]] = <span class="built_in">append</span>(graph[pair[<span class="number">1</span>]], pair[<span class="number">0</span>])</span><br><span class="line">        pres[pair[<span class="number">0</span>]]++</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> n, v := <span class="keyword">range</span> pres &#123;</span><br><span class="line">        <span class="keyword">if</span> v == <span class="number">0</span> &#123;</span><br><span class="line">            queue = <span class="built_in">append</span>(queue, n)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">len</span>(queue) != <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> _, a := <span class="keyword">range</span> graph[queue[<span class="number">0</span>]] &#123;</span><br><span class="line">            pres[a]--</span><br><span class="line">            <span class="keyword">if</span> pres[a] == <span class="number">0</span> &#123;</span><br><span class="line">                queue = <span class="built_in">append</span>(queue, a)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        queue = queue[<span class="number">1</span>:]</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; numCourses; i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> pres[i] != <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>DFS Solution:</strong><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">canFinshDFS</span><span class="params">(graph [][]<span class="keyword">int</span>, visit []<span class="keyword">int</span>, i <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> visit[i] == <span class="number">-1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> visit[i] == <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    visit[i] = <span class="number">-1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> _, a := <span class="keyword">range</span> graph[i] &#123;</span><br><span class="line">        <span class="keyword">if</span> !canFinshDFS(graph, visit, a) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    visit[i] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">canFinish</span><span class="params">(numCourses <span class="keyword">int</span>, prerequisites [][]<span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    graph := <span class="built_in">make</span>([][]<span class="keyword">int</span>, numCourses)</span><br><span class="line">    visit := <span class="built_in">make</span>([]<span class="keyword">int</span>, numCourses)</span><br><span class="line">    <span class="keyword">for</span> _, pair := <span class="keyword">range</span> prerequisites &#123;</span><br><span class="line">        graph[pair[<span class="number">1</span>]] = <span class="built_in">append</span>(graph[pair[<span class="number">1</span>]], pair[<span class="number">0</span>])</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; numCourses; i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> !canFinshDFS(graph, visit, i) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -419,6 +456,18 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Breadth-first-Search/" rel="tag"># Breadth-first Search</a>
+          
+            <a href="/tags/Depth-first-Search/" rel="tag"># Depth-first Search</a>
+          
+            <a href="/tags/Graph/" rel="tag"># Graph</a>
+          
+            <a href="/tags/Topological-Sort/" rel="tag"># Topological Sort</a>
+          
+        </div>
       
 
       
@@ -535,7 +584,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

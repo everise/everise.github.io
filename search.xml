@@ -322,7 +322,16 @@
   <entry>
     <title><![CDATA[LeetCode 207: Course Schedule]]></title>
     <url>%2F2018%2F10%2F14%2FLeetCode-207-Course-Schedule%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[There are a total of n courses you have to take, labeled from 0 to n-1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1] Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?Example 1:Input: 2, [[1,0]]Output: trueExplanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So it is possible. Example 2:Input: 2, [[1,0],[0,1]]Output: falseExplanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible. Note: This problem is equivalent to finding if a cycle exists in a directed graph. If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses. The input prerequisites is a graph represented by a list of edges, not adjacency matrices. Read more about how a graph is represented. Topological Sort via DFS - A great video tutorial (21 minutes) on Coursera explaining the basic concepts of Topological Sort. Topological sort could also be done via BFS. You may assume that there are no duplicate edges in the input prerequisites. BFS Solution:12345678910111213141516171819202122232425262728293031323334func canFinish(numCourses int, prerequisites [][]int) bool &#123; graph := make([][]int, numCourses) pres := make([]int, numCourses) var queue []int for _, pair := range prerequisites &#123; graph[pair[1]] = append(graph[pair[1]], pair[0]) pres[pair[0]]++ &#125; for n, v := range pres &#123; if v == 0 &#123; queue = append(queue, n) &#125; &#125; for len(queue) != 0 &#123; for _, a := range graph[queue[0]] &#123; pres[a]-- if pres[a] == 0 &#123; queue = append(queue, a) &#125; &#125; queue = queue[1:] &#125; for i := 0; i &lt; numCourses; i++ &#123; if pres[i] != 0 &#123; return false &#125; &#125; return true&#125; DFS Solution:123456789101112131415161718192021222324252627282930313233func canFinshDFS(graph [][]int, visit []int, i int) bool &#123; if visit[i] == -1 &#123; return false &#125; if visit[i] == 1 &#123; return true &#125; visit[i] = -1 for _, a := range graph[i] &#123; if !canFinshDFS(graph, visit, a) &#123; return false &#125; &#125; visit[i] = 1 return true&#125;func canFinish(numCourses int, prerequisites [][]int) bool &#123; graph := make([][]int, numCourses) visit := make([]int, numCourses) for _, pair := range prerequisites &#123; graph[pair[1]] = append(graph[pair[1]], pair[0]) &#125; for i := 0; i &lt; numCourses; i++ &#123; if !canFinshDFS(graph, visit, i) &#123; return false &#125; &#125; return true&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Breadth-first Search</tag>
+        <tag>Depth-first Search</tag>
+        <tag>Graph</tag>
+        <tag>Topological Sort</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 662: Maximum Width of Binary Tree]]></title>
