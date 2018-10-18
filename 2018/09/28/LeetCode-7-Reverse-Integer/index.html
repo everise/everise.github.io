@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="1234567891011121314func reverse(x int) int &amp;#123;    res := 0    for &amp;#123;        res = res * 10 + x % 10        if x / 10 == 0 &amp;#123;            break        &amp;#125;        x = x / 10    &amp;#125;    if">
+<meta name="description" content="Given a 32-bit signed integer, reverse digits of an integer. Example 1:Input: 123Output: 321">
 <meta name="keywords" content="Math">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 7: Reverse Integer">
 <meta property="og:url" content="https://everise.github.io/2018/09/28/LeetCode-7-Reverse-Integer/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="1234567891011121314func reverse(x int) int &amp;#123;    res := 0    for &amp;#123;        res = res * 10 + x % 10        if x / 10 == 0 &amp;#123;            break        &amp;#125;        x = x / 10    &amp;#125;    if">
+<meta property="og:description" content="Given a 32-bit signed integer, reverse digits of an integer. Example 1:Input: 123Output: 321">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-29T22:18:59.847Z">
+<meta property="og:updated_time" content="2018-10-18T03:03:20.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 7: Reverse Integer">
-<meta name="twitter:description" content="1234567891011121314func reverse(x int) int &amp;#123;    res := 0    for &amp;#123;        res = res * 10 + x % 10        if x / 10 == 0 &amp;#123;            break        &amp;#125;        x = x / 10    &amp;#125;    if">
+<meta name="twitter:description" content="Given a 32-bit signed integer, reverse digits of an integer. Example 1:Input: 123Output: 321">
 
 
 
@@ -410,8 +410,11 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverse</span><span class="params">(x <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        res = res * <span class="number">10</span> + x % <span class="number">10</span></span><br><span class="line">        <span class="keyword">if</span> x / <span class="number">10</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        x = x / <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">-0x80000000</span> || x &gt; <span class="number">0x7FFFFFFF</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a 32-bit signed integer, reverse digits of an integer.</p>
+<p><strong>Example 1:</strong><br>Input: 123<br>Output: 321<br><a id="more"></a><br><strong>Example 2:</strong><br>Input: -123<br>Output: -321</p>
+<p><strong>Example 3:</strong><br>Input: 120<br>Output: 21</p>
+<p><strong>Note:</strong><br>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: $[−2^{31},  2^{31 − 1}]$. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverse</span><span class="params">(x <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        res = res * <span class="number">10</span> + x % <span class="number">10</span></span><br><span class="line">        <span class="keyword">if</span> x / <span class="number">10</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        x = x / <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">-0x80000000</span> || x &gt; <span class="number">0x7FFFFFFF</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +547,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -566,7 +569,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

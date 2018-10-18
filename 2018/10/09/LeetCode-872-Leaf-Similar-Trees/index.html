@@ -123,18 +123,20 @@
 
 
 
-<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="description" content="Consider all the leaves of a binary tree.  From left to right order, the values of those leaves form a leaf value sequence.  For example, in the given tree above, the leaf value sequence is (6, 7, 4,">
 <meta name="keywords" content="Binary Tree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 872: Leaf-Similar Trees">
 <meta property="og:url" content="https://everise.github.io/2018/10/09/LeetCode-872-Leaf-Similar-Trees/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta property="og:description" content="Consider all the leaves of a binary tree.  From left to right order, the values of those leaves form a leaf value sequence.  For example, in the given tree above, the leaf value sequence is (6, 7, 4,">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T19:44:29.881Z">
+<meta property="og:image" content="https://everise.github.io/uploads/872.png">
+<meta property="og:updated_time" content="2018-10-17T23:19:36.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 872: Leaf-Similar Trees">
-<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="twitter:description" content="Consider all the leaves of a binary tree.  From left to right order, the values of those leaves form a leaf value sequence.  For example, in the given tree above, the leaf value sequence is (6, 7, 4,">
+<meta name="twitter:image" content="https://everise.github.io/uploads/872.png">
 
 
 
@@ -410,10 +412,15 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(s, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> || t == <span class="literal">nil</span> || s.Val != t.Val &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSubtree</span><span class="params">(s *TreeNode, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> equal(s, t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isSubtree(s.Left, t) || isSubtree(s.Right, t)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Consider all the leaves of a binary tree.  From left to right order, the values of those leaves form <em>a leaf value sequence</em>.</p>
+<p><img src="/uploads/872.png" alt=""></p>
+<p>For example, in the given tree above, the leaf value sequence is (6, 7, 4, 9, 8).</p>
+<p>Two binary trees are considered leaf-similar if their leaf value sequence is the same.</p>
+<p>Return true if and only if the two given trees with head nodes root1 and root2 are leaf-similar.</p>
+<p>Note: Both of the given trees will have between 1 and 100 nodes.<br><a id="more"></a><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<!-- more -->
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getLeaves</span><span class="params">(node *TreeNode)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> node == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> node.Left == <span class="literal">nil</span> &amp;&amp; node.Right == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> []<span class="keyword">int</span>&#123;node.Val&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">append</span>(getLeaves(node.Left), getLeaves(node.Right)...)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">leafSimilar</span><span class="params">(root1 *TreeNode, root2 *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    vals1 := getLeaves(root1)</span><br><span class="line">    vals2 := getLeaves(root2)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(vals1) != <span class="built_in">len</span>(vals2) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;<span class="built_in">len</span>(vals1); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> vals1[i] != vals2[i] &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -546,7 +553,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -568,7 +575,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="1234type ListNode struct &amp;#123;    Val interface&amp;#123;&amp;#125;    Next *ListNode&amp;#125;">
+<meta name="description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return i">
 <meta name="keywords" content="Linked List,Math">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 2: Add Two Numbers">
 <meta property="og:url" content="https://everise.github.io/2018/09/28/LeetCode-2-Add-Two-Numbers/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="1234type ListNode struct &amp;#123;    Val interface&amp;#123;&amp;#125;    Next *ListNode&amp;#125;">
+<meta property="og:description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return i">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-29T22:18:42.885Z">
+<meta property="og:updated_time" content="2018-10-18T02:59:36.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 2: Add Two Numbers">
-<meta name="twitter:description" content="1234type ListNode struct &amp;#123;    Val interface&amp;#123;&amp;#125;    Next *ListNode&amp;#125;">
+<meta name="twitter:description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return i">
 
 
 
@@ -410,8 +410,9 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ListNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">    Next *ListNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong> and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.<br><a id="more"></a><br><strong>Example:</strong><br>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8<br>Explanation: 342 + 465 = 807.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ListNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">    Next *ListNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">addTwoNumbers</span><span class="params">(a, b *ListNode)</span> *<span class="title">ListNode</span></span> &#123;</span><br><span class="line">    head := <span class="built_in">new</span>(ListNode)</span><br><span class="line">    node := head</span><br><span class="line">    carray := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> a != <span class="literal">nil</span> || b != <span class="literal">nil</span> || carray != <span class="number">0</span> &#123;</span><br><span class="line">        sum := carry</span><br><span class="line">        <span class="keyword">if</span> a != <span class="literal">nil</span> &#123;</span><br><span class="line">            sum += a.Val</span><br><span class="line">            a = a.Next</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> b != <span class="literal">nil</span> &#123;</span><br><span class="line">            sum += b.Val</span><br><span class="line">            b = b.Next</span><br><span class="line">        &#125;</span><br><span class="line">        carry = sum / <span class="number">10</span></span><br><span class="line">        node.Next = <span class="built_in">new</span>(ListNode)</span><br><span class="line">        node.Next.Val = sum % <span class="number">10</span></span><br><span class="line">        node = node.Next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head.Next</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -547,7 +548,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -569,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

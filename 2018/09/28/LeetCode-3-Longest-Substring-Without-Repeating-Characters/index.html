@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="String,Hash Table,Two Pointers," />
+  <meta name="keywords" content="Hash Table,String,Two Pointers," />
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="123456789101112131415161718192021func lengthOfLongestSubstring(s string) int &amp;#123;    m := make(map[uint8]int)    res := 0    start, end := 0, 0    for end &amp;lt; len(s) &amp;#123;        if p, exist := m[">
-<meta name="keywords" content="String,Hash Table,Two Pointers">
+<meta name="description" content="Given a string, find the length of the longest substring without repeating characters. Example 1:Input: “abcabcbb”Output: 3Explanation: The answer is “abc”, with the length of 3.">
+<meta name="keywords" content="Hash Table,String,Two Pointers">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 3: Longest Substring Without Repeating Characters">
 <meta property="og:url" content="https://everise.github.io/2018/09/28/LeetCode-3-Longest-Substring-Without-Repeating-Characters/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="123456789101112131415161718192021func lengthOfLongestSubstring(s string) int &amp;#123;    m := make(map[uint8]int)    res := 0    start, end := 0, 0    for end &amp;lt; len(s) &amp;#123;        if p, exist := m[">
+<meta property="og:description" content="Given a string, find the length of the longest substring without repeating characters. Example 1:Input: “abcabcbb”Output: 3Explanation: The answer is “abc”, with the length of 3.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-29T22:18:50.403Z">
+<meta property="og:updated_time" content="2018-10-18T03:00:33.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 3: Longest Substring Without Repeating Characters">
-<meta name="twitter:description" content="123456789101112131415161718192021func lengthOfLongestSubstring(s string) int &amp;#123;    m := make(map[uint8]int)    res := 0    start, end := 0, 0    for end &amp;lt; len(s) &amp;#123;        if p, exist := m[">
+<meta name="twitter:description" content="Given a string, find the length of the longest substring without repeating characters. Example 1:Input: “abcabcbb”Output: 3Explanation: The answer is “abc”, with the length of 3.">
 
 
 
@@ -410,8 +410,11 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">uint8</span>]<span class="keyword">int</span>)</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    start, end := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> end &lt; <span class="built_in">len</span>(s) &#123;</span><br><span class="line">        <span class="keyword">if</span> p, exist := m[s[end]]; exist &#123;</span><br><span class="line">            start = p + <span class="number">1</span></span><br><span class="line">            end = start</span><br><span class="line">            <span class="keyword">for</span> k, _ := <span class="keyword">range</span> m &#123;</span><br><span class="line">                <span class="built_in">delete</span>(m, k)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            m[s[end]] = end</span><br><span class="line">            <span class="keyword">if</span> end - start + <span class="number">1</span> &gt; res &#123;</span><br><span class="line">                res = end - start + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            end++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
+<p><strong>Example 1:</strong><br>Input: “abcabcbb”<br>Output: 3<br>Explanation: The answer is “abc”, with the length of 3.<br><a id="more"></a><br><strong>Example 2:</strong><br>Input: “bbbbb”<br>Output: 1<br>Explanation: The answer is “b”, with the length of 1.</p>
+<p><strong>Example 3:</strong><br>Input: “pwwkew”<br>Output: 3<br>Explanation: The answer is “wke”, with the length of 3. </p>
+<p>Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">uint8</span>]<span class="keyword">int</span>)</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    start, end := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> end &lt; <span class="built_in">len</span>(s) &#123;</span><br><span class="line">        <span class="keyword">if</span> p, exist := m[s[end]]; exist &#123;</span><br><span class="line">            start = p + <span class="number">1</span></span><br><span class="line">            end = start</span><br><span class="line">            <span class="keyword">for</span> k, _ := <span class="keyword">range</span> m &#123;</span><br><span class="line">                <span class="built_in">delete</span>(m, k)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            m[s[end]] = end</span><br><span class="line">            <span class="keyword">if</span> end - start + <span class="number">1</span> &gt; res &#123;</span><br><span class="line">                res = end - start + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            end++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -447,9 +450,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/String/" rel="tag"># String</a>
-          
             <a href="/tags/Hash-Table/" rel="tag"># Hash Table</a>
+          
+            <a href="/tags/String/" rel="tag"># String</a>
           
             <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
           
@@ -548,7 +551,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-count">106</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -570,7 +573,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
