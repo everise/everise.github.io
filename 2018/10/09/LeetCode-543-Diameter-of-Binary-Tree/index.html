@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Binary Tree," />
+  <meta name="keywords" content="Tree," />
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
-<meta name="keywords" content="Binary Tree">
+<meta name="description" content="Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may n">
+<meta name="keywords" content="Tree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 543: Diameter of Binary Tree">
 <meta property="og:url" content="https://everise.github.io/2018/10/09/LeetCode-543-Diameter-of-Binary-Tree/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta property="og:description" content="Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may n">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-13T00:40:14.604Z">
+<meta property="og:updated_time" content="2018-10-18T05:16:41.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 543: Diameter of Binary Tree">
-<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="twitter:description" content="Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may n">
 
 
 
@@ -410,7 +410,16 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the <strong>longest</strong> path between any two nodes in a tree. This path may or may not pass through the root.</p>
+<p><strong>Example:</strong><br>Given a binary tree</p>
+<pre><code>    1
+   / \
+  2   3
+ / \     
+4   5    
+</code></pre><p>Return <strong>3</strong>, which is the length of the path [4,2,1,3] or [5,2,1,3].</p>
+<p><strong>Note:</strong> The length of path between two nodes is represented by the number of edges between them.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxDepth</span><span class="params">(root *TreeNode, res *<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    left := maxDepth(root.Left, res)</span><br><span class="line">    right := maxDepth(root.Right, res)</span><br><span class="line">    <span class="keyword">if</span> left + right &gt; *res &#123;</span><br><span class="line">        *res = left + right</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        left = right</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">diameterOfBinaryTree</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    maxDepth(root, &amp;res)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -449,7 +458,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
           
         </div>
       
@@ -546,7 +555,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -568,7 +577,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

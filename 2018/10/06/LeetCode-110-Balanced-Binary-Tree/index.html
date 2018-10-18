@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Binary Tree," />
+  <meta name="keywords" content="Tree,Depth-first Search," />
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
-<meta name="keywords" content="Binary Tree">
+<meta name="description" content="Given a binary tree, determine if it is height-balanced. For this problem, a height-balanced binary tree is defined as: a binary tree in which the depth of the two subtrees of every node never differ">
+<meta name="keywords" content="Tree,Depth-first Search">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 110: Balanced Binary Tree">
 <meta property="og:url" content="https://everise.github.io/2018/10/06/LeetCode-110-Balanced-Binary-Tree/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta property="og:description" content="Given a binary tree, determine if it is height-balanced. For this problem, a height-balanced binary tree is defined as: a binary tree in which the depth of the two subtrees of every node never differ">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-09T20:43:23.735Z">
+<meta property="og:updated_time" content="2018-10-18T05:05:47.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 110: Balanced Binary Tree">
-<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="twitter:description" content="Given a binary tree, determine if it is height-balanced. For this problem, a height-balanced binary tree is defined as: a binary tree in which the depth of the two subtrees of every node never differ">
 
 
 
@@ -410,8 +410,26 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a binary tree, determine if it is height-balanced.</p>
+<p>For this problem, a height-balanced binary tree is defined as:</p>
+<p>a binary tree in which the depth of the two subtrees of <em>every</em> node never differ by more than 1.<br><a id="more"></a></p>
+<p><strong>Example 1:</strong><br>Given the following tree [3,9,20,null,null,15,7]:</p>
+<pre><code>  3
+ / \
+9  20
+  /  \
+ 15   7
+</code></pre><p>Return true.</p>
+<p><strong>Example 2:</strong><br>Given the following tree [1,2,2,3,3,null,null,4,4]:</p>
+<pre><code>      1
+     / \
+    2   2
+   / \
+  3   3
+ / \
+4   4
+</code></pre><p>Return false.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">checkDepth</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    left := checkDepth(root.Left)</span><br><span class="line">    <span class="keyword">if</span> left == <span class="number">-1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    right := checkDepth(root.Right)</span><br><span class="line">    <span class="keyword">if</span> right == <span class="number">-1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">if</span> right &gt; left &#123;</span><br><span class="line">        left, right = right, left</span><br><span class="line">    &#125;</span><br><span class="line">    diff := left - right</span><br><span class="line">    <span class="keyword">if</span> diff &gt; <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> + left</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isBalanced</span><span class="params">(root *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> checkDepth(root) == <span class="number">-1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
@@ -448,7 +466,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
+          
+            <a href="/tags/Depth-first-Search/" rel="tag"># Depth-first Search</a>
           
         </div>
       
@@ -545,7 +565,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -567,7 +587,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

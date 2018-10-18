@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Binary Tree," />
+  <meta name="keywords" content="Tree," />
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
-<meta name="keywords" content="Binary Tree">
+<meta name="description" content="Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node">
+<meta name="keywords" content="Tree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 572: Subtree of Another Tree">
 <meta property="og:url" content="https://everise.github.io/2018/10/09/LeetCode-572-Subtree-of-Another-Tree/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta property="og:description" content="Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-13T02:33:22.838Z">
+<meta property="og:updated_time" content="2018-10-18T05:23:16.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 572: Subtree of Another Tree">
-<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="twitter:description" content="Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node">
 
 
 
@@ -410,8 +410,32 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given two non-empty binary trees <strong>s</strong> and <strong>t</strong>, check whether tree <strong>t</strong> has exactly the same structure and node values with a subtree of <strong>s</strong>. A subtree of <strong>s</strong> is a tree consists of a node in <strong>s</strong> and all of this node’s descendants. The tree <strong>s</strong> could also be considered as a subtree of itself.<br><a id="more"></a></p>
+<p><strong>Example 1:</strong><br>Given tree s:</p>
+<pre><code>    3
+   / \
+  4   5
+ / \
+1   2
+</code></pre><p>Given tree t:</p>
+<pre><code>  4 
+ / \
+1   2
+</code></pre><p>Return <strong>true</strong>, because t has the same structure and node values with a subtree of s.</p>
+<p><strong>Example 2:</strong><br>Given tree s:</p>
+<pre><code>    3
+   / \
+  4   5
+ / \
+1   2
+   /
+  0
+</code></pre><p>Given tree t:</p>
+<pre><code>  4
+ / \
+1   2
+</code></pre><p>Return <strong>false</strong>.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(s, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> || t == <span class="literal">nil</span> || s.Val != t.Val &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSubtree</span><span class="params">(s *TreeNode, t *TreeNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> t == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> s == <span class="literal">nil</span> &amp;&amp; t != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> equal(s, t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isSubtree(s.Left, t) || isSubtree(s.Right, t)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -449,7 +473,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
           
         </div>
       
@@ -546,7 +570,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -568,7 +592,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

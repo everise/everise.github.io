@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="123456789101112131415161718192021222324func rob(nums []int) int &amp;#123;    var even, odd, res int    for i, v := range nums &amp;#123;        if i % 2 == 0 &amp;#123;            if even + v &amp;gt; odd &amp;#123;">
+<meta name="description" content="You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent house">
 <meta name="keywords" content="Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 198: House Robber">
 <meta property="og:url" content="https://everise.github.io/2018/09/28/LeetCode-198-House-Robber/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="123456789101112131415161718192021222324func rob(nums []int) int &amp;#123;    var even, odd, res int    for i, v := range nums &amp;#123;        if i % 2 == 0 &amp;#123;            if even + v &amp;gt; odd &amp;#123;">
+<meta property="og:description" content="You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent house">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-29T22:19:34.166Z">
+<meta property="og:updated_time" content="2018-10-18T03:55:45.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 198: House Robber">
-<meta name="twitter:description" content="123456789101112131415161718192021222324func rob(nums []int) int &amp;#123;    var even, odd, res int    for i, v := range nums &amp;#123;        if i % 2 == 0 &amp;#123;            if even + v &amp;gt; odd &amp;#123;">
+<meta name="twitter:description" content="You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent house">
 
 
 
@@ -410,8 +410,10 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rob</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> even, odd, res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> even + v &gt; odd &#123;</span><br><span class="line">                even = even + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                even = odd</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> odd + v &gt; even &#123;</span><br><span class="line">                odd = odd + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                odd = even</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> even &gt; odd &#123;</span><br><span class="line">        res = even</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        res = odd</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.<br><a id="more"></a><br>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight <strong>without alerting the police</strong>.</p>
+<p><strong>Example 1:</strong><br>Input: [1,2,3,1]<br>Output: 4<br>Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3). Total amount you can rob = 1 + 3 = 4.</p>
+<p><strong>Example 2:</strong><br>Input: [2,7,9,3,1]<br>Output: 12<br>Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).Total amount you can rob = 2 + 9 + 1 = 12.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rob</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> even, odd, res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> even + v &gt; odd &#123;</span><br><span class="line">                even = even + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                even = odd</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> odd + v &gt; even &#123;</span><br><span class="line">                odd = odd + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                odd = even</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> even &gt; odd &#123;</span><br><span class="line">        res = even</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        res = odd</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +546,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -566,7 +568,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Binary Tree," />
+  <meta name="keywords" content="Tree,Depth-first Search," />
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
-<meta name="keywords" content="Binary Tree">
+<meta name="description" content="Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. Note: A leaf is a node with no children.">
+<meta name="keywords" content="Tree,Depth-first Search">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 104: Maximum Depth of Binary Tree">
 <meta property="og:url" content="https://everise.github.io/2018/10/06/LeetCode-104-Maximum-Depth-of-Binary-Tree/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta property="og:description" content="Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. Note: A leaf is a node with no children.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-09T04:02:17.822Z">
+<meta property="og:updated_time" content="2018-10-18T05:00:22.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 104: Maximum Depth of Binary Tree">
-<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="twitter:description" content="Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. Note: A leaf is a node with no children.">
 
 
 
@@ -410,8 +410,17 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a binary tree, find its maximum depth.</p>
+<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+<p><strong>Note:</strong> A leaf is a node with no children.<br><a id="more"></a></p>
+<p><strong>Example:</strong><br>Given binary tree [3,9,20,null,null,15,7],</p>
+<pre><code>  3
+ / \
+9  20
+  /  \
+ 15   7
+</code></pre><p>return its depth = 3.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxDepth</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> queue []*TreeNode</span><br><span class="line">    queue = <span class="built_in">append</span>(queue, root)</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">len</span>(queue) != <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> _, v := <span class="keyword">range</span> queue &#123;</span><br><span class="line">            <span class="keyword">if</span> v.Left != <span class="literal">nil</span> &#123;</span><br><span class="line">                queue = <span class="built_in">append</span>(queue, v.Left)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> v.Right != <span class="literal">nil</span> &#123;</span><br><span class="line">                queue = <span class="built_in">append</span>(queue, v.Right)</span><br><span class="line">            &#125;</span><br><span class="line">            queue = queue[<span class="number">1</span>:]</span><br><span class="line">        &#125;</span><br><span class="line">        res++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -448,7 +457,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
+          
+            <a href="/tags/Depth-first-Search/" rel="tag"># Depth-first Search</a>
           
         </div>
       
@@ -545,7 +556,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -567,7 +578,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

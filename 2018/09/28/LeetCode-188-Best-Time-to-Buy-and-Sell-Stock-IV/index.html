@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="12345678910111213141516171819202122func maxProfit(k int, prices []int) int &amp;#123;    if k &amp;gt; len(prices) &amp;#123;        k = len(prices)    &amp;#125;    var bp, sp []int    for i := 0; i &amp;lt; k; i++ &amp;#12">
+<meta name="description" content="Say you have an array for which the $i^{th}$ element is the price of a given stock on day $i$. Design an algorithm to find the maximum profit. You may complete at most k transactions.">
 <meta name="keywords" content="Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 188: Best Time to Buy and Sell Stock IV">
 <meta property="og:url" content="https://everise.github.io/2018/09/28/LeetCode-188-Best-Time-to-Buy-and-Sell-Stock-IV/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345678910111213141516171819202122func maxProfit(k int, prices []int) int &amp;#123;    if k &amp;gt; len(prices) &amp;#123;        k = len(prices)    &amp;#125;    var bp, sp []int    for i := 0; i &amp;lt; k; i++ &amp;#12">
+<meta property="og:description" content="Say you have an array for which the $i^{th}$ element is the price of a given stock on day $i$. Design an algorithm to find the maximum profit. You may complete at most k transactions.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-29T22:19:27.949Z">
+<meta property="og:updated_time" content="2018-10-18T03:53:46.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 188: Best Time to Buy and Sell Stock IV">
-<meta name="twitter:description" content="12345678910111213141516171819202122func maxProfit(k int, prices []int) int &amp;#123;    if k &amp;gt; len(prices) &amp;#123;        k = len(prices)    &amp;#125;    var bp, sp []int    for i := 0; i &amp;lt; k; i++ &amp;#12">
+<meta name="twitter:description" content="Say you have an array for which the $i^{th}$ element is the price of a given stock on day $i$. Design an algorithm to find the maximum profit. You may complete at most k transactions.">
 
 
 
@@ -410,8 +410,11 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxProfit</span><span class="params">(k <span class="keyword">int</span>, prices []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="built_in">len</span>(prices) &#123;</span><br><span class="line">        k = <span class="built_in">len</span>(prices)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> bp, sp []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; k; i++ &#123;</span><br><span class="line">        bp = <span class="built_in">append</span>(bp, <span class="number">-0x80000000</span>)</span><br><span class="line">        sp = <span class="built_in">append</span>(sp, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    sp = <span class="built_in">append</span>(sp, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> prices &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">0</span>; j &lt; k; j++ &#123;</span><br><span class="line">            <span class="keyword">if</span> bp[i] &lt; sp[i] - v &#123;</span><br><span class="line">                bp[i] = sp[i] - v</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> sp[i+<span class="number">1</span>] &lt; v + bp[i] &#123;</span><br><span class="line">                sp[i+<span class="number">1</span>] = v + bp[i]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sp[k]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Say you have an array for which the $i^{th}$ element is the price of a given stock on day $i$.</p>
+<p>Design an algorithm to find the maximum profit. You may complete at most <strong>k</strong> transactions.<br><a id="more"></a><br><strong>Note:</strong><br>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
+<p><strong>Example 1:</strong><br>Input: [2,4,1], k = 2<br>Output: 2<br>Explanation: Buy on day 1 (price = 2) and sell on day 2 (price = 4), profit = 4-2 = 2.</p>
+<p><strong>Example 2:</strong><br>Input: [3,2,6,5,0,3], k = 2<br>Output: 7<br>Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4. Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxProfit</span><span class="params">(k <span class="keyword">int</span>, prices []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="built_in">len</span>(prices) &#123;</span><br><span class="line">        k = <span class="built_in">len</span>(prices)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> bp, sp []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; k; i++ &#123;</span><br><span class="line">        bp = <span class="built_in">append</span>(bp, <span class="number">-0x80000000</span>)</span><br><span class="line">        sp = <span class="built_in">append</span>(sp, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    sp = <span class="built_in">append</span>(sp, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> prices &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">0</span>; j &lt; k; j++ &#123;</span><br><span class="line">            <span class="keyword">if</span> bp[i] &lt; sp[i] - v &#123;</span><br><span class="line">                bp[i] = sp[i] - v</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> sp[i+<span class="number">1</span>] &lt; v + bp[i] &#123;</span><br><span class="line">                sp[i+<span class="number">1</span>] = v + bp[i]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sp[k]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +547,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -566,7 +569,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

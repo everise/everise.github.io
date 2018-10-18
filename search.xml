@@ -74,11 +74,6 @@
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[LeetCode 418: Sentence Screen Fitting]]></title>
-    <url>%2F2018%2F10%2F14%2FLeetCode-418-Sentence-Screen-Fitting-0%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[LeetCode 205: Isomorphic Strings]]></title>
     <url>%2F2018%2F10%2F14%2FLeetCode-205-Isomorphic-Strings%2F</url>
     <content type="text"></content>
@@ -398,151 +393,160 @@
   <entry>
     <title><![CDATA[LeetCode 572: Subtree of Another Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-572-Subtree-of-Another-Tree%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789func equal(s, t *TreeNode) bool &#123; if s == nil &amp;&amp; t == nil &#123; return true &#125; if s == nil || t == nil || s.Val != t.Val &#123; return false &#125; return equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)&#125; 123456789101112func isSubtree(s *TreeNode, t *TreeNode) bool &#123; if t == nil &#123; return true &#125; if s == nil &amp;&amp; t != nil &#123; return false &#125; if equal(s, t) &#123; return true &#125; return isSubtree(s.Left, t) || isSubtree(s.Right, t)&#125;]]></content>
+    <content type="text"><![CDATA[Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node’s descendants. The tree s could also be considered as a subtree of itself. Example 1:Given tree s: 3 / \ 4 5 / \ 1 2 Given tree t: 4 / \ 1 2 Return true, because t has the same structure and node values with a subtree of s. Example 2:Given tree s: 3 / \ 4 5 / \ 1 2 / 0 Given tree t: 4 / \ 1 2 Return false. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789func equal(s, t *TreeNode) bool &#123; if s == nil &amp;&amp; t == nil &#123; return true &#125; if s == nil || t == nil || s.Val != t.Val &#123; return false &#125; return equal(s.Left, t.Left) &amp;&amp; equal(s.Right, t.Right)&#125; 123456789101112func isSubtree(s *TreeNode, t *TreeNode) bool &#123; if t == nil &#123; return true &#125; if s == nil &amp;&amp; t != nil &#123; return false &#125; if equal(s, t) &#123; return true &#125; return isSubtree(s.Left, t) || isSubtree(s.Right, t)&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 549: Binary Tree Longest Consecutive Sequence II]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-549-Binary-Tree-Longest-Consecutive-Sequence-II%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516func currentLongest(root *TreeNode, diff int) int &#123; if root == nil &#123; return 0 &#125; left, right := 0, 0 if root.Left != nil &amp;&amp; root.Val - root.Left.Val == diff &#123; left = 1 + currentLongest(root.Left, diff) &#125; if root.Right != nil &amp;&amp; root.Val - root.Right.Val == diff &#123; right = 1 + currentLongest(root.Right, diff) &#125; if left &lt; right &#123; left = right &#125; return left&#125; 123456789101112131415161718func longestConsecutive(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := currentLongest(root, 1) + currentLongest(root, -1) + 1 left := longestConsecutive(root.Left) right := longestConsecutive(root.Right) if left &gt; right &#123; if left &gt; res &#123; res = left &#125; &#125;else &#123; if right &gt; res &#123; res = right &#125; &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, you need to find the length of Longest Consecutive Path in Binary Tree. Especially, this path can be either increasing or decreasing. For example, [1,2,3,4] and [4,3,2,1] are both considered valid, but the path [1,2,4,3] is not valid. On the other hand, the path can be in the child-Parent-child order, where not necessarily be parent-child order. Example 1:Input: 1 / \ 2 3 Output: 2Explanation: The longest consecutive path is [1, 2] or [2, 1]. Example 2:Input: 2 / \ 1 3 Output: 3Explanation: The longest consecutive path is [1, 2, 3] or [3, 2, 1]. Note: All the values of tree nodes are in the range of [-1e7, 1e7]. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516func currentLongest(root *TreeNode, diff int) int &#123; if root == nil &#123; return 0 &#125; left, right := 0, 0 if root.Left != nil &amp;&amp; root.Val - root.Left.Val == diff &#123; left = 1 + currentLongest(root.Left, diff) &#125; if root.Right != nil &amp;&amp; root.Val - root.Right.Val == diff &#123; right = 1 + currentLongest(root.Right, diff) &#125; if left &lt; right &#123; left = right &#125; return left&#125; 123456789101112131415161718func longestConsecutive(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := currentLongest(root, 1) + currentLongest(root, -1) + 1 left := longestConsecutive(root.Left) right := longestConsecutive(root.Right) if left &gt; right &#123; if left &gt; res &#123; res = left &#125; &#125;else &#123; if right &gt; res &#123; res = right &#125; &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 543: Diameter of Binary Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-543-Diameter-of-Binary-Tree%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516func maxDepth(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxDepth(root.Left, res) right := maxDepth(root.Right, res) if left + right &gt; *res &#123; *res = left + right &#125; if left &lt; right &#123; left = right &#125; return left + 1&#125; 12345func diameterOfBinaryTree(root *TreeNode) int &#123; res := 0 maxDepth(root, &amp;res) return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root. Example:Given a binary tree 1 / \ 2 3 / \ 4 5 Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3]. Note: The length of path between two nodes is represented by the number of edges between them. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516func maxDepth(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxDepth(root.Left, res) right := maxDepth(root.Right, res) if left + right &gt; *res &#123; *res = left + right &#125; if left &lt; right &#123; left = right &#125; return left + 1&#125; 12345func diameterOfBinaryTree(root *TreeNode) int &#123; res := 0 maxDepth(root, &amp;res) return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 250: Count Univalue Subtrees]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-250-Count-Univalue-Subtrees%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011func dfs(root *TreeNode, val int, res *int) bool &#123; if root == nil &#123; return true &#125; left := dfs(root.Left,root.Val,res) right := dfs(root.Right,root.Val,res) if left &amp;&amp; right &#123; *res++ &#125; return (root.Val == val) &amp;&amp; left &amp;&amp; right&#125; 12345678func countUnivalSubtrees(root *TreeNode) int &#123; res := 0 if root == nil &#123; return res &#125; dfs(root, root.Val, &amp;res) return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, count the number of uni-value subtrees. A Uni-value subtree means all nodes of the subtree have the same value. Example :Input: root = [5,1,5,5,5,null,5] 5 / \ 1 5 / \ \ 5 5 5 Output: 412345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011func dfs(root *TreeNode, val int, res *int) bool &#123; if root == nil &#123; return true &#125; left := dfs(root.Left,root.Val,res) right := dfs(root.Right,root.Val,res) if left &amp;&amp; right &#123; *res++ &#125; return (root.Val == val) &amp;&amp; left &amp;&amp; right&#125; 12345678func countUnivalSubtrees(root *TreeNode) int &#123; res := 0 if root == nil &#123; return res &#125; dfs(root, root.Val, &amp;res) return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 226: Invert Binary Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-226-Invert-Binary-Tree%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415func invertTree(root *TreeNode) *TreeNode &#123; if root == nil &#123; return root &#125; var left, right *TreeNode if root.Left != nil &#123; right = invertTree(root.Left) &#125; if root.Right != nil &#123; left = invertTree(root.Right) &#125; root.Left = left root.Right = right return root&#125;]]></content>
+    <content type="text"><![CDATA[Invert a binary tree. Example:Input: 4 / \ 2 7 / \ / \ 1 3 6 9 Output: 4 / \ 7 2 / \ / \ 9 6 3 1 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415func invertTree(root *TreeNode) *TreeNode &#123; if root == nil &#123; return root &#125; var left, right *TreeNode if root.Left != nil &#123; right = invertTree(root.Left) &#125; if root.Right != nil &#123; left = invertTree(root.Right) &#125; root.Left = left root.Right = right return root&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 222: Count Complete Tree Nodes]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-222-Count-Complete-Tree-Nodes%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920func countNodes(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := 0 queue := []*TreeNode&#123;root&#125; for len(queue) != 0 &#123; res = res + len(queue) for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a complete binary tree, count the number of nodes. Note: Definition of a complete binary tree from Wikipedia:In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and $2^h$ nodes inclusive at the last level h. Example:Input: 1 / \ 2 3 / \ / 4 5 6 Output: 6 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920func countNodes(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := 0 queue := []*TreeNode&#123;root&#125; for len(queue) != 0 &#123; res = res + len(queue) for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Binary Search</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 124: Binary Tree Maximum Path Sum]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-124-Binary-Tree-Maximum-Path-Sum%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021222324func maxPath(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxPath(root.Left, res) if left &lt; 0 &#123; left = 0 &#125; right := maxPath(root.Right, res) if right &lt; 0 &#123; right = 0 &#125; if left + right + root.Val &gt; *res &#123; *res = left + right + root.Val &#125; if left &lt; right &#123; left = right &#125; return root.Val + left&#125; 12345func maxPathSum(root *TreeNode) int &#123; res := -0x7FFFFFFF maxPath(root, &amp;res) return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a non-empty binary tree, find the maximum path sum. For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root. Example 1:Input: [1,2,3] 1 / \ 2 3 Output: 6 Example 2:Input: [-10,9,20,null,null,15,7] -10 / \ 9 20 / \ 15 7 Output: 42 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021222324func maxPath(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxPath(root.Left, res) if left &lt; 0 &#123; left = 0 &#125; right := maxPath(root.Right, res) if right &lt; 0 &#123; right = 0 &#125; if left + right + root.Val &gt; *res &#123; *res = left + right + root.Val &#125; if left &lt; right &#123; left = right &#125; return root.Val + left&#125; 12345func maxPathSum(root *TreeNode) int &#123; res := -0x7FFFFFFF maxPath(root, &amp;res) return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
+        <tag>Depth-first Search</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 110: Balanced Binary Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-110-Balanced-Binary-Tree%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021func checkDepth(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; left := checkDepth(root.Left) if left == -1 &#123; return -1 &#125; right := checkDepth(root.Right) if right == -1 &#123; return -1 &#125; if right &gt; left &#123; left, right = right, left &#125; diff := left - right if diff &gt; 1 &#123; return -1 &#125; return 1 + left&#125; 123456func isBalanced(root *TreeNode) bool &#123; if checkDepth(root) == -1 &#123; return false &#125; return true&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, determine if it is height-balanced. For this problem, a height-balanced binary tree is defined as: a binary tree in which the depth of the two subtrees of every node never differ by more than 1. Example 1:Given the following tree [3,9,20,null,null,15,7]: 3 / \ 9 20 / \ 15 7 Return true. Example 2:Given the following tree [1,2,2,3,3,null,null,4,4]: 1 / \ 2 2 / \ 3 3 / \ 4 4 Return false. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021func checkDepth(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; left := checkDepth(root.Left) if left == -1 &#123; return -1 &#125; right := checkDepth(root.Right) if right == -1 &#123; return -1 &#125; if right &gt; left &#123; left, right = right, left &#125; diff := left - right if diff &gt; 1 &#123; return -1 &#125; return 1 + left&#125; 123456func isBalanced(root *TreeNode) bool &#123; if checkDepth(root) == -1 &#123; return false &#125; return true&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
+        <tag>Depth-first Search</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 108: Convert Sorted Array to Binary Search Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-108-Convert-Sorted-Array-to-Binary-Search-Tree%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516171819func sortedArrayToBST(nums []int) *TreeNode &#123; if len(nums) == 0 &#123; return nil &#125;else if len(nums) == 1 &#123; res1 := &amp;TreeNode&#123;Val: nums[0],Left: nil,Right: nil&#125; return res1 &#125;else if len(nums) == 2 &#123; resNode := &amp;TreeNode&#123;Val: nums[0],Left: nil,Right: nil&#125; res2 := &amp;TreeNode&#123;Val: nums[1],Left: resNode,Right: nil&#125; return res2 &#125; key := len(nums) / 2 left := nums[:key] right := nums[key+1:] res := &amp;TreeNode&#123;Val: nums[key], Left: sortedArrayToBST(left),Right: sortedArrayToBST(right)&#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given an array where elements are sorted in ascending order, convert it to a height balanced BST. For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1. Example:Given the sorted array: [-10,-3,0,5,9], One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST: 0 / \ -3 9 / / -10 5 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516171819func sortedArrayToBST(nums []int) *TreeNode &#123; if len(nums) == 0 &#123; return nil &#125;else if len(nums) == 1 &#123; res1 := &amp;TreeNode&#123;Val: nums[0],Left: nil,Right: nil&#125; return res1 &#125;else if len(nums) == 2 &#123; resNode := &amp;TreeNode&#123;Val: nums[0],Left: nil,Right: nil&#125; res2 := &amp;TreeNode&#123;Val: nums[1],Left: resNode,Right: nil&#125; return res2 &#125; key := len(nums) / 2 left := nums[:key] right := nums[key+1:] res := &amp;TreeNode&#123;Val: nums[key], Left: sortedArrayToBST(left),Right: sortedArrayToBST(right)&#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
+        <tag>Depth-first Search</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 104: Maximum Depth of Binary Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-104-Maximum-Depth-of-Binary-Tree%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021func maxDepth(root *TreeNode) int &#123; res := 0 if root == nil &#123; return res &#125; var queue []*TreeNode queue = append(queue, root) for len(queue) != 0 &#123; for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; res++ &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. Note: A leaf is a node with no children. Example:Given binary tree [3,9,20,null,null,15,7], 3 / \ 9 20 / \ 15 7 return its depth = 3. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021func maxDepth(root *TreeNode) int &#123; res := 0 if root == nil &#123; return res &#125; var queue []*TreeNode queue = append(queue, root) for len(queue) != 0 &#123; for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; res++ &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
+        <tag>Depth-first Search</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 103: Binary Tree Zigzag Level Order Traversal]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-103-Binary-Tree-Zigzag-Level-Order-Traversal%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516171819202122232425262728293031323334353637383940func zigzagLevelOrder(root *TreeNode) [][]int &#123; var res [][]int if root == nil &#123; return res &#125; var s1, s2 []*TreeNode s1 = append(s1, root) for len(s1) != 0 || len(s2) != 0 &#123; var level1 []int for _, v1 := range s1 &#123; level1 = append(level1, v1.Val) if v1.Right != nil &#123; s2 = append(s2, v1.Right) &#125; if v1.Left != nil &#123; s2 = append(s2, v1.Left) &#125; s1 = s1[1:] &#125; if len(level1) != 0 &#123; res = append(res, level1) &#125; var level2 []int for _, v2 := range s2 &#123; level2 = append(level2, v2.Val) if v2.Left != nil &#123; s1 = append(s1, v2.Left) &#125; if v2.Right != nil &#123; s1 = append(s1, v2.Right) &#125; s2 = s2[1:] &#125; if len(level2) != 0 &#123; res = append(res, level2) &#125; &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, return the zigzag level order traversal of its nodes’ values. (ie, from left to right, then right to left for the next level and alternate between).For example:Given binary tree [3,9,20,null,null,15,7], 3 / \ 9 20 / \ 15 7 return its zigzag level order traversal as:[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[20,&nbsp;&nbsp;9],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[15,&nbsp;&nbsp;7]]12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516171819202122232425262728293031323334353637383940func zigzagLevelOrder(root *TreeNode) [][]int &#123; var res [][]int if root == nil &#123; return res &#125; var s1, s2 []*TreeNode s1 = append(s1, root) for len(s1) != 0 || len(s2) != 0 &#123; var level1 []int for _, v1 := range s1 &#123; level1 = append(level1, v1.Val) if v1.Right != nil &#123; s2 = append(s2, v1.Right) &#125; if v1.Left != nil &#123; s2 = append(s2, v1.Left) &#125; s1 = s1[1:] &#125; if len(level1) != 0 &#123; res = append(res, level1) &#125; var level2 []int for _, v2 := range s2 &#123; level2 = append(level2, v2.Val) if v2.Left != nil &#123; s1 = append(s1, v2.Left) &#125; if v2.Right != nil &#123; s1 = append(s1, v2.Right) &#125; s2 = s2[1:] &#125; if len(level2) != 0 &#123; res = append(res, level2) &#125; &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
         <tag>Not solved</tag>
+        <tag>Breadth-first Search</tag>
+        <tag>Stack</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 102: Binary Tree Level Order Traversal]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-102-Binary-Tree-Level-Order-Traversal%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920212223func levelOrder(root *TreeNode) [][]int &#123; var res [][]int if root == nil &#123; return res &#125; var queue []*TreeNode queue = append(queue, root) for len(queue) != 0 &#123; var oneLevel []int for _, v := range queue &#123; oneLevel = append(oneLevel, v.Val) if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; res = append(res,oneLevel) &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level). For example:Given binary tree [3,9,20,null,null,15,7], 3 / \ 9 20 / \ 15 7 return its level order traversal as:[&nbsp;&nbsp;&nbsp;&nbsp;[3],&nbsp;&nbsp;&nbsp;&nbsp;[9,20],&nbsp;&nbsp;&nbsp;&nbsp;[15,7]]12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920212223func levelOrder(root *TreeNode) [][]int &#123; var res [][]int if root == nil &#123; return res &#125; var queue []*TreeNode queue = append(queue, root) for len(queue) != 0 &#123; var oneLevel []int for _, v := range queue &#123; oneLevel = append(oneLevel, v.Val) if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; res = append(res,oneLevel) &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
         <tag>Binary Tree</tag>
+        <tag>Breadth-first Search</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 98: Validate Binary Search Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-98-Validate-Binary-Search-Tree%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910func isBST(root *TreeNode, min, max int) bool &#123; if root == nil &#123; return true &#125; if root.Val &lt;= min || root.Val &gt;= max &#123; return false &#125; return isBST(root.Left,min,root.Val) &amp;&amp; isBST(root.Right,root.Val,max)&#125; 123func isValidBST(root *TreeNode) bool &#123; return isBST(root, -int(^uint(0) &gt;&gt; 1)-1, int(^uint(0) &gt;&gt; 1))&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: The left subtree of a node contains only nodes with keys less than the node’s key. The right subtree of a node contains only nodes with keys greater than the node’s key. Both the left and right subtrees must also be binary search trees. Example 1:Input: 2 / \ 1 3 Output: true Example 2:Input: 5 / \ 1 4 / \ 3 6 Output: falseExplanation: The input is: [5,1,4,null,null,3,6]. The root node’s value is 5 but its right child’s value is 4. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910func isBST(root *TreeNode, min, max int) bool &#123; if root == nil &#123; return true &#125; if root.Val &lt;= min || root.Val &gt;= max &#123; return false &#125; return isBST(root.Left,min,root.Val) &amp;&amp; isBST(root.Right,root.Val,max)&#125; 123func isValidBST(root *TreeNode) bool &#123; return isBST(root, -int(^uint(0) &gt;&gt; 1)-1, int(^uint(0) &gt;&gt; 1))&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
         <tag>Binary Tree</tag>
+        <tag>Depth-first Search</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 725: Split Linked List in Parts]]></title>
     <url>%2F2018%2F10%2F04%2FLeetCode-725-Split-Linked-List-in-Parts%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819202122232425262728293031323334353637383940414243444546func splitListToParts(root *ListNode, k int) []*ListNode &#123; var res []*ListNode var n int tmp := root for tmp != nil &#123; tmp = tmp.Next n++ &#125; if n &lt; k &#123; for t := 0; t &lt; n; t++ &#123; shortTmp := root root = root.Next shortTmp.Next = nil res = append(res, shortTmp) &#125; for u := n; u &lt; k; u++ &#123; shortTmp := new(ListNode) res = append(res, shortTmp.Next) &#125; return res &#125; usual, more := n / k, n % k for i := 0; i &lt; more; i++ &#123; listTmp := root for t := 0; t &lt; usual; t++ &#123; root = root.Next &#125; now := root.Next root.Next = nil res = append(res, listTmp) root = now &#125; for j := 0; j &lt; k - more; j++ &#123; longTmp := root for n := 0; n &lt; usual - 1; n++ &#123; root = root.Next &#125; now := root.Next root.Next = nil res = append(res, longTmp) root = now &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a (singly) linked list with head node root, write a function to split the linked list into k consecutive linked list “parts”. The length of each part should be as equal as possible: no two parts should have a size differing by more than 1. This may lead to some parts being null.The parts should be in order of occurrence in the input list, and parts occurring earlier should always have a size greater than or equal parts occurring later. Return a List of ListNode’s representing the linked list parts that are formed. Examples 1-&gt;2-&gt;3-&gt;4, k = 5 // 5 equal parts [ [1], [2], [3], [4], null ] Example 1:Input:root = [1, 2, 3], k = 5Output: [\[1],[2],[3],[],[]]Explanation:The input and each element of the output are ListNodes, not arrays.For example, the input root has root.val = 1, root.next.val = 2, \root.next.next.val = 3, and root.next.next.next = null.The first element output[0] has output[0].val = 1, output[0].next = null.The last element output[4] is null, but it’s string representation as a ListNode is []. Example 2:Input:root = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], k = 3Output: [\[1, 2, 3, 4], [5, 6, 7], [8, 9, 10]]Explanation:The input has been split into consecutive parts with size difference at most 1, and earlier parts are a larger size than the later parts. Note: The length of root will be in the range [0, 1000]. Each value of a node in the input will be an integer in the range [0, 999]. k will be an integer in the range [1, 50]. 1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819202122232425262728293031323334353637383940414243444546func splitListToParts(root *ListNode, k int) []*ListNode &#123; var res []*ListNode var n int tmp := root for tmp != nil &#123; tmp = tmp.Next n++ &#125; if n &lt; k &#123; for t := 0; t &lt; n; t++ &#123; shortTmp := root root = root.Next shortTmp.Next = nil res = append(res, shortTmp) &#125; for u := n; u &lt; k; u++ &#123; shortTmp := new(ListNode) res = append(res, shortTmp.Next) &#125; return res &#125; usual, more := n / k, n % k for i := 0; i &lt; more; i++ &#123; listTmp := root for t := 0; t &lt; usual; t++ &#123; root = root.Next &#125; now := root.Next root.Next = nil res = append(res, listTmp) root = now &#125; for j := 0; j &lt; k - more; j++ &#123; longTmp := root for n := 0; n &lt; usual - 1; n++ &#123; root = root.Next &#125; now := root.Next root.Next = nil res = append(res, longTmp) root = now &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -553,7 +557,7 @@
   <entry>
     <title><![CDATA[LeetCode 445: Add Two Numbers II]]></title>
     <url>%2F2018%2F10%2F04%2FLeetCode-445-Add-Two-Numbers-II%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819202122232425262728293031func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode &#123; var s1, s2 []int for l1 != nil &#123; s1 = append(s1, l1.Val) l1 = l1.Next &#125; for l2 != nil &#123; s2 = append(s2, l2.Val) l2 = l2.Next &#125; var sum int res := new(ListNode) for len(s1) != 0 || len(s2) != 0 &#123; if len(s1) != 0 &#123; sum += s1[len(s1)-1] s1 = s1[:len(s1)-1] &#125; if len(s2) != 0 &#123; sum += s2[len(s2)-1] s2 = s2[:len(s2)-1] &#125; res.Val = sum % 10 head := &amp;ListNode&#123;sum / 10, res&#125; res = head sum = sum / 10 &#125; if res.Val == 0 &#123; return res.Next &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.You may assume the two numbers do not contain any leading zero, except the number 0 itself. Follow up:What if you cannot modify the input lists? In other words, reversing the lists is not allowed. Example:Input: (7 -&gt; 2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)Output: 7 -&gt; 8 -&gt; 0 -&gt; 7 1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819202122232425262728293031func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode &#123; var s1, s2 []int for l1 != nil &#123; s1 = append(s1, l1.Val) l1 = l1.Next &#125; for l2 != nil &#123; s2 = append(s2, l2.Val) l2 = l2.Next &#125; var sum int res := new(ListNode) for len(s1) != 0 || len(s2) != 0 &#123; if len(s1) != 0 &#123; sum += s1[len(s1)-1] s1 = s1[:len(s1)-1] &#125; if len(s2) != 0 &#123; sum += s2[len(s2)-1] s2 = s2[:len(s2)-1] &#125; res.Val = sum % 10 head := &amp;ListNode&#123;sum / 10, res&#125; res = head sum = sum / 10 &#125; if res.Val == 0 &#123; return res.Next &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -564,7 +568,7 @@
   <entry>
     <title><![CDATA[LeetCode 206: Reverse Linked List]]></title>
     <url>%2F2018%2F10%2F04%2FLeetCode-206-Reverse-Linked-List%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910func reverseList(head *ListNode) *ListNode &#123; var res *ListNode for head != nil &#123; temp := head.Next head.Next = res res = head head = temp &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Reverse a singly linked list. Example:Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULLOutput: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULLFollow up:A linked list can be reversed either iteratively or recursively. Could you implement both? 1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910func reverseList(head *ListNode) *ListNode &#123; var res *ListNode for head != nil &#123; temp := head.Next head.Next = res res = head head = temp &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -575,18 +579,19 @@
   <entry>
     <title><![CDATA[LeetCode 19: Remove Nth Node From End of List]]></title>
     <url>%2F2018%2F10%2F04%2FLeetCode-19-Remove-Nth-Node-From-End-of-List%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 123456789101112131415161718192021func removeNthFromEnd(head *ListNode, n int) *ListNode &#123; ahead, res := head, head for i := 0; i &lt; n; i++ &#123; ahead = ahead.Next &#125; if ahead == nil &#123; return res.Next &#125; for ahead.Next != nil &#123; ahead = ahead.Next head = head.Next &#125; if head.Next != nil &#123; head.Next = head.Next.Next &#125;else &#123; head.Next = nil &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a linked list, remove the n-th node from the end of list and return its head. Example:Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5. Note: Given n will always be valid. 1234type ListNode struct &#123; Val int Next *ListNode&#125; 123456789101112131415161718192021func removeNthFromEnd(head *ListNode, n int) *ListNode &#123; ahead, res := head, head for i := 0; i &lt; n; i++ &#123; ahead = ahead.Next &#125; if ahead == nil &#123; return res.Next &#125; for ahead.Next != nil &#123; ahead = ahead.Next head = head.Next &#125; if head.Next != nil &#123; head.Next = head.Next.Next &#125;else &#123; head.Next = nil &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
         <tag>Linked List</tag>
+        <tag>Two Pointers</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 817: Linked List Components]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-817-Linked-List-Components%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819func numComponents(head *ListNode, G []int) int &#123; m := make(map[int]bool) for _, v := range G &#123; m[v] = true &#125; var res int for head.Next != nil &#123; _, exist1 := m[head.Val] _, exist2 := m[head.Next.Val] if exist1 &amp;&amp; (head.Next == nil || !exist2) &#123; res++ &#125; head = head.Next &#125; if _, exist := m[head.Val]; exist &#123; res++ &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[We are given head, the head node of a linked list containing unique integer values. We are also given the list G, a subset of the values in the linked list. Return the number of connected components in G, where two values are connected if they appear consecutively in the linked list.Example 1:Input:head: 0-&gt;1-&gt;2-&gt;3G = [0, 1, 3]Output: 2Explanation:0 and 1 are connected, so [0, 1] and [3] are the two connected components. Example 2:Input:head: 0-&gt;1-&gt;2-&gt;3-&gt;4G = [0, 3, 1, 4]Output: 2Explanation:0 and 1 are connected, 3 and 4 are connected, so [0, 1] and [3, 4] are the two connected components. Note: If N is the length of the linked list given by head, 1 &lt;= N &lt;= 10000. The value of each node in the linked list will be in the range [0, N - 1]. 1 &lt;= G.length &lt;= 10000. G is a subset of all values in the linked list. 1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213141516171819func numComponents(head *ListNode, G []int) int &#123; m := make(map[int]bool) for _, v := range G &#123; m[v] = true &#125; var res int for head.Next != nil &#123; _, exist1 := m[head.Val] _, exist2 := m[head.Next.Val] if exist1 &amp;&amp; (head.Next == nil || !exist2) &#123; res++ &#125; head = head.Next &#125; if _, exist := m[head.Val]; exist &#123; res++ &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -597,7 +602,7 @@
   <entry>
     <title><![CDATA[LeetCode 369: Plus One Linked List]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-369-Plus-One-Linked-List%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 1234567891011121314func everyOne(head *ListNode) (*ListNode, int) &#123; if head.Next == nil &#123; carry := (head.Val + 1) / 10 head.Val = (head.Val + 1) % 10 return head, carry &#125; res, carry := everyOne(head.Next) if carry == 1 &#123; carry = (head.Val + 1) / 10 head.Val = (head.Val + 1) % 10 &#125; head.Next = res return head, carry&#125; 12345678func plusOne(head *ListNode) *ListNode &#123; res, carry := everyOne(head) if carry == 1 &#123; newHead := &amp;ListNode&#123;1, res&#125; return newHead &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a non-negative integer represented as non-empty a singly linked list of digits, plus one to the integer. You may assume the integer do not contain any leading zero, except the number 0 itself.The digits are stored such that the most significant digit is at the head of the list. Example :Input: [1,2,3]Output: [1,2,4] 1234type ListNode struct &#123; Val int Next *ListNode&#125; 1234567891011121314func everyOne(head *ListNode) (*ListNode, int) &#123; if head.Next == nil &#123; carry := (head.Val + 1) / 10 head.Val = (head.Val + 1) % 10 return head, carry &#125; res, carry := everyOne(head.Next) if carry == 1 &#123; carry = (head.Val + 1) / 10 head.Val = (head.Val + 1) % 10 &#125; head.Next = res return head, carry&#125; 12345678func plusOne(head *ListNode) *ListNode &#123; res, carry := everyOne(head) if carry == 1 &#123; newHead := &amp;ListNode&#123;1, res&#125; return newHead &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -608,7 +613,7 @@
   <entry>
     <title><![CDATA[LeetCode 203: Remove Linked List Elements]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-203-Remove-Linked-List-Elements%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213func removeElements(head *ListNode, val int) *ListNode &#123; newHead := new(ListNode) newHead.Next = head tail := newHead for tail != nil &#123; if tail.Next.Val == val &#123; tail.Next = tail.Next.Next &#125;else &#123; tail = tail.Next &#125; &#125; return newHead.Next&#125;]]></content>
+    <content type="text"><![CDATA[Remove all elements from a linked list of integers that have value val.Example:Input: 1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, val = 6Output: 1-&gt;2-&gt;3-&gt;4-&gt;5 1234type ListNode struct &#123; Val int Next *ListNode&#125; 12345678910111213func removeElements(head *ListNode, val int) *ListNode &#123; newHead := new(ListNode) newHead.Next = head tail := newHead for tail != nil &#123; if tail.Next.Val == val &#123; tail.Next = tail.Next.Next &#125;else &#123; tail = tail.Next &#125; &#125; return newHead.Next&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -619,7 +624,7 @@
   <entry>
     <title><![CDATA[LeetCode 21: Merge Two Sorted Lists]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-21-Merge-Two-Sorted-Lists%2F</url>
-    <content type="text"><![CDATA[1234type ListNode struct &#123; Val int Next *ListNode&#125; 123456789101112131415161718192021func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode &#123; head := new(ListNode) tail := head for l1 != nil &amp;&amp; l2 != nil &#123; if l1.Val &lt;= l2.Val &#123; tail.Next = l1 tail = l1 l1 = l1.Next &#125;else &#123; tail.Next = l2 tail = l2 l2 = l2.Next &#125; &#125; if l1 == nil &#123; tail.Next = l2 &#125;else &#123; tail.Next = l1 &#125; return head.Next&#125;]]></content>
+    <content type="text"><![CDATA[Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example:Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;41234type ListNode struct &#123; Val int Next *ListNode&#125; 123456789101112131415161718192021func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode &#123; head := new(ListNode) tail := head for l1 != nil &amp;&amp; l2 != nil &#123; if l1.Val &lt;= l2.Val &#123; tail.Next = l1 tail = l1 l1 = l1.Next &#125;else &#123; tail.Next = l2 tail = l2 l2 = l2.Next &#125; &#125; if l1 == nil &#123; tail.Next = l2 &#125;else &#123; tail.Next = l1 &#125; return head.Next&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -630,7 +635,7 @@
   <entry>
     <title><![CDATA[LeetCode 750: Number Of Corner Rectangles]]></title>
     <url>%2F2018%2F10%2F03%2FLeetCode-750-Number-Of-Corner-Rectangles%2F</url>
-    <content type="text"><![CDATA[123456789101112131415func countCornerRectangles(grid [][]int) int &#123; var res int for i := 0; i &lt; len(grid); i++ &#123; for j := i + 1; j &lt; len(grid); j++ &#123; count := 0 for k := 0; k &lt; len(grid[0]); k++ &#123; if grid[i][k] == 1 &amp;&amp; grid[j][k] == 1 &#123; count++ &#125; &#125; res += count * (count - 1) / 2 &#125; &#125; return res &#125;]]></content>
+    <content type="text"><![CDATA[Given a grid where each entry is only 0 or 1, find the number of corner rectangles. A corner rectangle is 4 distinct 1s on the grid that form an axis-aligned rectangle. Note that only the corners need to have the value 1. Also, all four 1s used must be distinct.Example 1: Input: grid = [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;0,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;0],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;0,&nbsp;&nbsp;1],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;&nbsp;0,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;0],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;0,&nbsp;&nbsp;1] ]Output: 1Explanation: There is only one corner rectangle, with corners grid[1][2], grid[1][4], grid[3][2], grid[3][4]. Example 2: Input: grid = [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;1,&nbsp;&nbsp;1],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;1,&nbsp;&nbsp;1],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;1,&nbsp;&nbsp;1]]Output: 9Explanation: There are four 2x2 rectangles, four 2x3 and 3x2 rectangles, and one 3x3 rectangle. Example 3: Input: grid = [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;1,&nbsp;&nbsp;1,&nbsp;&nbsp;1]]Output: 0Explanation: Rectangles must have four distinct corners. Note: The number of rows and columns of grid will each be in the range [1, 200]. Each grid[i][j] will be either 0 or 1. The number of 1s in the grid will be at most 6000. 12345678910111213141516func countCornerRectangles(grid [][]int) int &#123; var res int for i := 0; i &lt; len(grid); i++ &#123; for j := i + 1; j &lt; len(grid); j++ &#123; count := 0 for k := 0; k &lt; len(grid[0]); k++ &#123; if grid[i][k] == 1 &amp;&amp; grid[j][k] == 1 &#123; count++ &#125; &#125; res += count * (count - 1) / 2 &#125; &#125; return res &#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -641,7 +646,7 @@
   <entry>
     <title><![CDATA[Leetcode 418: Sentence Screen Fitting]]></title>
     <url>%2F2018%2F10%2F02%2FLeetcode-418-Sentence-Screen-Fitting%2F</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920212223242526func wordsTyping(sentence []string, rows int, cols int) int &#123; left, res, count := cols, 0, 0 for i := 0; i &lt; rows; i++ &#123; for &#123; if count == len(sentence) &#123; count = 0 res += 1 &#125; if left &lt; len(sentence[count]) &#123; left = cols break &#125;else if left == len(sentence[count]) &#123; count++ left = cols break &#125; left -= len(sentence[count]) + 1 count++ &#125; &#125; if count == len(sentence) &#123; count = 0 res += 1 &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a rows x cols screen and a sentence represented by a list of non-empty words, find how many times the given sentence can be fitted on the screen. Note: A word cannot be split into two lines. The order of words in the sentence must remain unchanged. Two consecutive words in a line must be separated by a single space. Total words in the sentence won’t exceed 100. Length of each word is greater than 0 and won’t exceed 10. 1 ≤ rows, cols ≤ 20,000. Example 1:Input:rows = 2, cols = 8, sentence = [“hello”, “world”]Output: 1Explanation:hello—world— The character ‘-‘ signifies an empty space on the screen. Example 2:Input:rows = 3, cols = 6, sentence = [“a”, “bcd”, “e”]Output: 2Explanation:a-bcd-e-a—bcd-e- The character ‘-‘ signifies an empty space on the screen. Example 3:Input:rows = 4, cols = 5, sentence = [“I”, “had”, “apple”, “pie”]Output: 1Explanation:I-hadapplepie-Ihad– The character ‘-‘ signifies an empty space on the screen. 1234567891011121314151617181920212223242526func wordsTyping(sentence []string, rows int, cols int) int &#123; left, res, count := cols, 0, 0 for i := 0; i &lt; rows; i++ &#123; for &#123; if count == len(sentence) &#123; count = 0 res += 1 &#125; if left &lt; len(sentence[count]) &#123; left = cols break &#125;else if left == len(sentence[count]) &#123; count++ left = cols break &#125; left -= len(sentence[count]) + 1 count++ &#125; &#125; if count == len(sentence) &#123; count = 0 res += 1 &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -652,7 +657,7 @@
   <entry>
     <title><![CDATA[Leetcode 416: Partition Equal Subset Sum]]></title>
     <url>%2F2018%2F10%2F02%2FLeetcode-416-Partition-Equal-Subset-Sum%2F</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920func canPartition(nums []int) bool &#123; var sum, target int for _, v := range nums &#123; sum += v &#125; if sum % 2 == 1 &#123; return false &#125;else &#123; target = sum &gt;&gt; 1 &#125; dp := make([]bool, target + 1) dp[0] = true for _, n := range nums &#123; for i := target; i &gt;= n; i-- &#123; dp[i] = dp[i] || dp[i - n] &#125; &#125; return dp[target] &#125;]]></content>
+    <content type="text"><![CDATA[Given a non-empty array containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal. Note: Each of the array element will not exceed 100. The array size will not exceed 200. Example 1:Input: [1, 5, 11, 5]Output: trueExplanation: The array can be partitioned as [1, 5, 5] and [11]. Example 2:Input: [1, 2, 3, 5]Output: falseExplanation: The array cannot be partitioned into equal sum subsets. 1234567891011121314151617181920func canPartition(nums []int) bool &#123; var sum, target int for _, v := range nums &#123; sum += v &#125; if sum % 2 == 1 &#123; return false &#125;else &#123; target = sum &gt;&gt; 1 &#125; dp := make([]bool, target + 1) dp[0] = true for _, n := range nums &#123; for i := target; i &gt;= n; i-- &#123; dp[i] = dp[i] || dp[i - n] &#125; &#125; return dp[target] &#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -663,7 +668,7 @@
   <entry>
     <title><![CDATA[LeetCode 375: Guess Number Higher or Lower II]]></title>
     <url>%2F2018%2F09%2F28%2FLeetCode-375-Guess-Number-Higher-or-Lower-II%2F</url>
-    <content type="text"><![CDATA[1234567func getMoneyAmount(n int) int &#123; m := make([][]int, n + 1) for t := range m &#123; m[t] = make([]int, n + 1) &#125; return guessMoney(1, n, m)&#125; 123456789101112131415161718192021222324func guessMoney(start, end int, m [][]int) int &#123; if start &gt;= end &#123; return 0 &#125; if m[start][end] &gt; 0 &#123; return m[start][end] &#125; res := 0x7FFFFFFF for i := start; i &lt; end; i++ &#123; a := guessMoney(start, i - 1, m) b := guessMoney(i + 1, end, m) if a &gt; b &#123; if i + a &lt; res &#123; res = i + a &#125; &#125;else &#123; if i + b &lt; res &#123; res = i + b &#125; &#125; &#125; m[start][end] = res return res&#125;]]></content>
+    <content type="text"><![CDATA[We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I’ll tell you whether the number I picked is higher or lower.However, when you guess a particular number x, and you guess wrong, you pay \$x. You win the game when you guess the number I picked. Example:n = 10, I pick 8. First round: You guess 5, I tell you that it’s higher. You pay \$5.Second round: You guess 7, I tell you that it’s higher. You pay \$7.Third round: You guess 9, I tell you that it’s lower. You pay \$9. Game over. 8 is the number I picked. You end up paying \$5 + \$7 + \$9 = \$21.Given a particular n ≥ 1, find out how much money you need to have to guarantee a win. 1234567func getMoneyAmount(n int) int &#123; m := make([][]int, n + 1) for t := range m &#123; m[t] = make([]int, n + 1) &#125; return guessMoney(1, n, m)&#125; 123456789101112131415161718192021222324func guessMoney(start, end int, m [][]int) int &#123; if start &gt;= end &#123; return 0 &#125; if m[start][end] &gt; 0 &#123; return m[start][end] &#125; res := 0x7FFFFFFF for i := start; i &lt; end; i++ &#123; a := guessMoney(start, i - 1, m) b := guessMoney(i + 1, end, m) if a &gt; b &#123; if i + a &lt; res &#123; res = i + a &#125; &#125;else &#123; if i + b &lt; res &#123; res = i + b &#125; &#125; &#125; m[start][end] = res return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -675,7 +680,7 @@
   <entry>
     <title><![CDATA[LeetCode 304: Range Sum Query 2D - Immutable]]></title>
     <url>%2F2018%2F09%2F28%2FLeetCode-304-Range-Sum-Query-2D-Immutable%2F</url>
-    <content type="text"><![CDATA[123type NumMatrix struct &#123; dp [][]int&#125; 12345678910111213141516171819202122func Constructor(matrix [][]int) NumMatrix &#123; var m, n int if len(matrix) == 0 || len(matrix[0]) == 0 &#123; m, n = 0, 0 &#125;else &#123; m, n = len(matrix), len(matrix[0]) &#125; dp := make([][]int, m + 1) for v := range dp &#123; dp[v] = make([]int, n + 1) &#125; for i := 1; i &lt;= m; i++ &#123; for j := 1; j &lt;=n; j++ &#123; dp[i][j] = matrix[i-1][j-1] + dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1] &#125; &#125; return NumMatrix&#123;dp: dp&#125;&#125;func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int &#123; return this.dp[row2+1][col2+1] - this.dp[row2+1][col1] - this.dp[row1][col2+1] + this.dp[row1][col1]&#125;]]></content>
+    <content type="text"><![CDATA[Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and (row2, col2) = (4, 3), which contains sum = 8.Example: Given matrix = [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;4,&nbsp;&nbsp;2],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5,&nbsp;&nbsp;6,&nbsp;&nbsp;3,&nbsp;&nbsp;2,&nbsp;&nbsp;1],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;2,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;5],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4,&nbsp;&nbsp;1,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;7],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;0,&nbsp;&nbsp;3,&nbsp;&nbsp;0,&nbsp;&nbsp;5]] sumRegion(2, 1, 4, 3) -&gt; 8sumRegion(1, 1, 2, 2) -&gt; 11sumRegion(1, 2, 2, 4) -&gt; 12 Note: You may assume that the matrix does not change. There are many calls to sumRegion function. You may assume that row1 ≤ row2 and col1 ≤ col2. 123type NumMatrix struct &#123; dp [][]int&#125; 12345678910111213141516171819202122func Constructor(matrix [][]int) NumMatrix &#123; var m, n int if len(matrix) == 0 || len(matrix[0]) == 0 &#123; m, n = 0, 0 &#125;else &#123; m, n = len(matrix), len(matrix[0]) &#125; dp := make([][]int, m + 1) for v := range dp &#123; dp[v] = make([]int, n + 1) &#125; for i := 1; i &lt;= m; i++ &#123; for j := 1; j &lt;=n; j++ &#123; dp[i][j] = matrix[i-1][j-1] + dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1] &#125; &#125; return NumMatrix&#123;dp: dp&#125;&#125;func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int &#123; return this.dp[row2+1][col2+1] - this.dp[row2+1][col1] - this.dp[row1][col2+1] + this.dp[row1][col1]&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -686,7 +691,7 @@
   <entry>
     <title><![CDATA[LeetCode 221: Maximal Square]]></title>
     <url>%2F2018%2F09%2F28%2FLeetCode-221-Maximal-Square%2F</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435func maximalSquare(matrix [][]byte) int &#123; if len(matrix) == 0 || len(matrix[0]) == 0 &#123; return 0 &#125; res := 0 dp := make([][]int, len(matrix)) for t := range dp &#123; dp[t] = make([]int, len(matrix[0])) &#125; for i := range matrix &#123; for j := range matrix[i] &#123; if i == 0 || j == 0 &#123; dp[i][j] = int(matrix[i][j]) - '0' &#125;else if int(matrix[i][j]) == '1' &#123; if dp[i-1][j] &lt; dp[i][j-1] &#123; if dp[i-1][j] &lt; dp[i-1][j-1] &#123; dp [i][j] = dp[i-1][j] + 1 &#125;else &#123; dp[i][j] = dp[i-1][j-1] + 1 &#125; &#125;else &#123; if dp[i][j-1] &lt; dp[i-1][j-1] &#123; dp [i][j] = dp[i][j-1] + 1 &#125;else &#123; dp[i][j] = dp[i-1][j-1] + 1 &#125; &#125; &#125; if res &lt; dp[i][j] &#123; res = dp[i][j] &#125; &#125; &#125; return res * res &#125; 1234567891011121314151617181920212223242526272829303132333435func maximalSquare(matrix [][]byte) int &#123; if len(matrix) == 0 || len(matrix[0]) == 0 &#123; return 0 &#125; dp := [2][]int&#123;make([]int, len(matrix[0])+1), make([]int, len(matrix[0])+1)&#125; res, curr := 0, 0 for i := range matrix &#123; prev := curr curr = 1 - curr for j := range matrix[i] &#123; if matrix[i][j] == '0' &#123; dp[curr][j+1] = 0 continue &#125; if dp[curr][j] &lt; dp[prev][j] &#123; if dp[curr][j] &lt; dp[prev][j+1] &#123; dp[curr][j+1] = dp[curr][j] + 1 &#125;else &#123; dp[curr][j+1] = dp[prev][j+1] + 1 &#125; &#125;else &#123; if dp[prev][j] &lt; dp[prev][j+1] &#123; dp[curr][j+1] = dp[prev][j] + 1 &#125;else &#123; dp[curr][j+1] = dp[prev][j+1] + 1 &#125; &#125; if res &lt; dp[curr][j+1] &#123; res = dp[curr][j+1] &#125; &#125; &#125; return res * res&#125;]]></content>
+    <content type="text"><![CDATA[Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area. Example:Input: 1&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;01&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;11&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;11&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0 Output: 4Solution 1:1234567891011121314151617181920212223242526272829303132333435func maximalSquare(matrix [][]byte) int &#123; if len(matrix) == 0 || len(matrix[0]) == 0 &#123; return 0 &#125; res := 0 dp := make([][]int, len(matrix)) for t := range dp &#123; dp[t] = make([]int, len(matrix[0])) &#125; for i := range matrix &#123; for j := range matrix[i] &#123; if i == 0 || j == 0 &#123; dp[i][j] = int(matrix[i][j]) - '0' &#125;else if int(matrix[i][j]) == '1' &#123; if dp[i-1][j] &lt; dp[i][j-1] &#123; if dp[i-1][j] &lt; dp[i-1][j-1] &#123; dp [i][j] = dp[i-1][j] + 1 &#125;else &#123; dp[i][j] = dp[i-1][j-1] + 1 &#125; &#125;else &#123; if dp[i][j-1] &lt; dp[i-1][j-1] &#123; dp [i][j] = dp[i][j-1] + 1 &#125;else &#123; dp[i][j] = dp[i-1][j-1] + 1 &#125; &#125; &#125; if res &lt; dp[i][j] &#123; res = dp[i][j] &#125; &#125; &#125; return res * res &#125; Soluton 2:1234567891011121314151617181920212223242526272829303132333435func maximalSquare(matrix [][]byte) int &#123; if len(matrix) == 0 || len(matrix[0]) == 0 &#123; return 0 &#125; dp := [2][]int&#123;make([]int, len(matrix[0])+1), make([]int, len(matrix[0])+1)&#125; res, curr := 0, 0 for i := range matrix &#123; prev := curr curr = 1 - curr for j := range matrix[i] &#123; if matrix[i][j] == '0' &#123; dp[curr][j+1] = 0 continue &#125; if dp[curr][j] &lt; dp[prev][j] &#123; if dp[curr][j] &lt; dp[prev][j+1] &#123; dp[curr][j+1] = dp[curr][j] + 1 &#125;else &#123; dp[curr][j+1] = dp[prev][j+1] + 1 &#125; &#125;else &#123; if dp[prev][j] &lt; dp[prev][j+1] &#123; dp[curr][j+1] = dp[prev][j] + 1 &#125;else &#123; dp[curr][j+1] = dp[prev][j+1] + 1 &#125; &#125; if res &lt; dp[curr][j+1] &#123; res = dp[curr][j+1] &#125; &#125; &#125; return res * res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -697,7 +702,7 @@
   <entry>
     <title><![CDATA[LeetCode 198: House Robber]]></title>
     <url>%2F2018%2F09%2F28%2FLeetCode-198-House-Robber%2F</url>
-    <content type="text"><![CDATA[123456789101112131415161718192021222324func rob(nums []int) int &#123; var even, odd, res int for i, v := range nums &#123; if i % 2 == 0 &#123; if even + v &gt; odd &#123; even = even + v &#125;else &#123; even = odd &#125; &#125;else &#123; if odd + v &gt; even &#123; odd = odd + v &#125;else &#123; odd = even &#125; &#125; &#125; if even &gt; odd &#123; res = even &#125;else &#123; res = odd &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police. Example 1:Input: [1,2,3,1]Output: 4Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3). Total amount you can rob = 1 + 3 = 4. Example 2:Input: [2,7,9,3,1]Output: 12Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).Total amount you can rob = 2 + 9 + 1 = 12. 123456789101112131415161718192021222324func rob(nums []int) int &#123; var even, odd, res int for i, v := range nums &#123; if i % 2 == 0 &#123; if even + v &gt; odd &#123; even = even + v &#125;else &#123; even = odd &#125; &#125;else &#123; if odd + v &gt; even &#123; odd = odd + v &#125;else &#123; odd = even &#125; &#125; &#125; if even &gt; odd &#123; res = even &#125;else &#123; res = odd &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -708,7 +713,7 @@
   <entry>
     <title><![CDATA[LeetCode 188: Best Time to Buy and Sell Stock IV]]></title>
     <url>%2F2018%2F09%2F28%2FLeetCode-188-Best-Time-to-Buy-and-Sell-Stock-IV%2F</url>
-    <content type="text"><![CDATA[12345678910111213141516171819202122func maxProfit(k int, prices []int) int &#123; if k &gt; len(prices) &#123; k = len(prices) &#125; var bp, sp []int for i := 0; i &lt; k; i++ &#123; bp = append(bp, -0x80000000) sp = append(sp, 0) &#125; sp = append(sp, 0) for _, v := range prices &#123; for j := 0; j &lt; k; j++ &#123; if bp[i] &lt; sp[i] - v &#123; bp[i] = sp[i] - v &#125; if sp[i+1] &lt; v + bp[i] &#123; sp[i+1] = v + bp[i] &#125; &#125; &#125; return sp[k]&#125;]]></content>
+    <content type="text"><![CDATA[Say you have an array for which the $i^{th}$ element is the price of a given stock on day $i$. Design an algorithm to find the maximum profit. You may complete at most k transactions.Note:You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again). Example 1:Input: [2,4,1], k = 2Output: 2Explanation: Buy on day 1 (price = 2) and sell on day 2 (price = 4), profit = 4-2 = 2. Example 2:Input: [3,2,6,5,0,3], k = 2Output: 7Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4. Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3. 12345678910111213141516171819202122func maxProfit(k int, prices []int) int &#123; if k &gt; len(prices) &#123; k = len(prices) &#125; var bp, sp []int for i := 0; i &lt; k; i++ &#123; bp = append(bp, -0x80000000) sp = append(sp, 0) &#125; sp = append(sp, 0) for _, v := range prices &#123; for j := 0; j &lt; k; j++ &#123; if bp[i] &lt; sp[i] - v &#123; bp[i] = sp[i] - v &#125; if sp[i+1] &lt; v + bp[i] &#123; sp[i+1] = v + bp[i] &#125; &#125; &#125; return sp[k]&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -719,7 +724,7 @@
   <entry>
     <title><![CDATA[LeetCode 139: Word Break]]></title>
     <url>%2F2018%2F09%2F28%2FLeetCode-139-Word-Break%2F</url>
-    <content type="text"><![CDATA[1234567891011121314151617181920212223242526func wordBreak(s string, wordDict []string) bool &#123; if len(wordDict) == 0 &#123; return false &#125; dict := make(map[string]bool) length := []int for _, v := range wordDict &#123; if _, exist := dict[v]; !exist &#123; dict[v] = true length = append(length,len(v)) &#125; &#125; dp := make([]bool, len(s)+1) dp[0] = true for i := 0; i &lt; len(s); i++ &#123; if !dp[i] &#123; continue &#125; for _, size := range length &#123; dp[i+size] = dp[i+size] || dict[s[i:i+size]] &#125; &#125; return dp[len(s)]&#125;]]></content>
+    <content type="text"><![CDATA[Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.Note: The same word in the dictionary may be reused multiple times in the segmentation. You may assume the dictionary does not contain duplicate words. Example 1:Input: s = “leetcode”, wordDict = [“leet”, “code”]Output: trueExplanation: Return true because “leetcode” can be segmented as “leet code”. Example 2:Input: s = “applepenapple”, wordDict = [“apple”, “pen”]Output: trueExplanation: Return true because “applepenapple” can be segmented as “apple pen apple”. Note that you are allowed to reuse a dictionary word. Example 3:Input: s = “catsandog”, wordDict = [“cats”, “dog”, “sand”, “and”, “cat”]Output: false 1234567891011121314151617181920212223242526func wordBreak(s string, wordDict []string) bool &#123; if len(wordDict) == 0 &#123; return false &#125; dict := make(map[string]bool) length := []int for _, v := range wordDict &#123; if _, exist := dict[v]; !exist &#123; dict[v] = true length = append(length,len(v)) &#125; &#125; dp := make([]bool, len(s)+1) dp[0] = true for i := 0; i &lt; len(s); i++ &#123; if !dp[i] &#123; continue &#125; for _, size := range length &#123; dp[i+size] = dp[i+size] || dict[s[i:i+size]] &#125; &#125; return dp[len(s)]&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>

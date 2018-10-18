@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Binary Tree," />
+  <meta name="keywords" content="Tree," />
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
-<meta name="keywords" content="Binary Tree">
+<meta name="description" content="Given a binary tree, you need to find the length of Longest Consecutive Path in Binary Tree. Especially, this path can be either increasing or decreasing. For example, [1,2,3,4] and [4,3,2,1] are both">
+<meta name="keywords" content="Tree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 549: Binary Tree Longest Consecutive Sequence II">
 <meta property="og:url" content="https://everise.github.io/2018/10/09/LeetCode-549-Binary-Tree-Longest-Consecutive-Sequence-II/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta property="og:description" content="Given a binary tree, you need to find the length of Longest Consecutive Path in Binary Tree. Especially, this path can be either increasing or decreasing. For example, [1,2,3,4] and [4,3,2,1] are both">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-13T01:31:18.798Z">
+<meta property="og:updated_time" content="2018-10-18T05:17:55.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 549: Binary Tree Longest Consecutive Sequence II">
-<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="twitter:description" content="Given a binary tree, you need to find the length of Longest Consecutive Path in Binary Tree. Especially, this path can be either increasing or decreasing. For example, [1,2,3,4] and [4,3,2,1] are both">
 
 
 
@@ -410,8 +410,20 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a binary tree, you need to find the length of Longest Consecutive Path in Binary Tree.</p>
+<p>Especially, this path can be either increasing or decreasing. For example, [1,2,3,4] and [4,3,2,1] are both considered valid, but the path [1,2,4,3] is not valid. On the other hand, the path can be in the child-Parent-child order, where not necessarily be parent-child order.<br><a id="more"></a></p>
+<p><strong>Example 1:</strong><br>Input:</p>
+<pre><code>  1
+ / \
+2   3
+</code></pre><p>Output: 2<br>Explanation: The longest consecutive path is [1, 2] or [2, 1].</p>
+<p><strong>Example 2:</strong><br>Input:</p>
+<pre><code>  2
+ / \
+1   3
+</code></pre><p>Output: 3<br>Explanation: The longest consecutive path is [1, 2, 3] or [3, 2, 1].</p>
+<p><strong>Note:</strong> All the values of tree nodes are in the range of [-1e7, 1e7].</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">currentLongest</span><span class="params">(root *TreeNode, diff <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    left, right := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> root.Left != <span class="literal">nil</span> &amp;&amp; root.Val - root.Left.Val == diff &#123;</span><br><span class="line">        left = <span class="number">1</span> + currentLongest(root.Left, diff)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> root.Right != <span class="literal">nil</span> &amp;&amp; root.Val - root.Right.Val == diff &#123;</span><br><span class="line">        right = <span class="number">1</span> + currentLongest(root.Right, diff)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        left = right</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">longestConsecutive</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    res := currentLongest(root, <span class="number">1</span>) + currentLongest(root, <span class="number">-1</span>) + <span class="number">1</span></span><br><span class="line">    left := longestConsecutive(root.Left)</span><br><span class="line">    right := longestConsecutive(root.Right)</span><br><span class="line">    <span class="keyword">if</span> left &gt; right &#123;</span><br><span class="line">        <span class="keyword">if</span> left &gt; res &#123;</span><br><span class="line">            res = left</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> right &gt; res &#123;</span><br><span class="line">            res = right</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -449,7 +461,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
           
         </div>
       
@@ -546,7 +558,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -568,7 +580,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

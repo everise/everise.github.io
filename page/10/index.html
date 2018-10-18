@@ -320,152 +320,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/03/LeetCode-750-Number-Of-Corner-Rectangles/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="everise">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Everise's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/03/LeetCode-750-Number-Of-Corner-Rectangles/" itemprop="url">LeetCode 750: Number Of Corner Rectangles</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-03T16:15:06-04:00">
-                2018-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countCornerRectangles</span><span class="params">(grid [][]<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(grid); i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := i + <span class="number">1</span>; j &lt; <span class="built_in">len</span>(grid); j++ &#123;</span><br><span class="line">            count := <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> k := <span class="number">0</span>; k &lt; <span class="built_in">len</span>(grid[<span class="number">0</span>]); k++ &#123;</span><br><span class="line">                <span class="keyword">if</span> grid[i][k] == <span class="number">1</span> &amp;&amp; grid[j][k] == <span class="number">1</span> &#123;</span><br><span class="line">                    count++</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res += count * (count - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> res  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/03/LeetCode-750-Number-Of-Corner-Rectangles/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/10/02/Leetcode-418-Sentence-Screen-Fitting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -558,7 +412,15 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordsTyping</span><span class="params">(sentence []<span class="keyword">string</span>, rows <span class="keyword">int</span>, cols <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    left, res, count := cols, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; rows; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> count == <span class="built_in">len</span>(sentence) &#123;</span><br><span class="line">                count = <span class="number">0</span></span><br><span class="line">                res += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> left &lt; <span class="built_in">len</span>(sentence[count]) &#123;</span><br><span class="line">                left = cols</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> left == <span class="built_in">len</span>(sentence[count]) &#123;</span><br><span class="line">                count++</span><br><span class="line">                left = cols</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">            left -= <span class="built_in">len</span>(sentence[count]) + <span class="number">1</span></span><br><span class="line">            count++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> count == <span class="built_in">len</span>(sentence) &#123;</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        res += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Given a rows x cols screen and a sentence represented by a list of <strong>non-empty</strong> words, find <strong>how many times</strong> the given sentence can be fitted on the screen.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>A word cannot be split into two lines.</li>
+<li>The order of words in the sentence must remain unchanged.</li>
+<li>Two consecutive words in a line must be separated by a single space.</li>
+<li>Total words in the sentence won’t exceed 100.</li>
+<li>Length of each word is greater than 0 and won’t exceed 10.</li>
+<li>1 ≤ rows, cols ≤ 20,000.
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/02/Leetcode-418-Sentence-Screen-Fitting/#more" rel="contents">
@@ -704,7 +566,11 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">canPartition</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> sum, target <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        sum += v</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> sum % <span class="number">2</span> == <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        target = sum &gt;&gt; <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="keyword">bool</span>, target + <span class="number">1</span>)</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="literal">true</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> _, n := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="keyword">for</span> i := target; i &gt;= n; i-- &#123;</span><br><span class="line">            dp[i] = dp[i] || dp[i - n]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[target]   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Given a <strong>non-empty</strong> array containing <strong>only positive integers</strong>, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.</p>
+<p>Note:</p>
+<ul>
+<li>Each of the array element will not exceed 100.</li>
+<li>The array size will not exceed 200.
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/02/Leetcode-416-Partition-Equal-Subset-Sum/#more" rel="contents">
@@ -850,7 +716,9 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getMoneyAmount</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    m := <span class="built_in">make</span>([][]<span class="keyword">int</span>, n + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> t := <span class="keyword">range</span> m &#123;</span><br><span class="line">        m[t] = <span class="built_in">make</span>([]<span class="keyword">int</span>, n + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> guessMoney(<span class="number">1</span>, n, m)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>We are playing the Guess Game. The game is as follows:</p>
+<p>I pick a number from <strong>1</strong> to <strong>n</strong>. You have to guess which number I picked.</p>
+<p>Every time you guess wrong, I’ll tell you whether the number I picked is higher or lower.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/28/LeetCode-375-Guess-Number-Higher-or-Lower-II/#more" rel="contents">
@@ -996,7 +864,7 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> NumMatrix <span class="keyword">struct</span> &#123;</span><br><span class="line">    dp [][]<span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Given a 2D matrix <em>matrix</em>, find the sum of the elements inside the rectangle defined by its upper left corner (<em>row1</em>, <em>col1</em>) and lower right corner (<em>row2</em>, <em>col2</em>).<br><img src="/uploads/range_sum_query_2d.png" alt=""><br>The above rectangle (with the red border) is defined by (row1, col1) = <strong>(2, 1)</strong> and (row2, col2) = <strong>(4, 3)</strong>, which contains sum = <strong>8</strong>.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/28/LeetCode-304-Range-Sum-Query-2D-Immutable/#more" rel="contents">
@@ -1142,7 +1010,10 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maximalSquare</span><span class="params">(matrix [][]<span class="keyword">byte</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(matrix) == <span class="number">0</span> || <span class="built_in">len</span>(matrix[<span class="number">0</span>]) == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">     &#125;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    dp := <span class="built_in">make</span>([][]<span class="keyword">int</span>, <span class="built_in">len</span>(matrix))</span><br><span class="line">    <span class="keyword">for</span> t := <span class="keyword">range</span> dp &#123;</span><br><span class="line">        dp[t] = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="built_in">len</span>(matrix[<span class="number">0</span>]))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> matrix &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="keyword">range</span> matrix[i] &#123;</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">0</span> || j == <span class="number">0</span> &#123;</span><br><span class="line">                dp[i][j] = <span class="keyword">int</span>(matrix[i][j]) - <span class="string">'0'</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> <span class="keyword">int</span>(matrix[i][j]) == <span class="string">'1'</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> dp[i<span class="number">-1</span>][j] &lt; dp[i][j<span class="number">-1</span>] &#123;</span><br><span class="line">                    <span class="keyword">if</span> dp[i<span class="number">-1</span>][j] &lt; dp[i<span class="number">-1</span>][j<span class="number">-1</span>] &#123;</span><br><span class="line">                        dp [i][j] = dp[i<span class="number">-1</span>][j] + <span class="number">1</span></span><br><span class="line">                    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                        dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> dp[i][j<span class="number">-1</span>] &lt; dp[i<span class="number">-1</span>][j<span class="number">-1</span>] &#123;</span><br><span class="line">                        dp [i][j] = dp[i][j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line">                    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                        dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> res &lt; dp[i][j] &#123;</span><br><span class="line">                res = dp[i][j]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res * res </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Given a 2D binary matrix filled with 0’s and 1’s, find the largest square containing only 1’s and return its area.</p>
+<p><strong>Example:</strong><br>Input: </p>
+<p>1&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;0<br>1&nbsp;&nbsp;0&nbsp;&nbsp;<font color="#FF0000">1&nbsp;&nbsp;1</font>&nbsp;&nbsp;1<br>1&nbsp;&nbsp;1&nbsp;&nbsp;<font color="#FF0000">1&nbsp;&nbsp;1</font>&nbsp;&nbsp;1<br>1&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0</p>
+<p>Output: 4<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/28/LeetCode-221-Maximal-Square/#more" rel="contents">
@@ -1288,7 +1159,7 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rob</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> even, odd, res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> even + v &gt; odd &#123;</span><br><span class="line">                even = even + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                even = odd</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> odd + v &gt; even &#123;</span><br><span class="line">                odd = odd + v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                odd = even</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> even &gt; odd &#123;</span><br><span class="line">        res = even</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        res = odd</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and <strong>it will automatically contact the police if two adjacent houses were broken into on the same night</strong>.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/28/LeetCode-198-House-Robber/#more" rel="contents">
@@ -1434,7 +1305,8 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxProfit</span><span class="params">(k <span class="keyword">int</span>, prices []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> k &gt; <span class="built_in">len</span>(prices) &#123;</span><br><span class="line">        k = <span class="built_in">len</span>(prices)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> bp, sp []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; k; i++ &#123;</span><br><span class="line">        bp = <span class="built_in">append</span>(bp, <span class="number">-0x80000000</span>)</span><br><span class="line">        sp = <span class="built_in">append</span>(sp, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    sp = <span class="built_in">append</span>(sp, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> prices &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">0</span>; j &lt; k; j++ &#123;</span><br><span class="line">            <span class="keyword">if</span> bp[i] &lt; sp[i] - v &#123;</span><br><span class="line">                bp[i] = sp[i] - v</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> sp[i+<span class="number">1</span>] &lt; v + bp[i] &#123;</span><br><span class="line">                sp[i+<span class="number">1</span>] = v + bp[i]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sp[k]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Say you have an array for which the $i^{th}$ element is the price of a given stock on day $i$.</p>
+<p>Design an algorithm to find the maximum profit. You may complete at most <strong>k</strong> transactions.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/28/LeetCode-188-Best-Time-to-Buy-and-Sell-Stock-IV/#more" rel="contents">
@@ -1580,7 +1452,7 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordBreak</span><span class="params">(s <span class="keyword">string</span>, wordDict []<span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(wordDict) == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dict := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">bool</span>)</span><br><span class="line">    length := []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> wordDict &#123;</span><br><span class="line">        <span class="keyword">if</span> _, exist := dict[v]; !exist &#123;</span><br><span class="line">            dict[v] = <span class="literal">true</span></span><br><span class="line">            length = <span class="built_in">append</span>(length,<span class="built_in">len</span>(v))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="keyword">bool</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>)</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> !dp[i] &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> _, size := <span class="keyword">range</span> length &#123;</span><br><span class="line">            dp[i+size] = dp[i+size] || dict[s[i:i+size]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="built_in">len</span>(s)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Given a <strong>non-empty</strong> string <em>s</em> and a dictionary wordDict containing a list of <strong>non-empty</strong> words, determine if <em>s</em> can be segmented into a space-separated sequence of one or more dictionary words.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/09/28/LeetCode-139-Word-Break/#more" rel="contents">
@@ -1768,6 +1640,154 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2018/09/28/LeetCode-8-String-to-Integer-atoi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="everise">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Everise's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/28/LeetCode-8-String-to-Integer-atoi/" itemprop="url">LeetCode 8: String to Integer (atoi)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T00:26:14-04:00">
+                2018-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Implement atoi which converts a string to an integer.</p>
+<p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.</p>
+<p>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/28/LeetCode-8-String-to-Integer-atoi/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1822,7 +1842,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1844,7 +1864,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="1234567891011121314151617181920212223242526func wordBreak(s string, wordDict []string) bool &amp;#123;    if len(wordDict) == 0 &amp;#123;        return false    &amp;#125;    dict := make(map[string]bool)    len">
+<meta name="description" content="Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.">
 <meta name="keywords" content="Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 139: Word Break">
 <meta property="og:url" content="https://everise.github.io/2018/09/28/LeetCode-139-Word-Break/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="1234567891011121314151617181920212223242526func wordBreak(s string, wordDict []string) bool &amp;#123;    if len(wordDict) == 0 &amp;#123;        return false    &amp;#125;    dict := make(map[string]bool)    len">
+<meta property="og:description" content="Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-29T22:19:08.308Z">
+<meta property="og:updated_time" content="2018-10-18T03:40:08.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 139: Word Break">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526func wordBreak(s string, wordDict []string) bool &amp;#123;    if len(wordDict) == 0 &amp;#123;        return false    &amp;#125;    dict := make(map[string]bool)    len">
+<meta name="twitter:description" content="Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.">
 
 
 
@@ -410,8 +410,15 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordBreak</span><span class="params">(s <span class="keyword">string</span>, wordDict []<span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(wordDict) == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dict := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">bool</span>)</span><br><span class="line">    length := []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> wordDict &#123;</span><br><span class="line">        <span class="keyword">if</span> _, exist := dict[v]; !exist &#123;</span><br><span class="line">            dict[v] = <span class="literal">true</span></span><br><span class="line">            length = <span class="built_in">append</span>(length,<span class="built_in">len</span>(v))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="keyword">bool</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>)</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> !dp[i] &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> _, size := <span class="keyword">range</span> length &#123;</span><br><span class="line">            dp[i+size] = dp[i+size] || dict[s[i:i+size]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="built_in">len</span>(s)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a <strong>non-empty</strong> string <em>s</em> and a dictionary wordDict containing a list of <strong>non-empty</strong> words, determine if <em>s</em> can be segmented into a space-separated sequence of one or more dictionary words.<br><a id="more"></a><br><strong>Note:</strong></p>
+<ul>
+<li>The same word in the dictionary may be reused multiple times in the segmentation.</li>
+<li>You may assume the dictionary does not contain duplicate words.</li>
+</ul>
+<p><strong>Example 1:</strong><br>Input: s = “leetcode”, wordDict = [“leet”, “code”]<br>Output: true<br>Explanation: Return true because “leetcode” can be segmented as “leet code”.</p>
+<p><strong>Example 2:</strong><br>Input: s = “applepenapple”, wordDict = [“apple”, “pen”]<br>Output: true<br>Explanation: Return true because “applepenapple” can be segmented as “apple pen apple”. Note that you are allowed to reuse a dictionary word.</p>
+<p><strong>Example 3:</strong><br>Input: s = “catsandog”, wordDict = [“cats”, “dog”, “sand”, “and”, “cat”]<br>Output: false</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordBreak</span><span class="params">(s <span class="keyword">string</span>, wordDict []<span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(wordDict) == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dict := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">bool</span>)</span><br><span class="line">    length := []<span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> wordDict &#123;</span><br><span class="line">        <span class="keyword">if</span> _, exist := dict[v]; !exist &#123;</span><br><span class="line">            dict[v] = <span class="literal">true</span></span><br><span class="line">            length = <span class="built_in">append</span>(length,<span class="built_in">len</span>(v))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="keyword">bool</span>, <span class="built_in">len</span>(s)+<span class="number">1</span>)</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> !dp[i] &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> _, size := <span class="keyword">range</span> length &#123;</span><br><span class="line">            dp[i+size] = dp[i+size] || dict[s[i:i+size]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="built_in">len</span>(s)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +551,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -566,7 +573,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

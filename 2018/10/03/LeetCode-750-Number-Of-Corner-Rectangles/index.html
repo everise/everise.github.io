@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="123456789101112131415func countCornerRectangles(grid [][]int) int &amp;#123;    var res int    for i := 0; i &amp;lt; len(grid); i++ &amp;#123;        for j := i + 1; j &amp;lt; len(grid); j++ &amp;#123;            count">
+<meta name="description" content="Given a grid where each entry is only 0 or 1, find the number of corner rectangles. A corner rectangle is 4 distinct 1s on the grid that form an axis-aligned rectangle. Note that only the corners need">
 <meta name="keywords" content="Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 750: Number Of Corner Rectangles">
 <meta property="og:url" content="https://everise.github.io/2018/10/03/LeetCode-750-Number-Of-Corner-Rectangles/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="123456789101112131415func countCornerRectangles(grid [][]int) int &amp;#123;    var res int    for i := 0; i &amp;lt; len(grid); i++ &amp;#123;        for j := i + 1; j &amp;lt; len(grid); j++ &amp;#123;            count">
+<meta property="og:description" content="Given a grid where each entry is only 0 or 1, find the number of corner rectangles. A corner rectangle is 4 distinct 1s on the grid that form an axis-aligned rectangle. Note that only the corners need">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-04T20:11:42.393Z">
+<meta property="og:updated_time" content="2018-10-18T04:53:49.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 750: Number Of Corner Rectangles">
-<meta name="twitter:description" content="123456789101112131415func countCornerRectangles(grid [][]int) int &amp;#123;    var res int    for i := 0; i &amp;lt; len(grid); i++ &amp;#123;        for j := i + 1; j &amp;lt; len(grid); j++ &amp;#123;            count">
+<meta name="twitter:description" content="Given a grid where each entry is only 0 or 1, find the number of corner rectangles. A corner rectangle is 4 distinct 1s on the grid that form an axis-aligned rectangle. Note that only the corners need">
 
 
 
@@ -410,8 +410,20 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countCornerRectangles</span><span class="params">(grid [][]<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(grid); i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := i + <span class="number">1</span>; j &lt; <span class="built_in">len</span>(grid); j++ &#123;</span><br><span class="line">            count := <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> k := <span class="number">0</span>; k &lt; <span class="built_in">len</span>(grid[<span class="number">0</span>]); k++ &#123;</span><br><span class="line">                <span class="keyword">if</span> grid[i][k] == <span class="number">1</span> &amp;&amp; grid[j][k] == <span class="number">1</span> &#123;</span><br><span class="line">                    count++</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res += count * (count - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> res  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a grid where each entry is only 0 or 1, find the number of corner rectangles.</p>
+<p>A corner rectangle is 4 distinct 1s on the grid that form an axis-aligned rectangle. Note that only the corners need to have the value 1. Also, all four 1s used must be distinct.<br><a id="more"></a><br><strong>Example 1:</strong></p>
+<p>Input: grid = [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;0,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;0],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;0,&nbsp;&nbsp;1],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;&nbsp;0,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;0],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;0,&nbsp;&nbsp;1]<br> ]<br>Output: 1<br>Explanation: There is only one corner rectangle, with corners grid[1][2], grid[1][4], grid[3][2], grid[3][4].</p>
+<p><strong>Example 2:</strong></p>
+<p>Input: grid = [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;1,&nbsp;&nbsp;1],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;1,&nbsp;&nbsp;1],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;1,&nbsp;&nbsp;1]<br>]<br>Output: 9<br>Explanation: There are four 2x2 rectangles, four 2x3 and 3x2 rectangles, and one 3x3 rectangle.</p>
+<p><strong>Example 3:</strong></p>
+<p>Input: grid = [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;1,&nbsp;&nbsp;1,&nbsp;&nbsp;1]<br>]<br>Output: 0<br>Explanation: Rectangles must have four distinct corners.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The number of rows and columns of grid will each be in the range [1, 200].</li>
+<li>Each grid[i][j] will be either 0 or 1.</li>
+<li>The number of 1s in the grid will be at most 6000.</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countCornerRectangles</span><span class="params">(grid [][]<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> res <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(grid); i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := i + <span class="number">1</span>; j &lt; <span class="built_in">len</span>(grid); j++ &#123;</span><br><span class="line">            count := <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> k := <span class="number">0</span>; k &lt; <span class="built_in">len</span>(grid[<span class="number">0</span>]); k++ &#123;</span><br><span class="line">                <span class="keyword">if</span> grid[i][k] == <span class="number">1</span> &amp;&amp; grid[j][k] == <span class="number">1</span> &#123;</span><br><span class="line">                    count++</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res += count * (count - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> res  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +556,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -566,7 +578,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

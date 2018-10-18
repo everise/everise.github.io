@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="1234567891011121314151617181920212223242526func wordsTyping(sentence []string, rows int, cols int) int &amp;#123;    left, res, count := cols, 0, 0    for i := 0; i &amp;lt; rows; i++ &amp;#123;        for &amp;#123;">
+<meta name="description" content="Given a rows x cols screen and a sentence represented by a list of non-empty words, find how many times the given sentence can be fitted on the screen. Note:  A word cannot be split into two lines. Th">
 <meta name="keywords" content="Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 418: Sentence Screen Fitting">
 <meta property="og:url" content="https://everise.github.io/2018/10/02/Leetcode-418-Sentence-Screen-Fitting/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="1234567891011121314151617181920212223242526func wordsTyping(sentence []string, rows int, cols int) int &amp;#123;    left, res, count := cols, 0, 0    for i := 0; i &amp;lt; rows; i++ &amp;#123;        for &amp;#123;">
+<meta property="og:description" content="Given a rows x cols screen and a sentence represented by a list of non-empty words, find how many times the given sentence can be fitted on the screen. Note:  A word cannot be split into two lines. Th">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-04T03:26:13.354Z">
+<meta property="og:updated_time" content="2018-10-18T04:20:52.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode 418: Sentence Screen Fitting">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526func wordsTyping(sentence []string, rows int, cols int) int &amp;#123;    left, res, count := cols, 0, 0    for i := 0; i &amp;lt; rows; i++ &amp;#123;        for &amp;#123;">
+<meta name="twitter:description" content="Given a rows x cols screen and a sentence represented by a list of non-empty words, find how many times the given sentence can be fitted on the screen. Note:  A word cannot be split into two lines. Th">
 
 
 
@@ -410,8 +410,23 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordsTyping</span><span class="params">(sentence []<span class="keyword">string</span>, rows <span class="keyword">int</span>, cols <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    left, res, count := cols, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; rows; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> count == <span class="built_in">len</span>(sentence) &#123;</span><br><span class="line">                count = <span class="number">0</span></span><br><span class="line">                res += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> left &lt; <span class="built_in">len</span>(sentence[count]) &#123;</span><br><span class="line">                left = cols</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> left == <span class="built_in">len</span>(sentence[count]) &#123;</span><br><span class="line">                count++</span><br><span class="line">                left = cols</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">            left -= <span class="built_in">len</span>(sentence[count]) + <span class="number">1</span></span><br><span class="line">            count++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> count == <span class="built_in">len</span>(sentence) &#123;</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        res += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a rows x cols screen and a sentence represented by a list of <strong>non-empty</strong> words, find <strong>how many times</strong> the given sentence can be fitted on the screen.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>A word cannot be split into two lines.</li>
+<li>The order of words in the sentence must remain unchanged.</li>
+<li>Two consecutive words in a line must be separated by a single space.</li>
+<li>Total words in the sentence won’t exceed 100.</li>
+<li>Length of each word is greater than 0 and won’t exceed 10.</li>
+<li>1 ≤ rows, cols ≤ 20,000.<a id="more"></a>
+<strong>Example 1:</strong><br>Input:<br>rows = 2, cols = 8, sentence = [“hello”, “world”]<br>Output: 1<br>Explanation:<br>hello—<br>world—</li>
+</ul>
+<p>The character ‘-‘ signifies an empty space on the screen.</p>
+<p><strong>Example 2:</strong><br>Input:<br>rows = 3, cols = 6, sentence = [“a”, “bcd”, “e”]<br>Output: 2<br>Explanation:<br>a-bcd-<br>e-a—<br>bcd-e-</p>
+<p>The character ‘-‘ signifies an empty space on the screen.</p>
+<p><strong>Example 3:</strong><br>Input:<br>rows = 4, cols = 5, sentence = [“I”, “had”, “apple”, “pie”]<br>Output: 1<br>Explanation:<br>I-had<br>apple<br>pie-I<br>had–</p>
+<p>The character ‘-‘ signifies an empty space on the screen.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordsTyping</span><span class="params">(sentence []<span class="keyword">string</span>, rows <span class="keyword">int</span>, cols <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    left, res, count := cols, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; rows; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> count == <span class="built_in">len</span>(sentence) &#123;</span><br><span class="line">                count = <span class="number">0</span></span><br><span class="line">                res += <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> left &lt; <span class="built_in">len</span>(sentence[count]) &#123;</span><br><span class="line">                left = cols</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> left == <span class="built_in">len</span>(sentence[count]) &#123;</span><br><span class="line">                count++</span><br><span class="line">                left = cols</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">            left -= <span class="built_in">len</span>(sentence[count]) + <span class="number">1</span></span><br><span class="line">            count++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> count == <span class="built_in">len</span>(sentence) &#123;</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        res += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +559,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -566,7 +581,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

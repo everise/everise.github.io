@@ -123,18 +123,20 @@
 
 
 
-<meta name="description" content="123type NumMatrix struct &amp;#123;    dp [][]int&amp;#125;">
+<meta name="description" content="Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).The above rectangle (with the red border)">
 <meta name="keywords" content="Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 304: Range Sum Query 2D - Immutable">
 <meta property="og:url" content="https://everise.github.io/2018/09/28/LeetCode-304-Range-Sum-Query-2D-Immutable/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="123type NumMatrix struct &amp;#123;    dp [][]int&amp;#125;">
+<meta property="og:description" content="Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).The above rectangle (with the red border)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-02T18:41:24.675Z">
+<meta property="og:image" content="https://everise.github.io/uploads/range_sum_query_2d.png">
+<meta property="og:updated_time" content="2018-10-18T04:08:57.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 304: Range Sum Query 2D - Immutable">
-<meta name="twitter:description" content="123type NumMatrix struct &amp;#123;    dp [][]int&amp;#125;">
+<meta name="twitter:description" content="Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).The above rectangle (with the red border)">
+<meta name="twitter:image" content="https://everise.github.io/uploads/range_sum_query_2d.png">
 
 
 
@@ -410,8 +412,16 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> NumMatrix <span class="keyword">struct</span> &#123;</span><br><span class="line">    dp [][]<span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a 2D matrix <em>matrix</em>, find the sum of the elements inside the rectangle defined by its upper left corner (<em>row1</em>, <em>col1</em>) and lower right corner (<em>row2</em>, <em>col2</em>).<br><img src="/uploads/range_sum_query_2d.png" alt=""><br>The above rectangle (with the red border) is defined by (row1, col1) = <strong>(2, 1)</strong> and (row2, col2) = <strong>(4, 3)</strong>, which contains sum = <strong>8</strong>.<br><a id="more"></a><br><strong>Example:</strong></p>
+<p>Given matrix = [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;4,&nbsp;&nbsp;2],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5,&nbsp;&nbsp;6,&nbsp;&nbsp;3,&nbsp;&nbsp;2,&nbsp;&nbsp;1],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;2,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;5],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4,&nbsp;&nbsp;1,&nbsp;&nbsp;0,&nbsp;&nbsp;1,&nbsp;&nbsp;7],<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;&nbsp;0,&nbsp;&nbsp;3,&nbsp;&nbsp;0,&nbsp;&nbsp;5]<br>]</p>
+<p>sumRegion(2, 1, 4, 3) -&gt; 8<br>sumRegion(1, 1, 2, 2) -&gt; 11<br>sumRegion(1, 2, 2, 4) -&gt; 12</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>You may assume that the matrix does not change.</li>
+<li>There are many calls to <em>sumRegion</em> function.</li>
+<li>You may assume that <em>row1</em> ≤ <em>row2</em> and <em>col1</em> ≤ <em>col2</em>.</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> NumMatrix <span class="keyword">struct</span> &#123;</span><br><span class="line">    dp [][]<span class="keyword">int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Constructor</span><span class="params">(matrix [][]<span class="keyword">int</span>)</span> <span class="title">NumMatrix</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> m, n <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(matrix) == <span class="number">0</span> || <span class="built_in">len</span>(matrix[<span class="number">0</span>]) == <span class="number">0</span> &#123;</span><br><span class="line">        m, n = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        m, n = <span class="built_in">len</span>(matrix), <span class="built_in">len</span>(matrix[<span class="number">0</span>])</span><br><span class="line">    &#125;</span><br><span class="line">    dp := <span class="built_in">make</span>([][]<span class="keyword">int</span>, m + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> v := <span class="keyword">range</span> dp &#123;</span><br><span class="line">        dp[v] = <span class="built_in">make</span>([]<span class="keyword">int</span>, n + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= m; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">1</span>; j &lt;=n; j++ &#123;</span><br><span class="line">            dp[i][j] = matrix[i<span class="number">-1</span>][j<span class="number">-1</span>] + dp[i<span class="number">-1</span>][j] + dp[i][j<span class="number">-1</span>] - dp[i<span class="number">-1</span>][j<span class="number">-1</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> NumMatrix&#123;dp: dp&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *NumMatrix)</span> <span class="title">SumRegion</span><span class="params">(row1 <span class="keyword">int</span>, col1 <span class="keyword">int</span>, row2 <span class="keyword">int</span>, col2 <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> this.dp[row2+<span class="number">1</span>][col2+<span class="number">1</span>] - this.dp[row2+<span class="number">1</span>][col1] - this.dp[row1][col2+<span class="number">1</span>] + this.dp[row1][col1]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -545,7 +555,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -567,7 +577,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

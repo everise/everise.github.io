@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Binary Tree," />
+  <meta name="keywords" content="Tree," />
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
-<meta name="keywords" content="Binary Tree">
+<meta name="description" content="Given a binary tree, count the number of uni-value subtrees. A Uni-value subtree means all nodes of the subtree have the same value. Example :Input:  root = [5,1,5,5,5,null,5]     5    / \   1   5  /">
+<meta name="keywords" content="Tree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 250: Count Univalue Subtrees">
 <meta property="og:url" content="https://everise.github.io/2018/10/06/LeetCode-250-Count-Univalue-Subtrees/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta property="og:description" content="Given a binary tree, count the number of uni-value subtrees. A Uni-value subtree means all nodes of the subtree have the same value. Example :Input:  root = [5,1,5,5,5,null,5]     5    / \   1   5  /">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-13T00:28:51.463Z">
+<meta property="og:updated_time" content="2018-10-18T05:15:17.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 250: Count Univalue Subtrees">
-<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="twitter:description" content="Given a binary tree, count the number of uni-value subtrees. A Uni-value subtree means all nodes of the subtree have the same value. Example :Input:  root = [5,1,5,5,5,null,5]     5    / \   1   5  /">
 
 
 
@@ -410,8 +410,15 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a binary tree, count the number of uni-value subtrees.</p>
+<p>A Uni-value subtree means all nodes of the subtree have the same value.</p>
+<p><strong>Example :</strong><br>Input:  root = [5,1,5,5,5,null,5]</p>
+<pre><code>    5
+   / \
+  1   5
+ / \   \
+5   5   5
+</code></pre><p>Output: 4<br><a id="more"></a><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">dfs</span><span class="params">(root *TreeNode, val <span class="keyword">int</span>, res *<span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    left := dfs(root.Left,root.Val,res)</span><br><span class="line">    right := dfs(root.Right,root.Val,res)</span><br><span class="line">    <span class="keyword">if</span> left &amp;&amp; right &#123;</span><br><span class="line">        *res++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (root.Val == val) &amp;&amp; left &amp;&amp; right</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countUnivalSubtrees</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root, root.Val, &amp;res)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -449,7 +456,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
           
         </div>
       
@@ -546,7 +553,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -568,7 +575,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

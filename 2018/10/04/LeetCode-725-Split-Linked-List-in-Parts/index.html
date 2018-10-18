@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
+<meta name="description" content="Given a (singly) linked list with head node root, write a function to split the linked list into k consecutive linked list “parts”. The length of each part should be as equal as possible: no two parts">
 <meta name="keywords" content="Linked List">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 725: Split Linked List in Parts">
 <meta property="og:url" content="https://everise.github.io/2018/10/04/LeetCode-725-Split-Linked-List-in-Parts/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
+<meta property="og:description" content="Given a (singly) linked list with head node root, write a function to split the linked list into k consecutive linked list “parts”. The length of each part should be as equal as possible: no two parts">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-06T03:21:16.040Z">
+<meta property="og:updated_time" content="2018-10-18T03:48:29.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 725: Split Linked List in Parts">
-<meta name="twitter:description" content="1234type ListNode struct &amp;#123;    Val int    Next *ListNode&amp;#125;">
+<meta name="twitter:description" content="Given a (singly) linked list with head node root, write a function to split the linked list into k consecutive linked list “parts”. The length of each part should be as equal as possible: no two parts">
 
 
 
@@ -410,8 +410,19 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ListNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Next *ListNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a (singly) linked list with head node root, write a function to split the linked list into k consecutive linked list “parts”.</p>
+<p>The length of each part should be as equal as possible: no two parts should have a size differing by more than 1. This may lead to some parts being null.<br><a id="more"></a><br>The parts should be in order of occurrence in the input list, and parts occurring earlier should always have a size greater than or equal parts occurring later.</p>
+<p>Return a List of ListNode’s representing the linked list parts that are formed.</p>
+<p>Examples 1-&gt;2-&gt;3-&gt;4, k = 5 // 5 equal parts [ [1], [2], [3], [4], null ]</p>
+<p><strong>Example 1:</strong><br>Input:<br>root = [1, 2, 3], k = 5<br>Output: [\[1],[2],[3],[],[]]<br>Explanation:<br>The input and each element of the output are ListNodes, not arrays.<br>For example, the input root has root.val = 1, root.next.val = 2, \root.next.next.val = 3, and root.next.next.next = null.<br>The first element output[0] has output[0].val = 1, output[0].next = null.<br>The last element output[4] is null, but it’s string representation as a ListNode is [].</p>
+<p><strong>Example 2:</strong><br>Input:<br>root = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], k = 3<br>Output: [\[1, 2, 3, 4], [5, 6, 7], [8, 9, 10]]<br>Explanation:<br>The input has been split into consecutive parts with size difference at most 1, and earlier parts are a larger size than the later parts.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The length of root will be in the range [0, 1000].</li>
+<li>Each value of a node in the input will be an integer in the range [0, 999].</li>
+<li>k will be an integer in the range [1, 50].</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ListNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Next *ListNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">splitListToParts</span><span class="params">(root *ListNode, k <span class="keyword">int</span>)</span> []*<span class="title">ListNode</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> res []*ListNode</span><br><span class="line">    <span class="keyword">var</span> n <span class="keyword">int</span></span><br><span class="line">    tmp := root</span><br><span class="line">    <span class="keyword">for</span> tmp != <span class="literal">nil</span> &#123;</span><br><span class="line">        tmp = tmp.Next</span><br><span class="line">        n++</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> n &lt; k &#123;</span><br><span class="line">        <span class="keyword">for</span> t := <span class="number">0</span>; t &lt; n; t++ &#123;</span><br><span class="line">            shortTmp := root</span><br><span class="line">            root = root.Next</span><br><span class="line">            shortTmp.Next = <span class="literal">nil</span></span><br><span class="line">            res = <span class="built_in">append</span>(res, shortTmp)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> u := n; u &lt; k; u++ &#123;</span><br><span class="line">            shortTmp := <span class="built_in">new</span>(ListNode)</span><br><span class="line">            res = <span class="built_in">append</span>(res, shortTmp.Next)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    usual, more := n / k, n % k</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; more; i++ &#123;</span><br><span class="line">        listTmp := root</span><br><span class="line">        <span class="keyword">for</span> t := <span class="number">0</span>; t &lt; usual; t++ &#123;</span><br><span class="line">            root = root.Next</span><br><span class="line">        &#125;</span><br><span class="line">        now := root.Next</span><br><span class="line">        root.Next = <span class="literal">nil</span></span><br><span class="line">        res = <span class="built_in">append</span>(res, listTmp)</span><br><span class="line">        root = now</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> j := <span class="number">0</span>; j &lt; k - more; j++ &#123;</span><br><span class="line">        longTmp := root</span><br><span class="line">        <span class="keyword">for</span> n := <span class="number">0</span>; n &lt; usual - <span class="number">1</span>; n++ &#123;</span><br><span class="line">            root = root.Next</span><br><span class="line">        &#125;</span><br><span class="line">        now := root.Next</span><br><span class="line">        root.Next = <span class="literal">nil</span></span><br><span class="line">        res = <span class="built_in">append</span>(res, longTmp)</span><br><span class="line">        root = now</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -545,7 +556,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">106</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -567,7 +578,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
