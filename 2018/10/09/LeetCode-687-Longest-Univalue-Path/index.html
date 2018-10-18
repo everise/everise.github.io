@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Binary Tree," />
+  <meta name="keywords" content="Tree,Recursion," />
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.">
-<meta name="keywords" content="Binary Tree">
+<meta name="description" content="Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root. Note: The length of path between two nodes is r">
+<meta name="keywords" content="Tree,Recursion">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 687: Longest Univalue Path">
 <meta property="og:url" content="https://everise.github.io/2018/10/09/LeetCode-687-Longest-Univalue-Path/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.">
+<meta property="og:description" content="Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root. Note: The length of path between two nodes is r">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-17T22:30:30.346Z">
+<meta property="og:updated_time" content="2018-10-18T05:47:31.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 687: Longest Univalue Path">
-<meta name="twitter:description" content="Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.">
+<meta name="twitter:description" content="Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root. Note: The length of path between two nodes is r">
 
 
 
@@ -410,24 +410,23 @@
       
 
       
-        <p>Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.<br><a id="more"></a></p>
-<p>Note: The length of path between two nodes is represented by the number of edges between them.</p>
-<p>Example 1:</p>
-<p>Input:</p>
+        <p>Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.</p>
+<p><strong>Note:</strong> The length of path between two nodes is represented by the number of edges between them.<br><a id="more"></a></p>
+<p><strong>Example 1:</strong><br>Input:</p>
 <pre><code>    5
    / \
   4   5
  / \   \
 1   1   5
 </code></pre><p>Output: 2</p>
-<p>Example 2:</p>
-<p>Input:</p>
+<p><strong>Example 2:</strong><br>Input:</p>
 <pre><code>    1
    / \
   4   5
  / \   \
 4   4   5
-</code></pre><p>Output: 2<br>Note: The given binary tree has not more than 10000 nodes. The height of the tree is not more than 1000.</p>
+</code></pre><p>Output: 2</p>
+<p><strong>Note:</strong> The given binary tree has not more than 10000 nodes. The height of the tree is not more than 1000.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">longestPath</span><span class="params">(root, parent *TreeNode, res *<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    left := longestPath(root.Left, root, res)</span><br><span class="line">    right := longestPath(root.Right, root, res)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> root.Left != <span class="literal">nil</span> &amp;&amp; root.Val == root.Left.Val &#123;</span><br><span class="line">        left++</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> root.Right != <span class="literal">nil</span> &amp;&amp; root.Val == root.Right.Val &#123;</span><br><span class="line">        right++</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        right = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> *res &lt; left + right &#123;</span><br><span class="line">        *res = left + right</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        left = right</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> left</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">longestUnivaluePath</span><span class="params">(root *TreeNode)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    res := <span class="number">0</span></span><br><span class="line">    longestPath(root, root, &amp;res)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -466,7 +465,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
+          
+            <a href="/tags/Recursion/" rel="tag"># Recursion</a>
           
         </div>
       
@@ -585,7 +586,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

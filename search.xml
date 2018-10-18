@@ -327,7 +327,7 @@
   <entry>
     <title><![CDATA[LeetCode 662: Maximum Width of Binary Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-662-Maximum-Width-of-Binary-Tree%2F</url>
-    <content type="text"><![CDATA[Given a binary tree, write a function to get the maximum width of the given tree. The width of a tree is the maximum width among all levels. The binary tree has the same structure as a full binary tree, but some nodes are null. The width of one level is defined as the length between the end-nodes (the leftmost and right most non-null nodes in the level, where the null nodes between the end-nodes are also counted into the length calculation.Example 1:Input: 1 / \ 3 2 / \ \ 5 3 9 Output: 4Explanation: The maximum width existing in the third level with the length 4 (5,3,null,9).Example 2:Input: 1 / 3 / \ 5 3 Output: 2Explanation: The maximum width existing in the third level with the length 2 (5,3).Example 3:Input: 1 / \ 3 2 / 5 Output: 2Explanation: The maximum width existing in the second level with the length 2 (3,2).Example 4:Input: 1 / \ 3 2 / \ 5 9 / \ 6 7 Output: 8Explanation:The maximum width existing in the fourth level with the length 8 (6,null,null,null,null,null,null,7). 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920func widthOfTree(root *TreeNode, depth, idx int, start *[]int) int &#123; if root == nil &#123; return 0 &#125; if depth &gt;= len(*start) &#123; *start = append(*start, idx) &#125; res := idx - (*start)[depth] + 1 left := widthOfTree(root.Left, depth + 1, idx * 2, start) right := widthOfTree(root.Right, depth + 1, idx * 2 + 1, start) if left &lt; right &#123; left = right &#125; if res &lt; left &#123; res = left &#125; return res&#125; 1234func widthOfBinaryTree(root *TreeNode) int &#123; var start []int return widthOfTree(root, 0, 1, &amp;start)&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, write a function to get the maximum width of the given tree. The width of a tree is the maximum width among all levels. The binary tree has the same structure as a full binary tree, but some nodes are null. The width of one level is defined as the length between the end-nodes (the leftmost and right most non-null nodes in the level, where the null nodes between the end-nodes are also counted into the length calculation. Example 1:Input: 1 / \ 3 2 / \ \ 5 3 9 Output: 4Explanation: The maximum width existing in the third level with the length 4 (5,3,null,9). Example 2:Input: 1 / 3 / \ 5 3 Output: 2Explanation: The maximum width existing in the third level with the length 2 (5,3). Example 3:Input: 1 / \ 3 2 / 5 Output: 2Explanation: The maximum width existing in the second level with the length 2 (3,2). Example 4:Input: 1 / \ 3 2 / \ 5 9 / \ 6 7 Output: 8Explanation:The maximum width existing in the fourth level with the length 8 (6,null,null,null,null,null,null,7). Note: Answer will in the range of 32-bit signed integer. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920func widthOfTree(root *TreeNode, depth, idx int, start *[]int) int &#123; if root == nil &#123; return 0 &#125; if depth &gt;= len(*start) &#123; *start = append(*start, idx) &#125; res := idx - (*start)[depth] + 1 left := widthOfTree(root.Left, depth + 1, idx * 2, start) right := widthOfTree(root.Right, depth + 1, idx * 2 + 1, start) if left &lt; right &#123; left = right &#125; if res &lt; left &#123; res = left &#125; return res&#125; 1234func widthOfBinaryTree(root *TreeNode) int &#123; var start []int return widthOfTree(root, 0, 1, &amp;start)&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
@@ -343,51 +343,55 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
+        <tag>Depth-first Search</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 742: Closest Leaf in a Binary Tree]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-742-Closest-Leaf-in-a-Binary-Tree%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234type Record struct &#123; m map[*TreeNode]*TreeNode&#125;var back Record 1234567891011121314151617181920func find(root *TreeNode, k int) *TreeNode &#123; if root.Val == k &#123; return root &#125; if root.Left != nil &#123; back.m[root.Left.Val] = root left := find(root.Left, k) if left != nil &#123; return left &#125; &#125; if root.Right != nil &#123; back.m[root.Right.Val] = root right := find(root.Right, k) if right != nil &#123; return right &#125; &#125; return nil&#125; 12345678910111213141516171819202122232425262728293031func findClosestLeaf(root *TreeNode, k int) int &#123; back.m = make(map[int]*TreeNode) visited := make(map[int]*TreeNode) kNode := find(root, k) var q []*TreeNode q = append(q, kNode) visited[kNode.Val] = kNode for len(q) != 0 &#123; for _, v := range q &#123; if v.Left == nil &amp;&amp; v.Right == nil &#123; return v.Val &#125; if v.Left != nil &#123; visited[v.Left.Val] = v.Left q = append(q, v.Left) &#125; if v.Right != nil &#123; visited[v.Right.Val] = v.Right q = append(q, v.Right) &#125; _, isBack := back.m[v.Val] _, isVisited := visited[v.Val] if isBack &amp;&amp; !isVisited &#123; visited[v.Val] = v q = append(q, back.m[v.Val]) &#125; q = q[1:] &#125; &#125; return -1&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree where every node has a unique value, and a target key k, find the value of the nearest leaf node to target k in the tree. Here, nearest to a leaf means the least number of edges travelled on the binary tree to reach any leaf of the tree. Also, a node is called a leaf if it has no children. In the following examples, the input tree is represented in flattened form row by row. The actual root tree given will be a TreeNode object. Example 1:Input:root = [1, 3, 2], k = 1Diagram of binary tree: 1 / \ 3 2 Output: 2 (or 3)Explanation: Either 2 or 3 is the nearest leaf node to the target of 1. Example 2:Input:root = [1], k = 1Output: 1Explanation: The nearest leaf node is the root node itself. Example 3:Input:root = [1,2,3,4,null,null,null,5,null,6], k = 2Diagram of binary tree: 1 / \ 2 3 / 4 / 5 / 6 Output: 3Explanation: The leaf node with value 3 (and not the leaf node with value 6) is nearest to the node with value 2. Note: root represents a binary tree with at least 1 node and at most 1000 nodes. Every node has a unique node.val in range [1, 1000]. There exists some node in the given binary tree for which node.val == k. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234type Record struct &#123; m map[*TreeNode]*TreeNode&#125;var back Record 1234567891011121314151617181920func find(root *TreeNode, k int) *TreeNode &#123; if root.Val == k &#123; return root &#125; if root.Left != nil &#123; back.m[root.Left.Val] = root left := find(root.Left, k) if left != nil &#123; return left &#125; &#125; if root.Right != nil &#123; back.m[root.Right.Val] = root right := find(root.Right, k) if right != nil &#123; return right &#125; &#125; return nil&#125; 12345678910111213141516171819202122232425262728293031func findClosestLeaf(root *TreeNode, k int) int &#123; back.m = make(map[int]*TreeNode) visited := make(map[int]*TreeNode) kNode := find(root, k) var q []*TreeNode q = append(q, kNode) visited[kNode.Val] = kNode for len(q) != 0 &#123; for _, v := range q &#123; if v.Left == nil &amp;&amp; v.Right == nil &#123; return v.Val &#125; if v.Left != nil &#123; visited[v.Left.Val] = v.Left q = append(q, v.Left) &#125; if v.Right != nil &#123; visited[v.Right.Val] = v.Right q = append(q, v.Right) &#125; _, isBack := back.m[v.Val] _, isVisited := visited[v.Val] if isBack &amp;&amp; !isVisited &#123; visited[v.Val] = v q = append(q, back.m[v.Val]) &#125; q = q[1:] &#125; &#125; return -1&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
+        <tag>Not solved</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 687: Longest Univalue Path]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-687-Longest-Univalue-Path%2F</url>
-    <content type="text"><![CDATA[Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root. Note: The length of path between two nodes is represented by the number of edges between them. Example 1: Input: 5 / \ 4 5 / \ \ 1 1 5 Output: 2 Example 2: Input: 1 / \ 4 5 / \ \ 4 4 5 Output: 2Note: The given binary tree has not more than 10000 nodes. The height of the tree is not more than 1000. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920212223242526272829func longestPath(root, parent *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := longestPath(root.Left, root, res) right := longestPath(root.Right, root, res) if root.Left != nil &amp;&amp; root.Val == root.Left.Val &#123; left++ &#125;else &#123; left = 0 &#125; if root.Right != nil &amp;&amp; root.Val == root.Right.Val &#123; right++ &#125;else &#123; right = 0 &#125; if *res &lt; left + right &#123; *res = left + right &#125; if left &lt; right &#123; left = right &#125; return left&#125; 12345678func longestUnivaluePath(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := 0 longestPath(root, root, &amp;res) return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root. Note: The length of path between two nodes is represented by the number of edges between them. Example 1:Input: 5 / \ 4 5 / \ \ 1 1 5 Output: 2 Example 2:Input: 1 / \ 4 5 / \ \ 4 4 5 Output: 2 Note: The given binary tree has not more than 10000 nodes. The height of the tree is not more than 1000. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234567891011121314151617181920212223242526272829func longestPath(root, parent *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := longestPath(root.Left, root, res) right := longestPath(root.Right, root, res) if root.Left != nil &amp;&amp; root.Val == root.Left.Val &#123; left++ &#125;else &#123; left = 0 &#125; if root.Right != nil &amp;&amp; root.Val == root.Right.Val &#123; right++ &#125;else &#123; right = 0 &#125; if *res &lt; left + right &#123; *res = left + right &#125; if left &lt; right &#123; left = right &#125; return left&#125; 12345678func longestUnivaluePath(root *TreeNode) int &#123; if root == nil &#123; return 0 &#125; res := 0 longestPath(root, root, &amp;res) return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
+        <tag>Recursion</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 653: Two Sum IV - Input is a BST]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-653-Two-Sum-IV-Input-is-a-BST%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516171819202122232425func findTarget(root *TreeNode, k int) bool &#123; if root == nil &#123; return false &#125; var queue []*TreeNode queue = append(queue, root) m := make(map[int]int) for len(queue) != 0 &#123; for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; if _, exist := m[v.Val]; exist &#123; return true &#125;else &#123; m[k-v.Val] = v.Val &#125; queue = queue[1:] &#125; &#125; return false&#125;]]></content>
+    <content type="text"><![CDATA[Given a Binary Search Tree and a target number, return true if there exist two elements in the BST such that their sum is equal to the given target. Example 1:Input: 5 / \ 3 6 / \ \ 2 4 7 Target = 9Output: True Example 2:Input: 5 / \ 3 6 / \ \ 2 4 7 Target = 28Output: False 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910111213141516171819202122232425func findTarget(root *TreeNode, k int) bool &#123; if root == nil &#123; return false &#125; var queue []*TreeNode queue = append(queue, root) m := make(map[int]int) for len(queue) != 0 &#123; for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; if _, exist := m[v.Val]; exist &#123; return true &#125;else &#123; m[k-v.Val] = v.Val &#125; queue = queue[1:] &#125; &#125; return false&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 652: Find Duplicate Subtrees]]></title>
     <url>%2F2018%2F10%2F09%2FLeetCode-652-Find-Duplicate-Subtrees%2F</url>
-    <content type="text"><![CDATA[12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234type Record struct &#123; m map[string]int&#125;var rec Record 12345678910111213141516func findDuplicate(root *TreeNode, res *[]*TreeNode) string &#123; if root == nil &#123; return "#" &#125; str := string(root.Val) + "," + findDuplicate(root.Left, res) + "," + findDuplicate(root.Right, res) if _, exist := rec.m[str]; exist &#123; if rec.m[str] == 1 &#123; *res = append(*res, root) &#125; rec.m[str]++ &#125;else &#123; rec.m[str] = 1 &#125; return str&#125; 123456func findDuplicateSubtrees(root *TreeNode) []*TreeNode &#123; var res []*TreeNode rec.m = make(map[string]int) findDuplicate(root, &amp;res) return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any one of them. Two trees are duplicate if they have the same structure with same node values. Example 1: 1 / \ 2 3 / / \ 4 2 4 / 4 The following are two duplicate subtrees: 2 / 4 and 4 Therefore, you need to return above trees’ root in the form of a list. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 1234type Record struct &#123; m map[string]int&#125;var rec Record 12345678910111213141516func findDuplicate(root *TreeNode, res *[]*TreeNode) string &#123; if root == nil &#123; return "#" &#125; str := string(root.Val) + "," + findDuplicate(root.Left, res) + "," + findDuplicate(root.Right, res) if _, exist := rec.m[str]; exist &#123; if rec.m[str] == 1 &#123; *res = append(*res, root) &#125; rec.m[str]++ &#125;else &#123; rec.m[str] = 1 &#125; return str&#125; 123456func findDuplicateSubtrees(root *TreeNode) []*TreeNode &#123; var res []*TreeNode rec.m = make(map[string]int) findDuplicate(root, &amp;res) return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
+        <tag>Tree</tag>
+        <tag>Not solved</tag>
       </tags>
   </entry>
   <entry>
@@ -453,8 +457,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Search</tag>
         <tag>Tree</tag>
+        <tag>Binary Search</tag>
       </tags>
   </entry>
   <entry>
@@ -513,10 +517,10 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Not solved</tag>
         <tag>Breadth-first Search</tag>
-        <tag>Stack</tag>
         <tag>Tree</tag>
+        <tag>Stack</tag>
+        <tag>Not solved</tag>
       </tags>
   </entry>
   <entry>

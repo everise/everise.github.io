@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="Binary Tree," />
+  <meta name="keywords" content="Tree,Not solved," />
 
 
 
@@ -123,18 +123,18 @@
 
 
 
-<meta name="description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
-<meta name="keywords" content="Binary Tree">
+<meta name="description" content="Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any one of them. Two trees are duplicate if they have the same structu">
+<meta name="keywords" content="Tree,Not solved">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 652: Find Duplicate Subtrees">
 <meta property="og:url" content="https://everise.github.io/2018/10/09/LeetCode-652-Find-Duplicate-Subtrees/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta property="og:description" content="Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any one of them. Two trees are duplicate if they have the same structu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-16T04:07:43.997Z">
+<meta property="og:updated_time" content="2018-10-18T05:43:28.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 652: Find Duplicate Subtrees">
-<meta name="twitter:description" content="12345type TreeNode struct &amp;#123;    Val int    Left *TreeNode    Right *TreeNode&amp;#125;">
+<meta name="twitter:description" content="Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any one of them. Two trees are duplicate if they have the same structu">
 
 
 
@@ -410,8 +410,25 @@
       
 
       
-        <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <p>Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any <strong>one</strong> of them.</p>
+<p>Two trees are duplicate if they have the same structure with same node values.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>    1
+   / \
+  2   3
+ /   / \
+4   2   4
+   /
+  4
+</code></pre><a id="more"></a>
+<p>The following are two duplicate subtrees:</p>
+<pre><code>  2
+ /
+4
+</code></pre><p>and</p>
+<pre><code>4
+</code></pre><p>Therefore, you need to return above trees’ root in the form of a list.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Record <span class="keyword">struct</span> &#123;</span><br><span class="line">	m <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> rec Record</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findDuplicate</span><span class="params">(root *TreeNode, res *[]*TreeNode)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> root == <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"#"</span></span><br><span class="line">	&#125;</span><br><span class="line">	str := <span class="keyword">string</span>(root.Val) + <span class="string">","</span> + findDuplicate(root.Left, res) </span><br><span class="line">             + <span class="string">","</span> + findDuplicate(root.Right, res)</span><br><span class="line">	<span class="keyword">if</span> _, exist := rec.m[str]; exist &#123;</span><br><span class="line">		<span class="keyword">if</span> rec.m[str] == <span class="number">1</span> &#123;</span><br><span class="line">			*res = <span class="built_in">append</span>(*res, root)</span><br><span class="line">		&#125;</span><br><span class="line">		rec.m[str]++</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		rec.m[str] = <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> str</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findDuplicateSubtrees</span><span class="params">(root *TreeNode)</span> []*<span class="title">TreeNode</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> res []*TreeNode</span><br><span class="line">	rec.m = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>)</span><br><span class="line">	findDuplicate(root, &amp;res)</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -450,7 +467,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
+          
+            <a href="/tags/Not-solved/" rel="tag"># Not solved</a>
           
         </div>
       
@@ -569,7 +588,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

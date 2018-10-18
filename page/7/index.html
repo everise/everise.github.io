@@ -650,7 +650,7 @@
 
       
         
-          <p>Given a binary tree, write a function to get the maximum width of the given tree. The width of a tree is the maximum width among all levels. The binary tree has the same structure as a full binary tree, but some nodes are null.</p>
+          <p>Given a binary tree, write a function to get the maximum width of the given tree. The width of a tree is the maximum width among all levels. The binary tree has the same structure as a <strong>full binary tree</strong>, but some nodes are null.</p>
 <p>The width of one level is defined as the length between the end-nodes (the leftmost and right most non-null nodes in the level, where the null nodes between the end-nodes are also counted into the length calculation.<br>
           <!--noindex-->
           <div class="post-button text-center">
@@ -802,7 +802,7 @@
 <p>For example, in the given tree above, the leaf value sequence is (6, 7, 4, 9, 8).</p>
 <p>Two binary trees are considered leaf-similar if their leaf value sequence is the same.</p>
 <p>Return true if and only if the two given trees with head nodes root1 and root2 are leaf-similar.</p>
-<p>Note: Both of the given trees will have between 1 and 100 nodes.<br>
+<p><strong>Note:</strong> Both of the given trees will have between 1 and 100 nodes.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/09/LeetCode-872-Leaf-Similar-Trees/#more" rel="contents">
@@ -948,7 +948,9 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Given a binary tree <strong>where every node has a unique value</strong>, and a target key k, find the value of the nearest leaf node to target k in the tree.</p>
+<p>Here, nearest to a leaf means the least number of edges travelled on the binary tree to reach any leaf of the tree. Also, a node is called a <em>leaf</em> if it has no children.</p>
+<p>In the following examples, the input tree is represented in flattened form row by row. The actual root tree given will be a TreeNode object.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/09/LeetCode-742-Closest-Leaf-in-a-Binary-Tree/#more" rel="contents">
@@ -1094,7 +1096,8 @@
 
       
         
-          <p>Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.<br>
+          <p>Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.</p>
+<p><strong>Note:</strong> The length of path between two nodes is represented by the number of edges between them.<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/09/LeetCode-687-Longest-Univalue-Path/#more" rel="contents">
@@ -1240,7 +1243,14 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Given a Binary Search Tree and a target number, return true if there exist two elements in the BST such that their sum is equal to the given target.</p>
+<p><strong>Example 1:</strong><br>Input: </p>
+<pre><code>    5
+   / \
+  3   6
+ / \   \
+2   4   7
+</code></pre><p>Target = 9<br>Output: True<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/09/LeetCode-653-Two-Sum-IV-Input-is-a-BST/#more" rel="contents">
@@ -1386,7 +1396,17 @@
 
       
         
-          <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> TreeNode <span class="keyword">struct</span> &#123;</span><br><span class="line">    Val <span class="keyword">int</span></span><br><span class="line">    Left *TreeNode</span><br><span class="line">    Right *TreeNode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any <strong>one</strong> of them.</p>
+<p>Two trees are duplicate if they have the same structure with same node values.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>    1
+   / \
+  2   3
+ /   / \
+4   2   4
+   /
+  4
+</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/10/09/LeetCode-652-Find-Duplicate-Subtrees/#more" rel="contents">
@@ -1796,7 +1816,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
