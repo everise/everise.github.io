@@ -131,7 +131,7 @@
 <meta property="og:description" content="Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. A mapping of digit to letters (just like on the telephone buttons) is give">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png">
-<meta property="og:updated_time" content="2019-06-16T02:19:41.143Z">
+<meta property="og:updated_time" content="2019-06-16T02:26:41.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 17: Letter Combinations of a Phone Number">
 <meta name="twitter:description" content="Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. A mapping of digit to letters (just like on the telephone buttons) is give">
@@ -423,11 +423,55 @@
 
       
         <p>Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.</p>
-<p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
+<p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.<br><a id="more"></a></p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png" alt=""></p>
-<p>Example:</p>
-<p>Input: “23”<br>Output: [“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”].<br>Note:</p>
-<p>Although the above answer is in lexicographical order, your answer could be in any order you want.</p>
+<p><strong>Example:</strong><br>Input: “23”<br>Output: [“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”].</p>
+<p><strong>Note:</strong><br>Although the above answer is in lexicographical order, your answer could be in any order you want.</p>
+<pre><code class="java"><span class="keyword">private</span> List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;String&gt;();
+
+<span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">letterCombinations</span><span class="params">(String digits)</span> </span>{
+    <span class="keyword">if</span> (digits == <span class="keyword">null</span> || digits.length() == <span class="number">0</span>) <span class="keyword">return</span> res;
+
+    <span class="keyword">char</span>[] inputs = digits.toCharArray();
+    dfs(inputs, <span class="number">0</span>, <span class="string">""</span>);
+
+    <span class="keyword">return</span> res;
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">char</span>[] inputs, <span class="keyword">int</span> level, String output)</span> </span>{
+    <span class="keyword">if</span> (inputs.length == level) {
+        res.add(output);
+        <span class="keyword">return</span>;
+    }
+    String[] str = dial(inputs[level]);
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length; i++) {
+        dfs(inputs, level + <span class="number">1</span>, output + String.valueOf(str[i]));
+    }
+}
+
+<span class="keyword">public</span> String[] dial(<span class="keyword">char</span> num) {
+    <span class="keyword">switch</span>(num) {
+    <span class="keyword">case</span> <span class="string">'2'</span>:
+        <span class="keyword">return</span> <span class="keyword">new</span> String[] {<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>};
+    <span class="keyword">case</span> <span class="string">'3'</span>:
+        <span class="keyword">return</span> <span class="keyword">new</span> String[] {<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>};
+    <span class="keyword">case</span> <span class="string">'4'</span>:
+        <span class="keyword">return</span> <span class="keyword">new</span> String[] {<span class="string">"g"</span>,<span class="string">"h"</span>,<span class="string">"i"</span>};
+    <span class="keyword">case</span> <span class="string">'5'</span>:
+        <span class="keyword">return</span> <span class="keyword">new</span> String[] {<span class="string">"j"</span>,<span class="string">"k"</span>,<span class="string">"l"</span>};
+    <span class="keyword">case</span> <span class="string">'6'</span>:
+        <span class="keyword">return</span> <span class="keyword">new</span> String[] {<span class="string">"m"</span>,<span class="string">"n"</span>,<span class="string">"o"</span>};
+    <span class="keyword">case</span> <span class="string">'7'</span>:
+        <span class="keyword">return</span> <span class="keyword">new</span> String[] {<span class="string">"p"</span>,<span class="string">"q"</span>,<span class="string">"r"</span>,<span class="string">"s"</span>};
+    <span class="keyword">case</span> <span class="string">'8'</span>:
+        <span class="keyword">return</span> <span class="keyword">new</span> String[] {<span class="string">"t"</span>,<span class="string">"u"</span>,<span class="string">"v"</span>};
+    <span class="keyword">case</span> <span class="string">'9'</span>:
+        <span class="keyword">return</span> <span class="keyword">new</span> String[] {<span class="string">"w"</span>,<span class="string">"x"</span>,<span class="string">"y"</span>,<span class="string">"z"</span>};
+    <span class="keyword">default</span>:
+        <span class="keyword">return</span> <span class="keyword">new</span> String[] {<span class="string">""</span>};
+    }
+}
+</code></pre>
 
       
     </div>

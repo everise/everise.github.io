@@ -123,17 +123,17 @@
 
 
 
-<meta name="description" content="Stay Hungry Stay Foolish">
+<meta name="description" content="Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. Example:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 23: Merge k Sorted Lists">
 <meta property="og:url" content="https://everise.github.io/2019/06/15/LeetCode-23-Merge-k-Sorted-Lists/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Stay Hungry Stay Foolish">
+<meta property="og:description" content="Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. Example:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-16T02:13:04.143Z">
+<meta property="og:updated_time" content="2019-06-16T02:27:30.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 23: Merge k Sorted Lists">
-<meta name="twitter:description" content="Stay Hungry Stay Foolish">
+<meta name="twitter:description" content="Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. Example:">
 
 
 
@@ -420,7 +420,9 @@
       
 
       
-        
+        <p>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
+<p><strong>Example:</strong><br><a id="more"></a><br>Input:<br>[<br>  1-&gt;4-&gt;5,<br>  1-&gt;3-&gt;4,<br>  2-&gt;6<br>]<br>Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(ListNode[] lists)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(lists==<span class="keyword">null</span>||lists.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    PriorityQueue&lt;ListNode&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;ListNode&gt;(<span class="keyword">new</span> Comparator&lt;ListNode&gt;()&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(ListNode l1, ListNode l2)</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> l1.val - l2.val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    ListNode head = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">    ListNode p = head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(ListNode list: lists)&#123;</span><br><span class="line">        <span class="keyword">if</span>(list!=<span class="keyword">null</span>) queue.offer(list);</span><br><span class="line">    &#125;    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">        ListNode n = queue.poll();</span><br><span class="line">        p.next = n;</span><br><span class="line">        p=p.next;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(n.next!=<span class="keyword">null</span>) queue.offer(n.next);</span><br><span class="line">    &#125;    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> head.next; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
