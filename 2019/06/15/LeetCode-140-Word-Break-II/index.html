@@ -123,17 +123,17 @@
 
 
 
-<meta name="description" content="Stay Hungry Stay Foolish">
+<meta name="description" content="Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 140: Word Break II">
 <meta property="og:url" content="https://everise.github.io/2019/06/15/LeetCode-140-Word-Break-II/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Stay Hungry Stay Foolish">
+<meta property="og:description" content="Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-16T02:37:51.653Z">
+<meta property="og:updated_time" content="2019-06-22T03:50:40.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 140: Word Break II">
-<meta name="twitter:description" content="Stay Hungry Stay Foolish">
+<meta name="twitter:description" content="Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible">
 
 
 
@@ -420,7 +420,15 @@
       
 
       
-        
+        <p>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences.</p>
+<p><strong>Note:</strong><br><a id="more"></a><br>The same word in the dictionary may be reused multiple times in the segmentation.<br>You may assume the dictionary does not contain duplicate words.</p>
+<p><strong>Example 1:</strong></p>
+<p>Input:<br>s = “catsanddog”<br>wordDict = [“cat”, “cats”, “and”, “sand”, “dog”]<br>Output:<br>[<br>  “cats and dog”,<br>  “cat sand dog”<br>]</p>
+<p><strong>Example 2:</strong></p>
+<p>Input:<br>s = “pineapplepenapple”<br>wordDict = [“apple”, “pen”, “applepen”, “pine”, “pineapple”]<br>Output:<br>[<br>  “pine apple pen apple”,<br>  “pineapple pen apple”,<br>  “pine applepen apple”<br>]<br>Explanation: Note that you are allowed to reuse a dictionary word.</p>
+<p><strong>Example 3:</strong></p>
+<p>Input:<br>s = “catsandog”<br>wordDict = [“cats”, “dog”, “sand”, “and”, “cat”]<br>Output:<br>[]</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.既然想到动态规划剪枝了，再多想以下，我们不只是需要考虑当前子串在字典中，还要考虑当前子串之前的字符串也在字典中，这样将大大减少搜索路径。</span><br><span class="line"><span class="number">2</span>.我们查找是否包含在字典中是从前往后找的，那么我们找相关路径的时候反向遍历将会大大减少搜索路径。</span><br><span class="line">实现了以上两点就已经大大优化了我们的检索。</span><br><span class="line"></span><br><span class="line">List&lt;String&gt; result;</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">wordBreak</span><span class="params">(String s, Set&lt;String&gt; wordDict)</span> </span>&#123;</span><br><span class="line">    result = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">    <span class="keyword">int</span> n = s.length();</span><br><span class="line">    <span class="comment">//对每一个i都形成一个可以跳跃的点</span></span><br><span class="line">    List&lt;Integer&gt;[] pointer = <span class="keyword">new</span> List[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) pointer[i]=<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    <span class="comment">//动态规划形成跳跃点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++)&#123;</span><br><span class="line">            <span class="comment">//递归的保证j-1可以形成单词，大大地剪枝</span></span><br><span class="line">            <span class="keyword">if</span>(wordDict.contains(s.substring(j,i+<span class="number">1</span>))&amp;&amp;(j==<span class="number">0</span>||pointer[j-<span class="number">1</span>].size()&gt;<span class="number">0</span>))</span><br><span class="line">                pointer[i].add(j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//从后往前的递归</span></span><br><span class="line">    helper(pointer, s, n-<span class="number">1</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//DFS</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(List&lt;Integer&gt;[] pointer, String s, <span class="keyword">int</span> i, String pattern)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">0</span>)&#123;</span><br><span class="line">        result.add(pattern);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(Integer item:pointer[i])&#123;</span><br><span class="line">        String nextPattern = pattern.length()==<span class="number">0</span>?s.substring(item,i+<span class="number">1</span>):s.substring(item,i+<span class="number">1</span>)+<span class="string">" "</span>+pattern;</span><br><span class="line">        helper(pointer, s, item-<span class="number">1</span>, nextPattern);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -546,7 +554,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">118</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
