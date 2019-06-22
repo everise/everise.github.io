@@ -123,17 +123,19 @@
 
 
 
-<meta name="description" content="Stay Hungry Stay Foolish">
+<meta name="description" content="Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors. Example:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 133: Clone Graph">
 <meta property="og:url" content="https://everise.github.io/2019/06/15/LeetCode-133-Clone-Graph/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Stay Hungry Stay Foolish">
+<meta property="og:description" content="Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors. Example:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-16T02:37:46.177Z">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2019/02/19/113_sample.png">
+<meta property="og:updated_time" content="2019-06-22T17:16:14.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 133: Clone Graph">
-<meta name="twitter:description" content="Stay Hungry Stay Foolish">
+<meta name="twitter:description" content="Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors. Example:">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2019/02/19/113_sample.png">
 
 
 
@@ -420,7 +422,15 @@
       
 
       
-        
+        <p>Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors.</p>
+<p><strong>Example:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/02/19/113_sample.png" alt=""><br><a id="more"></a><br>Input:<br>{“$id”:”1”,”neighbors”:[{“$id”:”2”,”neighbors”:[{“$ref”:”1”},{“$id”:”3”,”neighbors”:[{“$ref”:”2”},{“$id”:”4”,”neighbors”:[{“$ref”:”3”},{“$ref”:”1”}],”val”:4}],”val”:3}],”val”:2},{“$ref”:”4”}],”val”:1}</p>
+<p>Explanation:<br>Node 1’s value is 1, and it has two neighbors: Node 2 and 4.<br>Node 2’s value is 2, and it has two neighbors: Node 1 and 3.<br>Node 3’s value is 3, and it has two neighbors: Node 2 and 4.<br>Node 4’s value is 4, and it has two neighbors: Node 1 and 3.</p>
+<p><strong>Note:</strong></p>
+<p>The number of nodes will be between 1 and 100.<br>The undirected graph is a simple graph, which means no repeated edges and no self-loops in the graph.<br>Since the graph is undirected, if node p has node q as neighbor, then node q must have node p as neighbor too.<br>You must return the copy of the given node as a reference to the cloned graph.</p>
+<pre><code class="java">
+</code></pre>
+
       
     </div>
     

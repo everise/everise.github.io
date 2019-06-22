@@ -35,11 +35,22 @@
     <link href="https://everise.github.io/2019/06/22/LeetCode-295-Find-Median-from-Data-Stream/"/>
     <id>https://everise.github.io/2019/06/22/LeetCode-295-Find-Median-from-Data-Stream/</id>
     <published>2019-06-22T16:52:08.000Z</published>
-    <updated>2019-06-22T16:52:08.409Z</updated>
+    <updated>2019-06-22T17:04:38.029Z</updated>
+    
+    <content type="html"><![CDATA[<p>Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.</p><p>For example,<br>[2,3,4], the median is 3</p><p>[2,3], the median is (2 + 3) / 2 = 2.5</p><p>Design a data structure that supports the following two operations:</p><p>void addNum(int num) - Add a integer number from the data stream to the data structure.<br>double findMedian() - Return the median of all elements so far.</p><p><strong>Example:</strong></p><p>addNum(1)<br>addNum(2)<br>findMedian() -&gt; 1.5<br>addNum(3)<br>findMedian() -&gt; 2</p><p><strong>Follow up:</strong></p><p>If all integer numbers from the stream are between 0 and 100, how would you optimize it?<br>If 99% of all integer numbers from the stream are between 0 and 100, how would you optimize it?</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Queue&lt;Integer&gt; small = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;();</span><br><span class="line"><span class="keyword">private</span> Queue&lt;Integer&gt; large = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MedianFinder</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    small.offer(num);</span><br><span class="line">    <span class="keyword">if</span> (small.size() != <span class="number">0</span>) large.offer(-small.poll());</span><br><span class="line">    <span class="keyword">if</span> (small.size() &lt; large.size()) small.offer(-large.poll());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (small.size() &gt; large.size()) ? small.peek() : <span class="number">0.5</span> * (small.peek() - large.peek());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the me
+      
+    
     </summary>
+    
+      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
+    
+      <category term="Amazon" scheme="https://everise.github.io/categories/LeetCode/Amazon/"/>
     
     
   </entry>
@@ -174,11 +185,22 @@
     <link href="https://everise.github.io/2019/06/15/LeetCode-138-Copy-List-with-Random-Pointer/"/>
     <id>https://everise.github.io/2019/06/15/LeetCode-138-Copy-List-with-Random-Pointer/</id>
     <published>2019-06-16T02:35:41.000Z</published>
-    <updated>2019-06-16T02:35:41.657Z</updated>
+    <updated>2019-06-22T17:16:17.746Z</updated>
+    
+    <content type="html"><![CDATA[<p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p><p>Return a deep copy of the list.</p><p><strong>Example 1:</strong></p><p><img src="https://assets.leetcode.com/static_assets/discuss/uploads/files/1470150906153-2yxeznm.png" alt=""><br><a id="more"></a><br>Input:<br>{“$id”:”1”,”next”:{“$id”:”2”,”next”:null,”random”:{“$ref”:”2”},”val”:2},”random”:{“$ref”:”2”},”val”:1}</p><p>Explanation:<br>Node 1’s value is 1, both of its next and random pointer points to Node 2.<br>Node 2’s value is 2, its next pointer points to null and its random pointer points to itself.</p><p><strong>Note:</strong><br>You must return the copy of the given head as a reference to the cloned list.</p><pre><code class="java"></code></pre>]]></content>
     
     <summary type="html">
     
+      &lt;p&gt;A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.&lt;/p&gt;
+&lt;p&gt;Return a deep copy of the list.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://assets.leetcode.com/static_assets/discuss/uploads/files/1470150906153-2yxeznm.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+    
     </summary>
+    
+      <category term="LeetCode" scheme="https://everise.github.io/categories/LeetCode/"/>
+    
+      <category term="Amazon" scheme="https://everise.github.io/categories/LeetCode/Amazon/"/>
     
     
   </entry>
@@ -188,9 +210,15 @@
     <link href="https://everise.github.io/2019/06/15/LeetCode-133-Clone-Graph/"/>
     <id>https://everise.github.io/2019/06/15/LeetCode-133-Clone-Graph/</id>
     <published>2019-06-16T02:35:15.000Z</published>
-    <updated>2019-06-16T02:37:46.177Z</updated>
+    <updated>2019-06-22T17:16:14.040Z</updated>
+    
+    <content type="html"><![CDATA[<p>Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors.</p><p><strong>Example:</strong></p><p><img src="https://assets.leetcode.com/uploads/2019/02/19/113_sample.png" alt=""><br><a id="more"></a><br>Input:<br>{“$id”:”1”,”neighbors”:[{“$id”:”2”,”neighbors”:[{“$ref”:”1”},{“$id”:”3”,”neighbors”:[{“$ref”:”2”},{“$id”:”4”,”neighbors”:[{“$ref”:”3”},{“$ref”:”1”}],”val”:4}],”val”:3}],”val”:2},{“$ref”:”4”}],”val”:1}</p><p>Explanation:<br>Node 1’s value is 1, and it has two neighbors: Node 2 and 4.<br>Node 2’s value is 2, and it has two neighbors: Node 1 and 3.<br>Node 3’s value is 3, and it has two neighbors: Node 2 and 4.<br>Node 4’s value is 4, and it has two neighbors: Node 1 and 3.</p><p><strong>Note:</strong></p><p>The number of nodes will be between 1 and 100.<br>The undirected graph is a simple graph, which means no repeated edges and no self-loops in the graph.<br>Since the graph is undirected, if node p has node q as neighbor, then node q must have node p as neighbor too.<br>You must return the copy of the given node as a reference to the cloned graph.</p><pre><code class="java"></code></pre>]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://assets.leetcode.com/uploads/2019/02/19/113_sample.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
     
     </summary>
     

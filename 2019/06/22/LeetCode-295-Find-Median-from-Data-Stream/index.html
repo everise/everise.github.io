@@ -123,17 +123,17 @@
 
 
 
-<meta name="description" content="Stay Hungry Stay Foolish">
+<meta name="description" content="Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value. For example,[2,3,4], the median is">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 295: Find Median from Data Stream">
 <meta property="og:url" content="https://everise.github.io/2019/06/22/LeetCode-295-Find-Median-from-Data-Stream/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Stay Hungry Stay Foolish">
+<meta property="og:description" content="Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value. For example,[2,3,4], the median is">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-22T16:52:08.409Z">
+<meta property="og:updated_time" content="2019-06-22T17:04:38.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 295: Find Median from Data Stream">
-<meta name="twitter:description" content="Stay Hungry Stay Foolish">
+<meta name="twitter:description" content="Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value. For example,[2,3,4], the median is">
 
 
 
@@ -360,6 +360,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/Amazon/" itemprop="url" rel="index">
+                    <span itemprop="name">Amazon</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -387,7 +420,16 @@
       
 
       
-        
+        <p>Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.</p>
+<p>For example,<br>[2,3,4], the median is 3</p>
+<p>[2,3], the median is (2 + 3) / 2 = 2.5</p>
+<p>Design a data structure that supports the following two operations:</p>
+<p>void addNum(int num) - Add a integer number from the data stream to the data structure.<br>double findMedian() - Return the median of all elements so far.</p>
+<p><strong>Example:</strong></p>
+<p>addNum(1)<br>addNum(2)<br>findMedian() -&gt; 1.5<br>addNum(3)<br>findMedian() -&gt; 2</p>
+<p><strong>Follow up:</strong></p>
+<p>If all integer numbers from the stream are between 0 and 100, how would you optimize it?<br>If 99% of all integer numbers from the stream are between 0 and 100, how would you optimize it?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Queue&lt;Integer&gt; small = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;();</span><br><span class="line"><span class="keyword">private</span> Queue&lt;Integer&gt; large = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MedianFinder</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    small.offer(num);</span><br><span class="line">    <span class="keyword">if</span> (small.size() != <span class="number">0</span>) large.offer(-small.poll());</span><br><span class="line">    <span class="keyword">if</span> (small.size() &lt; large.size()) small.offer(-large.poll());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (small.size() &gt; large.size()) ? small.peek() : <span class="number">0.5</span> * (small.peek() - large.peek());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     

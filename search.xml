@@ -8,7 +8,11 @@
   <entry>
     <title><![CDATA[LeetCode 295: Find Median from Data Stream]]></title>
     <url>%2F2019%2F06%2F22%2FLeetCode-295-Find-Median-from-Data-Stream%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value. For example,[2,3,4], the median is 3 [2,3], the median is (2 + 3) / 2 = 2.5 Design a data structure that supports the following two operations: void addNum(int num) - Add a integer number from the data stream to the data structure.double findMedian() - Return the median of all elements so far. Example: addNum(1)addNum(2)findMedian() -&gt; 1.5addNum(3)findMedian() -&gt; 2 Follow up: If all integer numbers from the stream are between 0 and 100, how would you optimize it?If 99% of all integer numbers from the stream are between 0 and 100, how would you optimize it? 1234567891011121314private Queue&lt;Integer&gt; small = new PriorityQueue&lt;Integer&gt;();private Queue&lt;Integer&gt; large = new PriorityQueue&lt;Integer&gt;();public MedianFinder() &#123; &#125;public void addNum(int num) &#123; small.offer(num); if (small.size() != 0) large.offer(-small.poll()); if (small.size() &lt; large.size()) small.offer(-large.poll());&#125;public double findMedian() &#123; return (small.size() &gt; large.size()) ? small.peek() : 0.5 * (small.peek() - large.peek());&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+        <category>Amazon</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 278: First Bad Version]]></title>
@@ -59,12 +63,16 @@
   <entry>
     <title><![CDATA[LeetCode 138: Copy List with Random Pointer]]></title>
     <url>%2F2019%2F06%2F15%2FLeetCode-138-Copy-List-with-Random-Pointer%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list. Example 1: Input:{“$id”:”1”,”next”:{“$id”:”2”,”next”:null,”random”:{“$ref”:”2”},”val”:2},”random”:{“$ref”:”2”},”val”:1} Explanation:Node 1’s value is 1, both of its next and random pointer points to Node 2.Node 2’s value is 2, its next pointer points to null and its random pointer points to itself. Note:You must return the copy of the given head as a reference to the cloned list.]]></content>
+      <categories>
+        <category>LeetCode</category>
+        <category>Amazon</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 133: Clone Graph]]></title>
     <url>%2F2019%2F06%2F15%2FLeetCode-133-Clone-Graph%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors. Example: Input:{“$id”:”1”,”neighbors”:[{“$id”:”2”,”neighbors”:[{“$ref”:”1”},{“$id”:”3”,”neighbors”:[{“$ref”:”2”},{“$id”:”4”,”neighbors”:[{“$ref”:”3”},{“$ref”:”1”}],”val”:4}],”val”:3}],”val”:2},{“$ref”:”4”}],”val”:1} Explanation:Node 1’s value is 1, and it has two neighbors: Node 2 and 4.Node 2’s value is 2, and it has two neighbors: Node 1 and 3.Node 3’s value is 3, and it has two neighbors: Node 2 and 4.Node 4’s value is 4, and it has two neighbors: Node 1 and 3. Note: The number of nodes will be between 1 and 100.The undirected graph is a simple graph, which means no repeated edges and no self-loops in the graph.Since the graph is undirected, if node p has node q as neighbor, then node q must have node p as neighbor too.You must return the copy of the given node as a reference to the cloned graph.]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -132,7 +140,7 @@
   <entry>
     <title><![CDATA[Password Test]]></title>
     <url>%2F2019%2F06%2F15%2FPassword-Test%2F</url>
-    <content type="text"><![CDATA[Welcome to my blog, enter password to read. Incorrect Password! No content to display! U2FsdGVkX1+m+Oo8rzYrAb9opqzEXqoxDWAX86WrHQoQmTK3dFFeHBc1shYFG33tWWpGts/XZF3GPZLIqw21EBwn6BIj3MfhAxpoLAAlHXFpVwhD/pMCJJ81m7AS9M/2dims5ODoJQdk3Yl9r3n/oucDC+s3id4dRlGOudDfcmcYWvvgAmZpSVQe2VY4oeEpAfzkSZiAxENDECUjfZ49vdCybjWmYvy6Dhj16rwBTmu1w3tChSK/mSv9T/5yS4FJ]]></content>
+    <content type="text"><![CDATA[Welcome to my blog, enter password to read. Incorrect Password! No content to display! U2FsdGVkX1/SJLy3qVPOpUrY5kEUkcMRgONPAB4pSCuzSrGCfan6XHqrwmqi9WNpeAuvsyhpNy9hayXBSyjJnbWQ8Mmh4/sKRet4asfqC8/OpoD5k3J4VoQm5sni78QM04pCs8D1YsFCPfDvoKbFn7pSIso0osY9XtSbxl47UEDsCyx9EcVAV9Twm2k/BI4yJure6zvr63DyrT1hatY/TXPgUE6oPuuQVhvJJ8lLTTfq5bexiaAomjXQpTutX9z3]]></content>
       <categories>
         <category>Test</category>
       </categories>
@@ -217,7 +225,11 @@
   <entry>
     <title><![CDATA[LeetCode 205: Isomorphic Strings]]></title>
     <url>%2F2018%2F10%2F14%2FLeetCode-205-Isomorphic-Strings%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Given two strings s and t, determine if they are isomorphic. Two strings are isomorphic if the characters in s can be replaced to get t. All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.Example 1: Input: s = “egg”, t = “add”Output: true Example 2: Input: s = “foo”, t = “bar”Output: false Example 3: Input: s = “paper”, t = “title”Output: true Note:You may assume both s and t have the same length.]]></content>
+      <categories>
+        <category>LeetCode</category>
+        <category>Amazon</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 833: Find And Replace in String]]></title>
@@ -469,6 +481,7 @@
     <content type="text"><![CDATA[There are a total of n courses you have to take, labeled from 0 to n-1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1] Given the total number of courses and a list of prerequisite pairs, return the ordering of courses you should take to finish all courses. There may be multiple correct orders, you just need to return one of them. If it is impossible to finish all courses, return an empty array.Example 1:Input: 2, [[1,0]]Output: [0,1]Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So the correct course order is [0,1] . Example 2:Input: 4, [[1,0],[2,0],[3,1],[3,2]]Output: [0,1,2,3] or [0,2,1,3]Explanation: There are a total of 4 courses to take. To take course 3 you should have finished both courses 1 and 2. Both courses 1 and 2 should be taken after you finished course 0. So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3] . Note: The input prerequisites is a graph represented by a list of edges, not adjacency matrices. Read more about how a graph is represented. You may assume that there are no duplicate edges in the input prerequisites. BFS Solution:1234567891011121314151617181920212223242526272829func findOrder(numCourses int, prerequisites [][]int) []int &#123; graph := make([][]int, numCourses) indegree := make([]int, numCourses) var queue, res []int for _, pair := range prerequisites &#123; graph[pair[1]] = append(graph[pair[1]], pair[0]) indegree[pair[0]]++ &#125; for n, v := range indegree &#123; if v == 0 &#123; queue = append(queue, n) &#125; &#125; for len(queue) != 0 &#123; res = append(res, queue[0]) for _, a := range graph[queue[0]] &#123; indegree[a]-- if indegree[a] == 0 &#123; queue = append(queue, a) &#125; &#125; queue = queue[1:] &#125; if len(res) != numCourses &#123; var empty []int return empty &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
+        <category>Amazon</category>
       </categories>
       <tags>
         <tag>Breadth-first Search</tag>
@@ -483,6 +496,7 @@
     <content type="text"><![CDATA[There are a total of n courses you have to take, labeled from 0 to n-1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1] Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?Example 1:Input: 2, [[1,0]]Output: trueExplanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So it is possible. Example 2:Input: 2, [[1,0],[0,1]]Output: falseExplanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible. Note: This problem is equivalent to finding if a cycle exists in a directed graph. If a cycle exists, no topological ordering exists and therefore it will be impossible to take all courses. The input prerequisites is a graph represented by a list of edges, not adjacency matrices. Read more about how a graph is represented. Topological Sort via DFS - A great video tutorial (21 minutes) on Coursera explaining the basic concepts of Topological Sort. Topological sort could also be done via BFS. You may assume that there are no duplicate edges in the input prerequisites. BFS Solution:12345678910111213141516171819202122232425262728293031323334func canFinish(numCourses int, prerequisites [][]int) bool &#123; graph := make([][]int, numCourses) indegree := make([]int, numCourses) var queue []int for _, pair := range prerequisites &#123; graph[pair[1]] = append(graph[pair[1]], pair[0]) indegree[pair[0]]++ &#125; for n, v := range indegree &#123; if v == 0 &#123; queue = append(queue, n) &#125; &#125; for len(queue) != 0 &#123; for _, a := range graph[queue[0]] &#123; indegree[a]-- if indegree[a] == 0 &#123; queue = append(queue, a) &#125; &#125; queue = queue[1:] &#125; for i := 0; i &lt; numCourses; i++ &#123; if indegree[i] != 0 &#123; return false &#125; &#125; return true&#125; DFS Solution:123456789101112131415161718192021222324252627282930313233func canFinshDFS(graph [][]int, visit []int, i int) bool &#123; if visit[i] == -1 &#123; return false &#125; if visit[i] == 1 &#123; return true &#125; visit[i] = -1 for _, a := range graph[i] &#123; if !canFinshDFS(graph, visit, a) &#123; return false &#125; &#125; visit[i] = 1 return true&#125;func canFinish(numCourses int, prerequisites [][]int) bool &#123; graph := make([][]int, numCourses) visit := make([]int, numCourses) for _, pair := range prerequisites &#123; graph[pair[1]] = append(graph[pair[1]], pair[0]) &#125; for i := 0; i &lt; numCourses; i++ &#123; if !canFinshDFS(graph, visit, i) &#123; return false &#125; &#125; return true&#125;]]></content>
       <categories>
         <category>LeetCode</category>
+        <category>Amazon</category>
       </categories>
       <tags>
         <tag>Breadth-first Search</tag>
@@ -631,7 +645,7 @@
   <entry>
     <title><![CDATA[LeetCode 124: Binary Tree Maximum Path Sum]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-124-Binary-Tree-Maximum-Path-Sum%2F</url>
-    <content type="text"><![CDATA[Given a non-empty binary tree, find the maximum path sum. For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root. Example 1:Input: [1,2,3] 1 / \ 2 3 Output: 6 Example 2:Input: [-10,9,20,null,null,15,7] -10 / \ 9 20 / \ 15 7 Output: 42 这道求二叉树的最大路径和是一道蛮有难度的题，难就难在起始位置和结束位置可以为任意位置，我当然是又不会了，于是上网看看大神们的解法，像这种类似树的遍历的题，一般来说都需要用 DFS 来求解，我们先来看一个简单的例子： 4 / \ 11 13 / \ 7 2由于这是一个很简单的例子，我们很容易就能找到最长路径为 7-&gt;11-&gt;4-&gt;13，那么怎么用递归来找出正确的路径和呢？根据以往的经验，树的递归解法一般都是递归到叶节点，然后开始边处理边回溯到根节点。那么我们就假设此时已经递归到结点7了，那么其没有左右子节点，所以如果以结点7为根结点的子树最大路径和就是7。然后回溯到结点11，如果以结点11为根结点的子树，我们知道最大路径和为 7+11+2=20。但是当回溯到结点4的时候，对于结点11来说，就不能同时取两条路径了，只能取左路径，或者是右路径，所以当根结点是4的时候，那么结点11只能取其左子结点7，因为7大于2。所以，对于每个结点来说，我们要知道经过其左子结点的 path 之和大还是经过右子节点的 path 之和大。那么我们的递归函数返回值就可以定义为以当前结点为根结点，到叶节点的最大路径之和，然后全局路径最大值放在参数中，用结果 res 来表示。 在递归函数中，如果当前结点不存在，那么直接返回0。否则就分别对其左右子节点调用递归函数，由于路径和有可能为负数，而我们当然不希望加上负的路径和，所以我们和0相比，取较大的那个，就是要么不加，加就要加正数。然后我们来更新全局最大值结果 res，就是以左子结点为终点的最大 path 之和加上以右子结点为终点的最大 path 之和，还要加上当前结点值，这样就组成了一个条完整的路径。而我们返回值是取 left 和 right 中的较大值加上当前结点值，因为我们返回值的定义是以当前结点为终点的 path 之和，所以只能取 left 和 right 中较大的那个值，而不是两个都要，时间 O(b^(h+1)-1) 空间 O(h),参见代码如下： 1234567891011121314151617class Solution &#123; public int res; public int maxPathSum(TreeNode root) &#123; res = Integer_MAX_VALUE; maxPath(root); return res; &#125; public int maxPath(TreeNode node) &#123; if (node == null) return 0; int left = Math.max(maxPath(node.left), 0); int right = Math.max(maxPath(node.right), 0); res = Math.max(res, left + right + node.val); return Math.max(left, right) + node.val; &#125;&#125; 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021222324func maxPath(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxPath(root.Left, res) if left &lt; 0 &#123; left = 0 &#125; right := maxPath(root.Right, res) if right &lt; 0 &#123; right = 0 &#125; if left + right + root.Val &gt; *res &#123; *res = left + right + root.Val &#125; if left &lt; right &#123; left = right &#125; return root.Val + left&#125; 12345func maxPathSum(root *TreeNode) int &#123; res := -0x7FFFFFFF maxPath(root, &amp;res) return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a non-empty binary tree, find the maximum path sum. For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root. Example 1:Input: [1,2,3] 1 / \ 2 3 Output: 6 Example 2:Input: [-10,9,20,null,null,15,7] -10 / \ 9 20 / \ 15 7 Output: 42 这道求二叉树的最大路径和是一道蛮有难度的题，难就难在起始位置和结束位置可以为任意位置，我当然是又不会了，于是上网看看大神们的解法，像这种类似树的遍历的题，一般来说都需要用 DFS 来求解，我们先来看一个简单的例子： 4 / \ 11 13 / \ 7 2 由于这是一个很简单的例子，我们很容易就能找到最长路径为 7-&gt;11-&gt;4-&gt;13，那么怎么用递归来找出正确的路径和呢？根据以往的经验，树的递归解法一般都是递归到叶节点，然后开始边处理边回溯到根节点。那么我们就假设此时已经递归到结点7了，那么其没有左右子节点，所以如果以结点7为根结点的子树最大路径和就是7。然后回溯到结点11，如果以结点11为根结点的子树，我们知道最大路径和为 7+11+2=20。但是当回溯到结点4的时候，对于结点11来说，就不能同时取两条路径了，只能取左路径，或者是右路径，所以当根结点是4的时候，那么结点11只能取其左子结点7，因为7大于2。所以，对于每个结点来说，我们要知道经过其左子结点的 path 之和大还是经过右子节点的 path 之和大。那么我们的递归函数返回值就可以定义为以当前结点为根结点，到叶节点的最大路径之和，然后全局路径最大值放在参数中，用结果 res 来表示。 在递归函数中，如果当前结点不存在，那么直接返回0。否则就分别对其左右子节点调用递归函数，由于路径和有可能为负数，而我们当然不希望加上负的路径和，所以我们和0相比，取较大的那个，就是要么不加，加就要加正数。然后我们来更新全局最大值结果 res，就是以左子结点为终点的最大 path 之和加上以右子结点为终点的最大 path 之和，还要加上当前结点值，这样就组成了一个条完整的路径。而我们返回值是取 left 和 right 中的较大值加上当前结点值，因为我们返回值的定义是以当前结点为终点的 path 之和，所以只能取 left 和 right 中较大的那个值，而不是两个都要，时间 O(b^(h+1)-1) 空间 O(h),参见代码如下： 1234567891011121314151617class Solution &#123; public int res; public int maxPathSum(TreeNode root) &#123; res = Integer_MAX_VALUE; maxPath(root); return res; &#125; public int maxPath(TreeNode node) &#123; if (node == null) return 0; int left = Math.max(maxPath(node.left), 0); int right = Math.max(maxPath(node.right), 0); res = Math.max(res, left + right + node.val); return Math.max(left, right) + node.val; &#125;&#125; 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021222324func maxPath(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxPath(root.Left, res) if left &lt; 0 &#123; left = 0 &#125; right := maxPath(root.Right, res) if right &lt; 0 &#123; right = 0 &#125; if left + right + root.Val &gt; *res &#123; *res = left + right + root.Val &#125; if left &lt; right &#123; left = right &#125; return root.Val + left&#125; 12345func maxPathSum(root *TreeNode) int &#123; res := -0x7FFFFFFF maxPath(root, &amp;res) return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -686,9 +700,9 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Breadth-first Search</tag>
         <tag>Stack</tag>
         <tag>Tree</tag>
+        <tag>Breadth-first Search</tag>
         <tag>Not solved</tag>
       </tags>
   </entry>
@@ -700,8 +714,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Binary Tree</tag>
         <tag>Breadth-first Search</tag>
+        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
