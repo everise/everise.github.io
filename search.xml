@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 215: Kth Largest Element in an Array]]></title>
+    <url>%2F2019%2F06%2F15%2FLeetCode-215-Kth-Largest-Element-in-an-Array%2F</url>
+    <content type="text"><![CDATA[Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example 1: Input: [3,2,1,5,6,4] and k = 2Output: 5 Example 2: Input: [3,2,3,1,2,4,5,5,6] and k = 4Output: 4 Note:You may assume k is always valid, 1 ≤ k ≤ array’s length. 12345678public int findKthLargest(int[] nums, int k) &#123; PriorityQueue&lt;Integer&gt; q = new PriorityQueue&lt;Integer&gt;(k); for(int i: nums)&#123; q.offer(i); if(q.size() &gt; k) q.poll(); &#125; return q.peek();&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+        <category>Amazon</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 146: LRU Cache]]></title>
     <url>%2F2019%2F06%2F15%2FLeetCode-146-LRU-Cache%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put. get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item. The cache is initialized with a positive capacity. Follow up:Could you do both operations in O(1) time complexity? Example: LRUCache cache = new LRUCache( 2 / capacity / ); cache.put(1, 1);cache.put(2, 2);cache.get(1); // returns 1cache.put(3, 3); // evicts key 2cache.get(2); // returns -1 (not found)cache.put(4, 4); // evicts key 1cache.get(1); // returns -1 (not found)cache.get(3); // returns 3cache.get(4); // returns 4 1234567891011121314151617181920212223242526class LRUCache &#123; private Map&lt;Integer, Integer&gt; map; private int capacity; public LRUCache(int capacity) &#123; map = new LinkedHashMap&lt;&gt;(); this.capacity = capacity; &#125; public int get(int key) &#123; if (!map.containsKey(key)) &#123; return -1; &#125; int val = map.get(key); map.remove(key); map.put(key, val); return val; &#125; public void put(int key, int value) &#123; map.remove(key); map.put(key, value); if (map.size() &gt; this.capacity) &#123; map.remove(map.entrySet().iterator().next().getKey()); &#125; &#125;&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -44,7 +53,7 @@
   <entry>
     <title><![CDATA[LeetCode 127: Word Ladder]]></title>
     <url>%2F2019%2F06%2F15%2FLeetCode-127-Word-Ladder%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Given two words (beginWord and endWord), and a dictionary’s word list, find the length of shortest transformation sequence from beginWord to endWord, such that: Only one letter can be changed at a time.Each transformed word must exist in the word list. Note that beginWord is not a transformed word. Note: Return 0 if there is no such transformation sequence.All words have the same length.All words contain only lowercase alphabetic characters.You may assume no duplicates in the word list.You may assume beginWord and endWord are non-empty and are not the same. Example 1:Input:beginWord = “hit”,endWord = “cog”,wordList = [“hot”,”dot”,”dog”,”lot”,”log”,”cog”] Output: 5 Explanation: As one shortest transformation is “hit” -&gt; “hot” -&gt; “dot” -&gt; “dog” -&gt; “cog”,return its length 5. Example 2: Input:beginWord = “hit”endWord = “cog”wordList = [“hot”,”dot”,”dog”,”lot”,”log”] Output: 0 Explanation: The endWord “cog” is not in wordList, therefore no possible transformation. 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374/** * Approach 1: BFS * 对于这道题目，我们可以这么去解决。 * 因为字符串每次只能改变 一个 字符，所以也就意味着： * 一个字符 一次变化 只能通向 wordList 中差距只有一个字符的单词。 * 那么其实我们可以将 beginWord 与 wordList 中的单词建立一个连通图，每条边权值为 1.（就是一个简单图而已） * 建立好图后，我们就可以通过 BFS 从 beginWord 开始遍历并维持一个参数 level，看是否能找到 endWord. * 如果能找到返回 level 即可（level指的就是从 beginWord 到 endWord 我们需要经过几层BFS,或者说 走过几条边） * 如果不能找到则返回 0 即可。 * 这里之所以选择 BFS 而不是 DFS，原因是我们只需要找到 最短路径，而不是遍历整张图。 * DFS 会遍历整张图，时间复杂度更大。因此在 简单图 的遍历中，我们通常会使用 BFS 而不是 DFS。 * 类似的应用还有 The Maze 系列（同理也是求最短路径） * https://github.com/cherryljr/LeetCode/blob/master/The%20Maze.java * * 时间复杂度分析： * BFS 遍历图的时间为 O(n); * 寻找一个单词 word 所有改变 一个 字符能够得到的单词时间复杂度为 O(26 * len) （len 为单词长度） * 因此总体时间复杂度为：O(n * len * 26) =&gt; O(n) */class Solution &#123; public int ladderLength(String beginWord, String endWord, List&lt;String&gt; wordList) &#123; if (wordList == null || wordList.size() == 0) return 0; // 将 List 转换为 Set 以满足在 O(1) 的时间内查找 List 中是否包含某个单词 // 如果使用 List 时间复杂度为 O(n),更新测试用例后会 TLE. Set&lt;String&gt; wordSet = new HashSet&lt;&gt;(wordList); if (!wordSet.contains(endWord)) return 0; Queue&lt;String&gt; queue = new LinkedList&lt;&gt;(); // 记录已经遍历过的 word Set&lt;String&gt; visited = new HashSet&lt;&gt;(); // 初始化 queue 和 visited Set. queue.offer(beginWord); visited.add(beginWord); int level = 1; // level 是包括自身的，所以初始大小为 1 // BFS while (!queue.isEmpty()) &#123; int size = queue.size(); for (int i = 0; i &lt; size; i++) &#123; String word = queue.poll(); // 如果找到了 endWord,直接返回 level. 根据 BFS 的特性，此时 level 就是最小的 if (word.equals(endWord)) return level; // 将 wordList 中所有与 word 相差一个字符的单词放入队列中 for (String neigh : getNeighbors(word, visited, wordSet)) queue.offer(neigh); &#125; // 该层没有找到 endWord，继续找下一层，level+1 level++; &#125; return 0; &#125; private List&lt;String&gt; getNeighbors(String word, Set&lt;String&gt; visited, Set&lt;String&gt; wordSet) &#123; List&lt;String&gt; rst = new ArrayList&lt;&gt;(); char[] chars = word.toCharArray(); // 遍历该单词 word,将其每个字母都分别替换成 'a' ~ 'z' for (int i = 0; i &lt; chars.length; i++) &#123; char old = chars[i]; // 暂存该位置原来的字符 for (char ch = 'a'; ch &lt;= 'z'; ch++) &#123; if (ch == old) continue; chars[i] = ch; String nextWord = String.valueOf(chars); // 查看修改后的单词是否在 wordSet 中存在，并还未被 visited.如果符合条件就加入到 rst 中 if (!visited.contains(nextWord) &amp;&amp; wordSet.contains(nextWord)) &#123; visited.add(nextWord); rst.add(nextWord); &#125; &#125; chars[i] = old; // 将 chars[i] 置回为原来字母 &#125; return rst; &#125;&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -53,7 +62,7 @@
   <entry>
     <title><![CDATA[LeetCode 126: Word Ladder II]]></title>
     <url>%2F2019%2F06%2F15%2FLeetCode-126-Word-Ladder-II%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Given two words (beginWord and endWord), and a dictionary’s word list, find all shortest transformation sequence(s) from beginWord to endWord, such that: Only one letter can be changed at a timeEach transformed word must exist in the word list. Note that beginWord is not a transformed word. Note:Return an empty list if there is no such transformation sequence.All words have the same length.All words contain only lowercase alphabetic characters.You may assume no duplicates in the word list.You may assume beginWord and endWord are non-empty and are not the same. Example 1: Input:beginWord = “hit”,endWord = “cog”,wordList = [“hot”,”dot”,”dog”,”lot”,”log”,”cog”] Output:[ [“hit”,”hot”,”dot”,”dog”,”cog”], [“hit”,”hot”,”lot”,”log”,”cog”]] Example 2: Input:beginWord = “hit”endWord = “cog”wordList = [“hot”,”dot”,”dog”,”lot”,”log”] Output: [] Explanation: The endWord “cog” is not in wordList, therefore no possible transformation. 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105/** * Approach: BFS + DFS * 答案要求最短路径，因此我们想到了使用 BFS， * 但是又需要我们输出所有路径，因此我们还需要使用 DFS 进行遍历。 * * 具体的做法为： * 先使用 BFS 搜索出 beginWord 到 endWord 之间最短的路径。 * 并在搜索的过程中建立好 关系图，即每个结点对应的下一层节点（邻居）分别为哪些。 * 同时为了在 DFS 时，能够知道遍历的是否是最短路径，我们还需要保存各个 单词节点 到 beginWord 的距离。 * 有了以上信息之后，我们再使用 DFS 从 beginWord 开始 * 遍历由 BFS 建立好的关系图，得到所有的最短路径即可。 * * 不少人会问，为什么我们需要使用到 BFS 呢？直接使用 DFS 枚举不好吗？ * 原因是，直接使用 DFS 暴力查找的话会耗费掉许多时间。 * 比如 beginWord 和 endWord 之间距离只有 3，但是整张图非常大（两个点距离有1000的那种）， * 这个时候如果使用 DFS，毫无疑问会超时。 * 而如果实现使用 BFS 对图进行处理，构建出我们需要的那个部分，然后再 DFS 就可以节省大量的时间了。 * * 本题还有一种更加快速的解法：双向 BFS * https://leetcode.com/problems/word-ladder-ii/discuss/40477/Super-fast-Java-solution-(two-end-BFS) */class Solution &#123; public List&lt;List&lt;String&gt;&gt; findLadders(String beginWord, String endWord, List&lt;String&gt; wordList) &#123; Set&lt;String&gt; wordSet = new HashSet&lt;&gt;(wordList); if (!wordSet.contains(endWord)) return new ArrayList&lt;&gt;(); wordSet.add(beginWord); // 记录一个单词 BFS 的下一层节点 Map&lt;String, List&lt;String&gt;&gt; neighbors = new HashMap&lt;&gt;(); // 记录该单词与 beginWord 之间的距离，同时也充当了 visitedSet 的作用 Map&lt;String, Integer&gt; distance = new HashMap&lt;&gt;(); List&lt;List&lt;String&gt;&gt; rst = new ArrayList&lt;&gt;(); bfs(beginWord, endWord, wordSet, neighbors, distance); dfs(beginWord, endWord, neighbors, distance, new LinkedList&lt;&gt;(), rst); return rst; &#125; // 利用 bfs 找到最短路径，并构建出关系图 private void bfs(String beginWord, String endWord, Set&lt;String&gt; wordSet, Map&lt;String, List&lt;String&gt;&gt; neighbors, Map&lt;String, Integer&gt; distance) &#123; Queue&lt;String&gt; queue = new LinkedList&lt;&gt;(); queue.offer(beginWord); distance.put(beginWord, 0); while (!queue.isEmpty()) &#123; int size = queue.size(); for (int i = 0; i &lt; size; i++) &#123; String curr = queue.poll(); // 遇到 endWord 就退出，其他的信息我们已经不需要了 if (curr.equals(endWord)) break; List&lt;String&gt; currNeig = getNeighbors(curr, wordSet); Iterator&lt;String&gt; iterator = currNeig.iterator(); while (iterator.hasNext()) &#123; String word = iterator.next(); // 如果之前没有遍历过该单词，则将其加入到队列中，并记录 distance 信息 if (!distance.containsKey(word)) &#123; queue.offer(word); distance.put(word, distance.get(curr) + 1); &#125; &#125; // 记录当前单词节点对应的 下一级节点的信息（邻居信息） neighbors.put(curr, currNeig); &#125; &#125; &#125; // 遍历获取邻居节点，与 Word Ladder 中的方法相同 private List&lt;String&gt; getNeighbors(String curr, Set&lt;String&gt; wordSet) &#123; List&lt;String&gt; neighbors = new LinkedList&lt;&gt;(); char[] chars = curr.toCharArray(); for (int i = 0; i &lt; chars.length; i++) &#123; char old = chars[i]; for (char ch = 'a'; ch &lt;= 'z'; ch++) &#123; if (ch == old) continue; chars[i] = ch; String nextWord = String.valueOf(chars); if (wordSet.contains(nextWord)) neighbors.add(nextWord); &#125; chars[i] = old; &#125; return neighbors; &#125; // dfs 遍历求解所有路径 private void dfs(String currWord, String endWord, Map&lt;String, List&lt;String&gt;&gt; neighbors, Map&lt;String, Integer&gt; distance, LinkedList&lt;String&gt; list, List&lt;List&lt;String&gt;&gt; rst) &#123; list.add(currWord); if (currWord.equals(endWord)) &#123; rst.add(new LinkedList&lt;&gt;(list)); &#125; else &#123; for (String neig : neighbors.get(currWord)) &#123; if (neig == null) continue; // 利用到了 distance 信息，只有当 neig 是 bfs 的下一级节点时才遍历 // 因为不是所有的 neigh 都是到 endWord 的最短路径 if (distance.get(neig) == distance.get(currWord) + 1) &#123; dfs(neig, endWord, neighbors, distance, list, rst); &#125; &#125; &#125; list.remove(list.size() - 1); &#125;&#125; Two-end-BFS 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394public List&lt;List&lt;String&gt;&gt; findLadders(String start, String end, Set&lt;String&gt; dict) &#123; // hash set for both ends Set&lt;String&gt; set1 = new HashSet&lt;String&gt;(); Set&lt;String&gt; set2 = new HashSet&lt;String&gt;(); // initial words in both ends set1.add(start); set2.add(end); // we use a map to help construct the final result Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;String, List&lt;String&gt;&gt;(); // build the map helper(dict, set1, set2, map, false); List&lt;List&lt;String&gt;&gt; res = new ArrayList&lt;List&lt;String&gt;&gt;(); List&lt;String&gt; sol = new ArrayList&lt;String&gt;(Arrays.asList(start)); // recursively build the final result generateList(start, end, map, sol, res); return res;&#125; boolean helper(Set&lt;String&gt; dict, Set&lt;String&gt; set1, Set&lt;String&gt; set2, Map&lt;String, List&lt;String&gt;&gt; map, boolean flip) &#123; if (set1.isEmpty()) return false; if (set1.size() &gt; set2.size()) return helper(dict, set2, set1, map, !flip); // remove words on current both ends from the dict dict.removeAll(set1); dict.removeAll(set2); // as we only need the shortest paths // we use a boolean value help early termination boolean done = false; // set for the next level Set&lt;String&gt; set = new HashSet&lt;String&gt;(); // for each string in end 1 for (String str : set1) &#123; for (int i = 0; i &lt; str.length(); i++) &#123; char[] chars = str.toCharArray(); // change one character for every position for (char ch = 'a'; ch &lt;= 'z'; ch++) &#123; chars[i] = ch; String word = new String(chars); // make sure we construct the tree in the correct direction String key = flip ? word : str; String val = flip ? str : word; List&lt;String&gt; list = map.containsKey(key) ? map.get(key) : new ArrayList&lt;String&gt;(); if (set2.contains(word)) &#123; done = true; list.add(val); map.put(key, list); &#125; if (!done &amp;&amp; dict.contains(word)) &#123; set.add(word); list.add(val); map.put(key, list); &#125; &#125; &#125; &#125; // early terminate if done is true return done || helper(dict, set2, set, map, !flip);&#125; void generateList(String start, String end, Map&lt;String, List&lt;String&gt;&gt; map, List&lt;String&gt; sol, List&lt;List&lt;String&gt;&gt; res) &#123; if (start.equals(end)) &#123; res.add(new ArrayList&lt;String&gt;(sol)); return; &#125; // need this check in case the diff between start and end happens to be one // e.g "a", "c", &#123;"a", "b", "c"&#125; if (!map.containsKey(start)) return; for (String word : map.get(start)) &#123; sol.add(word); generateList(word, end, map, sol, res); sol.remove(sol.size() - 1); &#125;&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -62,7 +71,7 @@
   <entry>
     <title><![CDATA[LeetCode 41: First Missing Positive]]></title>
     <url>%2F2019%2F06%2F15%2FLeetCode-41-First-Missing-Positive%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Given an unsorted integer array, find the smallest missing positive integer. Example 1: Input: [1,2,0]Output: 3Example 2: Input: [3,4,-1,1]Output: 2 Example 3: Input: [7,8,9,11,12]Output: 1 Note: Your algorithm should run in O(n) time and uses constant extra space. 123456789101112131415public int firstMissingPositive(int[] nums) &#123; for (int i = 0; i &lt; nums.length; i++) &#123; while (nums[i] &gt; 0 &amp;&amp; nums[i] &lt;= nums.length &amp;&amp; nums[nums[i]-1] != nums[i]) &#123; int tmp = nums[nums[i]-1]; nums[nums[i]-1] = nums[i]; nums[i] = tmp; &#125; &#125; for (int i = 0; i &lt; nums.length; i++) &#123; if (nums[i] != i + 1) return i + 1; &#125; return nums.length + 1;&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -94,7 +103,7 @@
   <entry>
     <title><![CDATA[Password Test]]></title>
     <url>%2F2019%2F06%2F15%2FPassword-Test%2F</url>
-    <content type="text"><![CDATA[Welcome to my blog, enter password to read. Incorrect Password! No content to display! U2FsdGVkX19rY/a/VXhAIjd/R2suGoFoeSEzGdHyovXSDlqgjz8QyKsszHqdQhnXUXRo3S7bMqrlQBmbnraS5VuEQxz3A0iqxKfQXWuH3hN1ivbwoLIiluSfBdE5uYBy+CS2NxX2TmoXq21rVOj0zbHbRGyrg0ud4J3YhMb7C9cXSpSU0RL1rngYXN5M8uRcraVbfS24KOv0iga/GzC9kW0/d7+9xu40+vMfh99EsXI9zTmpYa6xahCwvyqfvFYR]]></content>
+    <content type="text"><![CDATA[Welcome to my blog, enter password to read. Incorrect Password! No content to display! U2FsdGVkX19QbbgHv0ZlkI/tAC1B2iJfa19wFvFRz2h7FR+TW1V7qKvV2rWJ80TY5cKs9RrJF6xS3CNIKXxK8TbbCYO4oEnht2eSZZLKN4EcCAluONA3kC2hdrf4NsitOK5HVqNe1UxVR8ZIV/OSDLtElDWdoOZCvAe3aPJm6B+AmvwxhyPhwMQKXysVuwVAMG/+xY2izUkjg8UjNQj8fi3EveLLkywAXUZM74s3CZRuZ/dAtaRLO0fD4D5TQ6r4]]></content>
       <categories>
         <category>Test</category>
       </categories>
@@ -105,7 +114,7 @@
   <entry>
     <title><![CDATA[LeetCode 4: Median of Two Sorted Arrays]]></title>
     <url>%2F2018%2F10%2F17%2FLeetCode-4-Median-of-Two-Sorted-Arrays%2F</url>
-    <content type="text"><![CDATA[There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nums2 cannot be both empty.Example 1:nums1 = [1, 3]nums2 = [2] The median is 2.0 Example 2:nums1 = [1, 2]nums2 = [3, 4] The median is (2 + 3)/2 = 2.5 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081public double findMedianSortedArrays(int[] nums1, int[] nums2) &#123; int n1 = nums1.length; int n2 = nums2.length; if (n1 &gt; n2) &#123; return findMedianSortedArrays(nums2, nums1); &#125; int k = (n1 + n2 + 1)/2; int left = 0; int right = n1; while(left &lt; right)&#123; int m1 = left + (right - left)/2; int m2 = k - m1; if (nums1[m1] &lt; nums2[m2-1]) &#123; left = m1 + 1; &#125;else &#123; right = m1; &#125; &#125; int m1 = left; int m2 = k - left; int c1 = Math.max(m1 &lt;= 0 ? Integer.MIN_VALUE : nums1[m1-1], m2 &lt;= 0 ? Integer.MIN_VALUE : nums2[m2-1]); if ((n1 + n2) % 2 == 1) &#123; return c1; &#125; int c2 = Math.min( m1 &gt;= n1 ? Integer.MAX_VALUE :nums1[m1], m2 &gt;= n2 ? Integer.MAX_VALUE : nums2[m2]); return (c1 + c2) * 0.5;&#125;``` ``` gofunc findMedianSortedArrays(nums1 []int, nums2 []int) float64 &#123; n1 := len(nums1) n2 := len(nums2) if n1 &lt; n2 &#123; return findMedianSortedArrays(nums2, nums1) &#125; lo, hi := 0, n2 * 2 for lo &lt;= hi &#123; mid2 := (lo + hi) &gt;&gt; 1 mid1 := n1 + n2 - mid2 var l1, l2, r1, r2 int if mid1 == 0 &#123; l1 = ^(int(^uint(0) &gt;&gt; 1)) &#125;else &#123; l1 = nums1[(mid1-1)/2] &#125; if mid2 == 0 &#123; l2 = ^(int(^uint(0) &gt;&gt; 1)) &#125;else &#123; l2 = nums2[(mid2-1)/2] &#125; if mid1 == n1 * 2 &#123; r1 = int(^uint(0) &gt;&gt; 1) &#125;else &#123; r1 = nums1[mid1/2] &#125; if mid2 == n2 * 2 &#123; r2 = int(^uint(0) &gt;&gt; 1) &#125;else &#123; r2 = nums2[mid2/2] &#125; if l1 &gt; r2 &#123; lo = mid2 + 1 &#125;else if l2 &gt; r1 &#123; hi = mid2 - 1 &#125;else &#123; var max, min int if l1 &lt; l2 &#123; max = l2 &#125;else &#123; max = l1 &#125; if r1 &lt; r2 &#123; min = r1 &#125;else &#123; min = r2 &#125; res := float64(max + min) / 2.0 return res &#125; &#125; return float64(-1)&#125;]]></content>
+    <content type="text"><![CDATA[There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nums2 cannot be both empty.Example 1:nums1 = [1, 3]nums2 = [2] The median is 2.0 Example 2:nums1 = [1, 2]nums2 = [3, 4] The median is (2 + 3)/2 = 2.5 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081public double findMedianSortedArrays(int[] nums1, int[] nums2) &#123; int n1 = nums1.length; int n2 = nums2.length; if (n1 &gt; n2) &#123; return findMedianSortedArrays(nums2, nums1); &#125; int k = (n1 + n2 + 1)/2; int left = 0; int right = n1; while(left &lt; right)&#123; int m1 = left + (right - left)/2; int m2 = k - m1; if (nums1[m1] &lt; nums2[m2-1]) &#123; left = m1 + 1; &#125;else &#123; right = m1; &#125; &#125; int m1 = left; int m2 = k - left; int c1 = Math.max(m1 &lt;= 0 ? Integer.MIN_VALUE : nums1[m1-1], m2 &lt;= 0 ? Integer.MIN_VALUE : nums2[m2-1]); if ((n1 + n2) % 2 == 1) return c1; int c2 = Math.min( m1 &gt;= n1 ? Integer.MAX_VALUE :nums1[m1], m2 &gt;= n2 ? Integer.MAX_VALUE : nums2[m2]); return (c1 + c2) * 0.5;&#125;``` ``` gofunc findMedianSortedArrays(nums1 []int, nums2 []int) float64 &#123; n1 := len(nums1) n2 := len(nums2) if n1 &lt; n2 &#123; return findMedianSortedArrays(nums2, nums1) &#125; lo, hi := 0, n2 * 2 for lo &lt;= hi &#123; mid2 := (lo + hi) &gt;&gt; 1 mid1 := n1 + n2 - mid2 var l1, l2, r1, r2 int if mid1 == 0 &#123; l1 = ^(int(^uint(0) &gt;&gt; 1)) &#125;else &#123; l1 = nums1[(mid1-1)/2] &#125; if mid2 == 0 &#123; l2 = ^(int(^uint(0) &gt;&gt; 1)) &#125;else &#123; l2 = nums2[(mid2-1)/2] &#125; if mid1 == n1 * 2 &#123; r1 = int(^uint(0) &gt;&gt; 1) &#125;else &#123; r1 = nums1[mid1/2] &#125; if mid2 == n2 * 2 &#123; r2 = int(^uint(0) &gt;&gt; 1) &#125;else &#123; r2 = nums2[mid2/2] &#125; if l1 &gt; r2 &#123; lo = mid2 + 1 &#125;else if l2 &gt; r1 &#123; hi = mid2 - 1 &#125;else &#123; var max, min int if l1 &lt; l2 &#123; max = l2 &#125;else &#123; max = l1 &#125; if r1 &lt; r2 &#123; min = r1 &#125;else &#123; min = r2 &#125; res := float64(max + min) / 2.0 return res &#125; &#125; return float64(-1)&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -324,7 +333,7 @@
   <entry>
     <title><![CDATA[LeetCode 33: Search in Rotated Sorted Array]]></title>
     <url>%2F2018%2F10%2F14%2FLeetCode-33-Search-in-Rotated-Sorted-Array%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).You are given a target value to search. If found in the array return its index, otherwise return -1. You may assume no duplicate exists in the array. Your algorithm’s runtime complexity must be in the order of O(log n). Example 1: Input: nums = [4,5,6,7,0,1,2], target = 0Output: 4 Example 2: Input: nums = [4,5,6,7,0,1,2], target = 3Output: -1 123456789101112131415161718192021public int search(int[] nums, int target) &#123; int left = 0, right = nums.length - 1; while (left &lt;= right) &#123; int mid = left + (right - left)/2; if (nums[mid] == target) return mid; if (nums[mid] &gt;= nums[left]) &#123; if (nums[left] &lt;= target &amp;&amp; nums[mid] &gt; target) &#123; right = mid - 1; &#125;else &#123; left = mid + 1; &#125; &#125;else &#123; if (nums[mid] &lt; target &amp;&amp; nums[right] &gt;= target) &#123; left = mid + 1; &#125;else &#123; right = mid - 1; &#125; &#125; &#125; return -1;&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -593,7 +602,7 @@
   <entry>
     <title><![CDATA[LeetCode 124: Binary Tree Maximum Path Sum]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-124-Binary-Tree-Maximum-Path-Sum%2F</url>
-    <content type="text"><![CDATA[Given a non-empty binary tree, find the maximum path sum. For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root. Example 1:Input: [1,2,3] 1 / \ 2 3 Output: 6 Example 2:Input: [-10,9,20,null,null,15,7] -10 / \ 9 20 / \ 15 7 Output: 42 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021222324func maxPath(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxPath(root.Left, res) if left &lt; 0 &#123; left = 0 &#125; right := maxPath(root.Right, res) if right &lt; 0 &#123; right = 0 &#125; if left + right + root.Val &gt; *res &#123; *res = left + right + root.Val &#125; if left &lt; right &#123; left = right &#125; return root.Val + left&#125; 12345func maxPathSum(root *TreeNode) int &#123; res := -0x7FFFFFFF maxPath(root, &amp;res) return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a non-empty binary tree, find the maximum path sum. For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root. Example 1:Input: [1,2,3] 1 / \ 2 3 Output: 6 Example 2:Input: [-10,9,20,null,null,15,7] -10 / \ 9 20 / \ 15 7 Output: 42 12 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021222324func maxPath(root *TreeNode, res *int) int &#123; if root == nil &#123; return 0 &#125; left := maxPath(root.Left, res) if left &lt; 0 &#123; left = 0 &#125; right := maxPath(root.Right, res) if right &lt; 0 &#123; right = 0 &#125; if left + right + root.Val &gt; *res &#123; *res = left + right + root.Val &#125; if left &lt; right &#123; left = right &#125; return root.Val + left&#125; 12345func maxPathSum(root *TreeNode) int &#123; res := -0x7FFFFFFF maxPath(root, &amp;res) return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -630,7 +639,7 @@
   <entry>
     <title><![CDATA[LeetCode 104: Maximum Depth of Binary Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-104-Maximum-Depth-of-Binary-Tree%2F</url>
-    <content type="text"><![CDATA[Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. Note: A leaf is a node with no children. Example:Given binary tree [3,9,20,null,null,15,7], 3 / \ 9 20 / \ 15 7 return its depth = 3. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021func maxDepth(root *TreeNode) int &#123; res := 0 if root == nil &#123; return res &#125; var queue []*TreeNode queue = append(queue, root) for len(queue) != 0 &#123; for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; res++ &#125; return res&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. Note: A leaf is a node with no children. Example:Given binary tree [3,9,20,null,null,15,7], 3 / \ 9 20 / \ 15 7 return its depth = 3. 12 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 123456789101112131415161718192021func maxDepth(root *TreeNode) int &#123; res := 0 if root == nil &#123; return res &#125; var queue []*TreeNode queue = append(queue, root) for len(queue) != 0 &#123; for _, v := range queue &#123; if v.Left != nil &#123; queue = append(queue, v.Left) &#125; if v.Right != nil &#123; queue = append(queue, v.Right) &#125; queue = queue[1:] &#125; res++ &#125; return res&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
@@ -648,9 +657,9 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Stack</tag>
-        <tag>Tree</tag>
         <tag>Breadth-first Search</tag>
+        <tag>Tree</tag>
+        <tag>Stack</tag>
         <tag>Not solved</tag>
       </tags>
   </entry>
@@ -662,21 +671,21 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Breadth-first Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Breadth-first Search</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[LeetCode 98: Validate Binary Search Tree]]></title>
     <url>%2F2018%2F10%2F06%2FLeetCode-98-Validate-Binary-Search-Tree%2F</url>
-    <content type="text"><![CDATA[Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: The left subtree of a node contains only nodes with keys less than the node’s key. The right subtree of a node contains only nodes with keys greater than the node’s key. Both the left and right subtrees must also be binary search trees. Example 1:Input: 2 / \ 1 3 Output: true Example 2:Input: 5 / \ 1 4 / \ 3 6 Output: falseExplanation: The input is: [5,1,4,null,null,3,6]. The root node’s value is 5 but its right child’s value is 4. 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910func isBST(root *TreeNode, min, max int) bool &#123; if root == nil &#123; return true &#125; if root.Val &lt;= min || root.Val &gt;= max &#123; return false &#125; return isBST(root.Left,min,root.Val) &amp;&amp; isBST(root.Right,root.Val,max)&#125; 123func isValidBST(root *TreeNode) bool &#123; return isBST(root, -int(^uint(0) &gt;&gt; 1)-1, int(^uint(0) &gt;&gt; 1))&#125;]]></content>
+    <content type="text"><![CDATA[Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: The left subtree of a node contains only nodes with keys less than the node’s key. The right subtree of a node contains only nodes with keys greater than the node’s key. Both the left and right subtrees must also be binary search trees. Example 1:Input: 2 / \ 1 3 Output: true Example 2:Input: 5 / \ 1 4 / \ 3 6 Output: falseExplanation: The input is: [5,1,4,null,null,3,6]. The root node’s value is 5 but its right child’s value is 4. 123456789public boolean isValidBST(TreeNode root) &#123; if (root == null) return true; return valid(root, Long.MIN_VALUE, Long.MAX_VALUE);&#125;public boolean valid(TreeNode root, long low, long high) &#123; if (root == null) return true; if (root.val &lt;= low || root.val &gt;= high) return false; return valid(root.left, low, root.val) &amp;&amp; valid(root.right, root.val, high);&#125; 12345type TreeNode struct &#123; Val int Left *TreeNode Right *TreeNode&#125; 12345678910func isBST(root *TreeNode, min, max int) bool &#123; if root == nil &#123; return true &#125; if root.Val &lt;= min || root.Val &gt;= max &#123; return false &#125; return isBST(root.Left,min,root.Val) &amp;&amp; isBST(root.Right,root.Val,max)&#125; 123func isValidBST(root *TreeNode) bool &#123; return isBST(root, -int(^uint(0) &gt;&gt; 1)-1, int(^uint(0) &gt;&gt; 1))&#125;]]></content>
       <categories>
         <category>LeetCode</category>
         <category>Amazon</category>
       </categories>
       <tags>
-        <tag>Depth-first Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-first Search</tag>
       </tags>
   </entry>
   <entry>
@@ -879,8 +888,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>String</tag>
         <tag>Dynamic Programming</tag>
+        <tag>String</tag>
       </tags>
   </entry>
   <entry>
@@ -915,8 +924,8 @@
         <category>Amazon</category>
       </categories>
       <tags>
-        <tag>String</tag>
         <tag>Dynamic Programming</tag>
+        <tag>String</tag>
       </tags>
   </entry>
   <entry>
@@ -927,8 +936,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>Hash Table</tag>
         <tag>String</tag>
+        <tag>Hash Table</tag>
         <tag>Two Pointers</tag>
       </tags>
   </entry>

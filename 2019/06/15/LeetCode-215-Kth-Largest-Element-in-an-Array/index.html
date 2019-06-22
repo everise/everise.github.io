@@ -123,17 +123,17 @@
 
 
 
-<meta name="description" content="Given an unsorted integer array, find the smallest missing positive integer. Example 1: Input: [1,2,0]Output: 3">
+<meta name="description" content="Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example 1: Input: [3,2,1,5,6,4] and k = 2Output: 5 Example">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 41: First Missing Positive">
-<meta property="og:url" content="https://everise.github.io/2019/06/15/LeetCode-41-First-Missing-Positive/index.html">
+<meta property="og:title" content="LeetCode 215: Kth Largest Element in an Array">
+<meta property="og:url" content="https://everise.github.io/2019/06/15/LeetCode-215-Kth-Largest-Element-in-an-Array/index.html">
 <meta property="og:site_name" content="Everise&#39;s Notes">
-<meta property="og:description" content="Given an unsorted integer array, find the smallest missing positive integer. Example 1: Input: [1,2,0]Output: 3">
+<meta property="og:description" content="Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example 1: Input: [3,2,1,5,6,4] and k = 2Output: 5 Example">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-16T02:44:44.300Z">
+<meta property="og:updated_time" content="2019-06-16T03:27:29.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 41: First Missing Positive">
-<meta name="twitter:description" content="Given an unsorted integer array, find the smallest missing positive integer. Example 1: Input: [1,2,0]Output: 3">
+<meta name="twitter:title" content="LeetCode 215: Kth Largest Element in an Array">
+<meta name="twitter:description" content="Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example 1: Input: [3,2,1,5,6,4] and k = 2Output: 5 Example">
 
 
 
@@ -163,13 +163,13 @@
 
 
 
-  <link rel="canonical" href="https://everise.github.io/2019/06/15/LeetCode-41-First-Missing-Positive/"/>
+  <link rel="canonical" href="https://everise.github.io/2019/06/15/LeetCode-215-Kth-Largest-Element-in-an-Array/"/>
 
 
 
 
 
-  <title>LeetCode 41: First Missing Positive | Everise's Notes</title>
+  <title>LeetCode 215: Kth Largest Element in an Array | Everise's Notes</title>
   
 
 
@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2019/06/15/LeetCode-41-First-Missing-Positive/">
+    <link itemprop="mainEntityOfPage" href="https://everise.github.io/2019/06/15/LeetCode-215-Kth-Largest-Element-in-an-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="everise">
@@ -337,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 41: First Missing Positive</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode 215: Kth Largest Element in an Array</h1>
         
 
         <div class="post-meta">
@@ -349,7 +349,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-15T22:32:39-04:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-15T23:26:29-04:00">
                 2019-06-15
               </time>
             
@@ -420,15 +420,13 @@
       
 
       
-        <p>Given an unsorted integer array, find the smallest missing positive integer.</p>
+        <p>Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
 <p><strong>Example 1:</strong></p>
-<p>Input: [1,2,0]<br>Output: 3<br><a id="more"></a><br><strong>Example 2:</strong></p>
-<p>Input: [3,4,-1,1]<br>Output: 2</p>
-<p><strong>Example 3:</strong></p>
-<p>Input: [7,8,9,11,12]<br>Output: 1</p>
-<p><strong>Note:</strong></p>
-<p>Your algorithm should run in O(n) time and uses constant extra space.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstMissingPositive</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (nums[i] &gt; <span class="number">0</span> &amp;&amp; nums[i] &lt;= nums.length &amp;&amp; nums[nums[i]-<span class="number">1</span>] != nums[i]) &#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = nums[nums[i]-<span class="number">1</span>];</span><br><span class="line">            nums[nums[i]-<span class="number">1</span>] = nums[i];</span><br><span class="line">            nums[i] = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] != i + <span class="number">1</span>) <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> nums.length + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Input: [3,2,1,5,6,4] and k = 2<br>Output: 5</p>
+<p><strong>Example 2:</strong></p>
+<p>Input: [3,2,3,1,2,4,5,5,6] and k = 4<br>Output: 4</p>
+<p><strong>Note:</strong><br>You may assume k is always valid, 1 ≤ k ≤ array’s length.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    PriorityQueue&lt;Integer&gt; q = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;(k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i: nums)&#123;</span><br><span class="line">        q.offer(i);</span><br><span class="line">        <span class="keyword">if</span>(q.size() &gt; k) q.poll();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> q.peek();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -448,7 +446,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://everise.github.io/2019/06/15/LeetCode-41-First-Missing-Positive/" title="LeetCode 41: First Missing Positive">https://everise.github.io/2019/06/15/LeetCode-41-First-Missing-Positive/</a>
+    <a href="https://everise.github.io/2019/06/15/LeetCode-215-Kth-Largest-Element-in-an-Array/" title="LeetCode 215: Kth Largest Element in an Array">https://everise.github.io/2019/06/15/LeetCode-215-Kth-Largest-Element-in-an-Array/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -470,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/15/LeetCode-27-Remove-Element/" rel="next" title="LeetCode 27: Remove Element">
-                <i class="fa fa-chevron-left"></i> LeetCode 27: Remove Element
+              <a href="/2019/06/15/LeetCode-146-LRU-Cache/" rel="next" title="LeetCode 146: LRU Cache">
+                <i class="fa fa-chevron-left"></i> LeetCode 146: LRU Cache
               </a>
             
           </div>
@@ -479,10 +477,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/15/LeetCode-126-Word-Ladder-II/" rel="prev" title="LeetCode 126: Word Ladder II">
-                LeetCode 126: Word Ladder II <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
